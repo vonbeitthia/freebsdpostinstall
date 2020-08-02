@@ -1,0 +1,123 @@
+#control de ordenes para actualizacion de freebsd
+Titulo:		Configuracion de `uname -rs`
+
+<001 "Coleccion de Ports">
+		portsnap auto &&
+		cd /usr/ports &&
+		make index && cd -
+</001>
+
+<002 "Servidor X">
+		pkg install -y xorg && 
+		sysrc hald_enable="YES" && 	
+		sysrc dbus_enable="YES" 
+ 	
+</002>
+<010 "Manejo de usuarios (SUDO)">
+		cd /usr/ports/security/sudo &&
+		make install clean &&
+		cd - 
+</010>
+<011 "Permitir superusuario en grupo WHEEL">
+		echo "%wheel ALL=(ALL) ALL" >> /usr/local/etc/sudoers
+</011>
+<012 "Agregar usuario VONUSER">
+		pw useradd -n vonuser -G wheel,operator,video -k /root/freepostinstall/skeleton -m -s /usr/local/bin/bash && 
+		dialog --stdout --msgbox  "Recuerde configurar manualmentes el password para el usuario \n`id vonuser`" 10 60
+</012>
+<015 "Cambiar a Shell BASH">
+		chsh -s /usr/local/bin/bash
+</015>
+<250 "Lumina Desktop">
+		pkg install -y lumina 
+
+</250>
+<251 "Driver Intel">
+		pkg install drm-kmod &&
+		sysrc kld_list+="/boot/modules/i915kms.ko"
+</251>
+<255 "Aplicaciones graficas">
+		pkg install -y gimp geany lxterminal libre-office geany firefox &&
+		pkg install -y numix-gtk-theme numix-icon-theme &&
+		pkg install -y py37-iocage ezjail
+</255>
+<300 "Creando .xinitrc">
+		direc=$(pw usershow vonuser | cut -d : -f9)
+		rm  $direc/.xinitrc
+		cat << EOF >> $direc/.xinitrc
+		sysctl hw.snd.default_unit=2
+		setxkbmap -model pc104 -layout es -option ""
+		exec start-lumina-desktop
+		EOF
+		sed -i '' '$d' $direc/.xinitrc
+		
+</300>
+<301 "Inicio de sesion">
+		cd  /usr/ports/x11/slim &&
+		make install clean &&
+		cd - &&
+		sysrc slim_enable="YES" 
+</301>
+<310 "Configuracion de switch virtual">
+		pkg install -y vm-bhyve &&
+		iocage_enable="YES" &&
+		sysrc vm_enable="YES"&&
+		sysrc vm_dir=/root/vm &&
+		mkdir -p /root/vm && 
+		vm init &&
+		vm switch create -a 10.1.1.1/24 services 
+</310>
+<311 "Creación de firewall">
+		rm /etc/pf.conf ;
+		cat << EOF >> /etc/pf.conf
+		set skip on lo0
+		net_ext=wlan0
+		nat on $net_ext from 10.1.1/24  -> wlan0:0
+		EOF
+		sed -i '' '$d' /etc/pf.conf &&
+		sysrc pf_enable="YES" &&
+		sysrc pflog_enable="YES" &&
+		sysrc pf_rules="/etc/pf.conf" &&
+		service pf  start
+</311>
+<312 "Configurando servidor SSH">
+		cat << EOF >> /etc/ssh/sshd_config
+		Port 2222
+		ListenAddress 192.168.0.100
+		EOF
+		sed -i '' '$d' /etc/ssh/sshd_config &&
+		service sshd restart
+</312>
+<313 "Configurando syslogd">
+		sysrc syslogd_enable="YES" &&
+		syslogd_flags="-s -b 127.0.0.1" &&
+		service syslogd restart	
+</313>
+<314 "Creacion de jaulas con EZJAIL">
+		sysrc ezjail_enable="YES" &&
+		ezjail-admin install &&
+		ezjail-admin create -s 20G wijeJail 'vnet0|10.1.1.2/24' &&
+</314>
+<315 "Generando certificados">
+		su -m vonuser -c ssh-keygen
+</315>
+<316 "Configuracion de jaulas - iocage -">
+		#iocage fetch LATEST &&
+		#iocage create -r LATEST -n wineJail interfaces="vnet0:vm-services" ip4_addr="vnet0|10.1.1.2/24" defaultrouter="10.1.1.1" vnet_default_interface="vm-services" quota=50G vm=on boot=on allow_mount_nullfs=on &&
+		#iocage start wineJail &&
+		#iocage exec wineJail mkdir -p /usr/ports &&
+		#iocage exec wineJail pkg install -y bash && 
+		#iocage exec wineJail pw useradd -n operador -G wheel,operator -m -s /usr/local/bin/bash && 
+		#iocage exec -U operador wineJail mkdir -p $HOME/Documentos &&
+		#iocage stop wineJail &&
+		#iocage fstab -a wineJail /usr/home/vonuser /usr/home/operador/Documentos nullfs rw 0 0 &&
+		#iocage fstab -a wineJail /usr/ports /usr/ports nullfs rw 0 0 && 
+		#iocage start wineJail
+		
+</316>
+
+<555 "Fin de la configuracion">
+	
+		dialog --stdout --msgbox  "Se han efectuado las configuraciones, debe reiniciar el sistema" 10 60
+	
+</555>
