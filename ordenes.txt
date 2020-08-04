@@ -1,18 +1,70 @@
 #control de ordenes para actualizacion de freebsd
+#para ejecutar todo el contenido source funciones.sh; ejecutaord 
+# source funciones.sh; ejecutaord all
+#para ejecutar solo una orden en particular
+#source funciones.sh; ejecutaord  #orden
 Titulo:		Configuracion de `uname -rs`
-
-<001 "Coleccion de Ports">
+<001 "Configuracion de Conexion inalambrica">
+		service netif stop
+		service routing stop
+		cat << EOF > /etc/wpa_supplicant.conf
+		ctrl_interface=/var/run/wpa_supplicant
+		eapol_version=2
+		ap_scan=1
+		fast_reauth=1
+		network={
+			ssid="salmo91"
+			scan_ssid=0
+			psk="42884521"
+			priority=5
+		}
+		network={
+			priority=0
+			key_mgmt=NONE
+		}
+		EOF
+		sysrc wlans_ath0="wlan0"
+		sysrc ifconfig_wlan0="WPA inet 192.168.0.100/24 ssid salmo91"
+		cat << EOF > /etc/resolv.conf
+		nameserver 8.8.8.8
+		nameserver 8.8.4.4
+		EOF
+		sysrc defaultroute="192.168.0.1"
+		sysrc gateway_enable="YES"
+		#sed -i '' '$d' /etc/resolv.conf
+		service netif start
+		service routing start
+		route add default 192.168.0.1
+		echo Comprobando conexion con www.google.co.ve
+		ping -c 4 www.google.co.ve 
+</001>
+<002 "Configuraciones globales">
+		sysrc autoboot_delay="2"
+		echo actualizando pkg ... LATEST
+		mkdir -p /usr/local/etc/pkg/repos
+		cat << EOF > /usr/local/etc/pkg/repos/FreeBSD.conf
+		FreeBSD: {
+			url: "pkg+http://pkg.FreeBSD.org/\${ABI}/latest"
+		}
+		EOF
+		pkg -vv
+		pkg-static del -f -y pkg
+		pkg-static upgrade -f -y
+		pkg upgrade -y
+		pkg install -y bash-completion
+</002>
+<003 "Coleccion de Ports">
 		portsnap auto &&
 		cd /usr/ports &&
 		make index && cd -
-</001>
+</003>
 
-<002 "Servidor X">
+<004 "Servidor X">
 		pkg install -y xorg && 
 		sysrc hald_enable="YES" && 	
 		sysrc dbus_enable="YES" 
  	
-</002>
+</004>
 <010 "Manejo de usuarios (SUDO)">
 		cd /usr/ports/security/sudo &&
 		make install clean &&
@@ -25,6 +77,17 @@ Titulo:		Configuracion de `uname -rs`
 		pw useradd -n vonuser -G wheel,operator,video -k /root/freepostinstall/skeleton -m -s /usr/local/bin/bash && 
 		dialog --stdout --msgbox  "Recuerde configurar manualmentes el password para el usuario \n`id vonuser`" 10 60
 </012>
+<013 "Configuracion regional">
+		sysrc keymap=latinamerican.acc.kbd
+		cat << EOF >> /etc/login.conf
+		venezuelan|Cuenta de usuario regional:\\
+			:charset=es_ES.UTF-8:\\
+			:lang=es_ES.UTF-8:
+		EOF
+		cap_mkdb /etc/login.conf
+		pw user mod root -L venezuelan
+		pw user mod vonuser -L venezuelan
+</013>
 <015 "Cambiar a Shell BASH">
 		chsh -s /usr/local/bin/bash
 </015>
@@ -32,9 +95,16 @@ Titulo:		Configuracion de `uname -rs`
 		pkg install -y lumina 
 
 </250>
-<251 "Driver Intel">
+<251 "Driver Intel y otras configuraciones">
 		pkg install drm-kmod &&
 		sysrc kld_list+="/boot/modules/i915kms.ko"
+		sysrc -f /boot/loader.conf loader_logo="beastie"
+		sysrc -f /boot/loader.conf coretemp_load="YES"
+		sysrc -f /boot/loader.conf aio_load="YES"
+		sysrc -f /boot/loader.conf snd_driver_load="YES"
+		sysrc moused_enable="YES"
+		echo "vfs.usermount=1" >> /etc/sysctl.conf
+
 </251>
 <255 "Aplicaciones graficas">
 		pkg install -y gimp geany lxterminal libre-office geany firefox &&
@@ -43,14 +113,37 @@ Titulo:		Configuracion de `uname -rs`
 </255>
 <300 "Creando .xinitrc">
 		direc=$(pw usershow vonuser | cut -d : -f9)
-		rm  $direc/.xinitrc
-		cat << EOF >> $direc/.xinitrc
-		sysctl hw.snd.default_unit=2
-		setxkbmap -model pc104 -layout es -option ""
-		exec start-lumina-desktop
+		cat << EOF > $direc/.xinitrc
+			sysctl hw.snd.default_unit=2
+			setxkbmap -model pc104 -layout es -option ""
+			exec start-lumina-desktop
 		EOF
-		sed -i '' '$d' $direc/.xinitrc
-		
+		cat << EOF > /root/.bashrc
+			export PAGER=less
+			export MANPAGER=less
+			HISTCONTROL=ignoreboth
+			shopt -s histappend
+			HISTSIZE=10000
+			HISTFILESIZE=2000
+			export EDITOR=nano
+			export VISUAL=nano
+			shopt -s checkwinsize
+			PS1='\[\033[01;31m\]\u\[\033[01;33m\]@\[\033[01;36m\]\h \[\033[01;33m\]\w \[\033[01;35m\]\$\> \[\033[00m\]'
+			source ~/.aliases
+		EOF
+		ln -s /root/.bashrc /root/.bash_profile
+		cp /root/.bashrc $direc/.bashrc
+		cp /root/.bashrc $direc/.bash_profile
+		chown vonuser:wheel $direc/.bashrc
+		chown vonuser:wheel $direc/.bash_prfile
+		cat << EOF > /root/.aliases
+			alias ls='ls -G'
+			alias grep='grep --color=auto'
+			alias fgrep='fgrep --color=auto'
+			alias egrep='egrep --color=auto'
+		EOF
+		cp /root/.aliases $direc/.aliases
+		chown vonuser:wheel $direc/.aliases
 </300>
 <301 "Inicio de sesion">
 		cd  /usr/ports/x11/slim &&
@@ -59,22 +152,20 @@ Titulo:		Configuracion de `uname -rs`
 		sysrc slim_enable="YES" 
 </301>
 <310 "Configuracion de switch virtual">
-		pkg install -y vm-bhyve &&
-		iocage_enable="YES" &&
-		sysrc vm_enable="YES"&&
-		sysrc vm_dir=/root/vm &&
-		mkdir -p /root/vm && 
-		vm init &&
-		vm switch create -a 10.1.1.1/24 services 
+		#pkg install -y vm-bhyve &&
+		#sysrc vm_enable="YES"&&
+		#sysrc vm_dir=/root/vm &&
+		#mkdir -p /root/vm && 
+		#vm init &&
+		#vm switch create -a 10.1.1.1/24 services 
 </310>
-<311 "Creación de firewall">
-		rm /etc/pf.conf ;
-		cat << EOF >> /etc/pf.conf
+<311 "Creacion de firewall">
+		cat << EOF > /etc/pf.conf
 		set skip on lo0
 		net_ext=wlan0
 		nat on $net_ext from 10.1.1/24  -> wlan0:0
 		EOF
-		sed -i '' '$d' /etc/pf.conf &&
+		#sed -i '' '$d' /etc/pf.conf &&
 		sysrc pf_enable="YES" &&
 		sysrc pflog_enable="YES" &&
 		sysrc pf_rules="/etc/pf.conf" &&
@@ -85,21 +176,23 @@ Titulo:		Configuracion de `uname -rs`
 		Port 2222
 		ListenAddress 192.168.0.100
 		EOF
-		sed -i '' '$d' /etc/ssh/sshd_config &&
+		#sed -i '' '$d' /etc/ssh/sshd_config &&
 		service sshd restart
 </312>
 <313 "Configurando syslogd">
 		sysrc syslogd_enable="YES" &&
-		syslogd_flags="-s -b 127.0.0.1" &&
+		syslogd_flags="-b 192.168.0100 -sS" &&
 		service syslogd restart	
 </313>
 <314 "Creacion de jaulas con EZJAIL">
-		sysrc ezjail_enable="YES" &&
-		ezjail-admin install &&
-		ezjail-admin create -s 20G wijeJail 'vnet0|10.1.1.2/24' &&
+		#sysrc ezjail_enable="YES" &&
+		#ezjail-admin install -p &&
+		#ezjail-admin create -s 20G wineJail 'vm-services|10.1.1.2/24' 
 </314>
 <315 "Generando certificados">
-		su -m vonuser -c ssh-keygen
+		su vonuser -m -c 'mkdir $HOME/.ssh' &&
+		su vonuser -m -c 'touch $HOME/.ssh/authorized_keys' &&
+		su vonuser -m -c 'ssh-keygen  -t ecdsa -b 521 -P operador -f $HOME/.ssh/vonuserkey'
 </315>
 <316 "Configuracion de jaulas - iocage -">
 		#iocage fetch LATEST &&
@@ -115,7 +208,42 @@ Titulo:		Configuracion de `uname -rs`
 		#iocage start wineJail
 		
 </316>
-
+<317 "Configuracion Jaula WineJail">
+		#ezjail-admin stop wineJail 
+		#sysctl net.inet.ip.forwarding=1
+		#sysctl net.link.bridge.pfil_onlyip=0
+		#sysctl net.link.bridge.pfil_bridge=0
+		#sysctl net.link.bridge.pfil_member=0
+		#sysctl security.bsd.unprivileged_read_msgbuf=0
+		#sysctl security.jail.sysvipc_allowed=1
+		#cat << EOF > /usr/local/etc/ezjail/wineJail
+		#export jail_wineJail_hostname="wineJail"
+		#export jail_wineJail_rootdir="/usr/jails/wineJail"
+		#export jail_wineJail_exec_start="/bin/sh /etc/rc"
+		#export jail_wineJail_parameters="allow.raw_sockets=1 allow.sysvipc=1 vnet allow.vmm vnet.interface='vnet0:vm-services'"		
+		#export jail_wineJail_exec_stop=""
+		#export jail_wineJail_mount_enable="YES"
+		#export jail_wineJail_devfs_enable="YES"
+		#export jail_wineJail_devfs_ruleset="devfsrules_jail"
+		#export jail_wineJail_procfs_enable="YES"
+		#export jail_wineJail_fdescfs_enable="YES"
+		#export jail_wineJail_image=""
+		#export jail_wineJail_imagetype=""
+		#export jail_wineJail_attachparams=""
+		#export jail_wineJail_attachblocking=""
+		#export jail_wineJail_forceblocking=""
+		#export jail_wineJail_zfs_datasets=""
+		#export jail_wineJail_cpuset=""
+		#export jail_wineJail_fib=""
+		#export jail_wineJail_parentzfs=""
+		#export jail_wineJail_post_start_script=""
+		#export jail_wineJail_retention_policy=""
+		
+		#EOF
+		#sed -i '' '$d' /usr/local/etc/ezjail/wineJail
+		#ezjail-admin start wineJail
+		#ezjail-admin list
+</317>
 <555 "Fin de la configuracion">
 	
 		dialog --stdout --msgbox  "Se han efectuado las configuraciones, debe reiniciar el sistema" 10 60

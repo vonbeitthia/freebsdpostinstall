@@ -1,0 +1,4676 @@
+kern.ostype: FreeBSD
+kern.osrelease: 12.1-RELEASE
+kern.osrevision: 199506
+kern.version: FreeBSD 12.1-RELEASE r354233 GENERIC
+
+kern.maxvnodes: 178504
+kern.maxproc: 11396
+kern.maxfiles: 192086
+kern.argmax: 262144
+kern.securelevel: -1
+kern.hostname: vonserver.com
+kern.hostid: 1881716273
+kern.clockrate: { hz = 1000, tick = 1000, profhz = 8128, stathz = 127 }
+kern.posix1version: 200112
+kern.ngroups: 1023
+kern.job_control: 1
+kern.saved_ids: 0
+kern.boottime: { sec = 1596391051, usec = 34018 } Sun Aug  2 13:57:31 2020
+kern.domainname: 
+kern.osreldate: 1201000
+kern.bootfile: /boot/kernel/kernel
+kern.maxfilesperproc: 172872
+kern.maxprocperuid: 10256
+kern.ipc.maxsockbuf: 2097152
+kern.ipc.sockbuf_waste_factor: 8
+kern.ipc.max_linkhdr: 40
+kern.ipc.max_protohdr: 60
+kern.ipc.max_hdr: 100
+kern.ipc.max_datalen: 68
+kern.ipc.maxsockets: 192088
+kern.ipc.numopensockets: 618
+kern.ipc.soacceptqueue: 128
+kern.ipc.shm_allow_removed: 1
+kern.ipc.shm_use_phys: 0
+kern.ipc.shmall: 131072
+kern.ipc.shmseg: 128
+kern.ipc.shmmni: 192
+kern.ipc.shmmin: 1
+kern.ipc.shmmax: 536870912
+kern.ipc.semaem: 16384
+kern.ipc.semvmx: 32767
+kern.ipc.semusz: 632
+kern.ipc.semume: 50
+kern.ipc.semopm: 100
+kern.ipc.semmsl: 340
+kern.ipc.semmnu: 150
+kern.ipc.semmns: 340
+kern.ipc.semmni: 50
+kern.ipc.msgseg: 2048
+kern.ipc.msgssz: 8
+kern.ipc.msgtql: 40
+kern.ipc.msgmnb: 2048
+kern.ipc.msgmni: 40
+kern.ipc.msgmax: 16384
+kern.ipc.aio.lifetime: 30000
+kern.ipc.aio.target_procs: 4
+kern.ipc.aio.num_procs: 4
+kern.ipc.aio.max_procs: 32
+kern.ipc.aio.empty_retries: 0
+kern.ipc.aio.empty_results: 0
+kern.ipc.piperesizeallowed: 1
+kern.ipc.piperesizefail: 0
+kern.ipc.pipeallocfail: 0
+kern.ipc.pipefragretry: 0
+kern.ipc.pipekva: 1970176
+kern.ipc.maxpipekva: 98344960
+kern.ipc.umtx_max_robust: 1000
+kern.ipc.umtx_vnode_persistent: 0
+kern.ipc.nmbufs: 2390550
+kern.ipc.nmbjumbo16: 31126
+kern.ipc.nmbjumbo9: 55336
+kern.ipc.nmbjumbop: 186761
+kern.ipc.nmbclusters: 373522
+kern.ipc.maxmbufmem: 3059898368
+kern.dummy: 0
+kern.ps_strings: 140737488351200
+kern.usrstack: 140737488351232
+kern.logsigexit: 1
+kern.iov_max: 1024
+kern.hostuuid: 17d3691d-d284-11ea-898b-8c89a50af14b
+kern.maxphys: 131072
+kern.cryptodevallowsoft: 0
+kern.userasymcrypto: 1
+kern.crypto_workers_num: 4
+kern.minvnodes: 44626
+kern.metadelay: 28
+kern.dirdelay: 29
+kern.filedelay: 30
+kern.tty_nout: 11239856
+kern.tty_nin: 36931
+kern.tty_inq_flush_secure: 1
+kern.tty_drainwait: 300
+kern.trap_enotcap: 0
+kern.smp.forward_signal_enabled: 1
+kern.smp.topology: 0
+kern.smp.cpus: 4
+kern.smp.disabled: 0
+kern.smp.active: 1
+kern.smp.maxcpus: 256
+kern.smp.maxid: 3
+kern.msgbuf_clear: 0
+kern.msgbuf: 
+kern.always_console_output: 0
+kern.log_console_add_linefeed: 0
+kern.log_console_output: 1
+kern.boot_tag: ---<<BOOT>>---
+kern.vm_guest: none
+kern.sgrowsiz: 131072
+kern.maxssiz: 536870912
+kern.dflssiz: 8388608
+kern.maxdsiz: 34359738368
+kern.dfldsiz: 34359738368
+kern.maxtsiz: 34359738368
+kern.bio_transient_maxcnt: 1024
+kern.maxbcache: 0
+kern.maxswzone: 0
+kern.msgbufsize: 98304
+kern.nswbuf: 256
+kern.nbuf: 39081
+kern.hz: 1000
+kern.msgbuf_show_timestamp: 0
+kern.log_wakeups_per_second: 5
+kern.kobj_methodcount: 299
+kern.epoch.stats.epoch_call_tasks: 6819
+kern.epoch.stats.epoch_calls: 21800
+kern.epoch.stats.switches: 0
+kern.epoch.stats.ncontended: 0
+kern.epoch.stats.migrations: 0
+kern.epoch.stats.nblocked: 0
+kern.devstat.version: 6
+kern.devstat.generation: 155
+kern.devstat.numdevs: 4
+kern.ccpu: 0
+kern.sched.topology_spec: <groups>
+ <group level="1" cache-level="3">
+  <cpu count="4" mask="f,0,0,0">0, 1, 2, 3</cpu>
+  <children>
+   <group level="2" cache-level="2">
+    <cpu count="2" mask="3,0,0,0">0, 1</cpu>
+    <flags><flag name="THREAD">THREAD group</flag><flag name="SMT">SMT group</flag></flags>
+   </group>
+   <group level="2" cache-level="2">
+    <cpu count="2" mask="c,0,0,0">2, 3</cpu>
+    <flags><flag name="THREAD">THREAD group</flag><flag name="SMT">SMT group</flag></flags>
+   </group>
+  </children>
+ </group>
+</groups>
+
+kern.sched.always_steal: 0
+kern.sched.trysteal_limit: 2
+kern.sched.steal_thresh: 2
+kern.sched.steal_idle: 1
+kern.sched.balance_interval: 127
+kern.sched.balance: 1
+kern.sched.affinity: 1
+kern.sched.idlespinthresh: 157
+kern.sched.idlespins: 10000
+kern.sched.static_boost: 152
+kern.sched.preempt_thresh: 80
+kern.sched.interact: 30
+kern.sched.slice: 12
+kern.sched.quantum: 94488
+kern.sched.name: ULE
+kern.sched.preemption: 1
+kern.sched.cpusetsize: 32
+kern.callout_stat: 0
+kern.pin_pcpu_swi: 0
+kern.pin_default_swi: 0
+kern.ncallout: 18508
+kern.threads.max_threads_hits: 0
+kern.threads.max_threads_per_proc: 1500
+kern.timecounter.tsc_shift: 1
+kern.timecounter.smp_tsc_adjust: 0
+kern.timecounter.smp_tsc: 1
+kern.timecounter.invariant_tsc: 1
+kern.timecounter.fast_gettime: 1
+kern.timecounter.tick: 1
+kern.timecounter.choice: ACPI-fast(900) i8254(0) HPET(950) TSC-low(1000) dummy(-1000000)
+kern.timecounter.hardware: TSC-low
+kern.timecounter.alloweddeviation: 5
+kern.timecounter.timehands_count: 2
+kern.timecounter.stepwarnings: 0
+kern.timecounter.tc.ACPI-fast.quality: 900
+kern.timecounter.tc.ACPI-fast.frequency: 3579545
+kern.timecounter.tc.ACPI-fast.counter: 5582004
+kern.timecounter.tc.ACPI-fast.mask: 16777215
+kern.timecounter.tc.i8254.quality: 0
+kern.timecounter.tc.i8254.frequency: 1193182
+kern.timecounter.tc.i8254.counter: 65444
+kern.timecounter.tc.i8254.mask: 65535
+kern.timecounter.tc.HPET.quality: 950
+kern.timecounter.tc.HPET.frequency: 14318180
+kern.timecounter.tc.HPET.counter: 139258507
+kern.timecounter.tc.HPET.mask: 4294967295
+kern.timecounter.tc.TSC-low.quality: 1000
+kern.timecounter.tc.TSC-low.frequency: 1197307544
+kern.timecounter.tc.TSC-low.counter: 1797382692
+kern.timecounter.tc.TSC-low.mask: 4294967295
+kern.fscale: 2048
+kern.corefile: %N.core
+kern.compress_user_cores_level: 6
+kern.compress_user_cores: 0
+kern.coredump_devctl: 0
+kern.nodump_coredump: 0
+kern.coredump: 1
+kern.capmode_coredump: 0
+kern.sugid_coredump: 0
+kern.lognosys: 0
+kern.sigqueue.alloc_fail: 0
+kern.sigqueue.overflow: 0
+kern.sigqueue.preallocate: 1024
+kern.sigqueue.max_pending_per_proc: 128
+kern.forcesigexit: 1
+kern.kerneldump_gzlevel: 6
+kern.suspend_blocked: 0
+kern.shutdown.dumpdevname: ada0p3
+kern.shutdown.kproc_shutdown_wait: 60
+kern.shutdown.poweroff_delay: 5000
+kern.shutdown.show_busybufs: 0
+kern.powercycle_on_panic: 0
+kern.poweroff_on_panic: 0
+kern.sync_on_panic: 0
+kern.panic_reboot_wait_time: 15
+kern.racct.rctl.throttle_pct2: 4294967295
+kern.racct.rctl.throttle_pct: 4294967295
+kern.racct.rctl.throttle_max: 4294967295
+kern.racct.rctl.throttle_min: 4294967295
+kern.racct.rctl.devctl_rate_limit: 10
+kern.racct.rctl.log_rate_limit: 10
+kern.racct.rctl.maxbufsize: 16777216
+kern.racct.pcpu_threshold: 1
+kern.racct.enable: 0
+kern.proc_vmmap_skip_resident_count: 0
+kern.kstack_pages: 4
+kern.hwpmc.softevents: 16
+kern.fallback_elf_brand: -1
+kern.pid_max: 99999
+kern.features.ufs_quota64: 1
+kern.features.ufs_quota: 1
+kern.features.ufs_gjournal: 1
+kern.features.ufs_acl: 1
+kern.features.softupdates: 1
+kern.features.ffs_snapshot: 1
+kern.features.security_mac: 1
+kern.features.audit: 1
+kern.features.ipsec_natt: 1
+kern.features.ipsec: 1
+kern.features.inet6: 1
+kern.features.netdump: 1
+kern.features.sctp: 1
+kern.features.inet: 1
+kern.features.vimage: 1
+kern.features.aio: 1
+kern.features.posix_shm: 1
+kern.features.sysv_shm: 1
+kern.features.sysv_sem: 1
+kern.features.sysv_msg: 1
+kern.features.process_descriptors: 1
+kern.features.security_capabilities: 1
+kern.features.security_capability_mode: 1
+kern.features.stack: 1
+kern.features.ekcd: 1
+kern.features.rctl: 1
+kern.features.racct: 1
+kern.features.hwpmc_hooks: 1
+kern.features.compat_freebsd7: 1
+kern.features.compat_freebsd6: 1
+kern.features.compat_freebsd5: 1
+kern.features.compat_freebsd4: 1
+kern.features.ktrace: 1
+kern.features.kdtrace_hooks: 1
+kern.features.kposix_priority_scheduling: 1
+kern.features.geom_part_mbr: 1
+kern.features.geom_part_gpt: 1
+kern.features.geom_part_ebr_compat: 1
+kern.features.geom_part_ebr: 1
+kern.features.geom_part_bsd: 1
+kern.features.geom_label: 1
+kern.features.nfsd: 1
+kern.features.nfscl: 1
+kern.features.evdev_support: 1
+kern.features.evdev: 1
+kern.features.ata_cam: 1
+kern.features.compat_freebsd_32bit: 1
+kern.features.scbus: 1
+kern.conftxt: options	CONFIG_AUTOGENERATED
+ident	GENERIC
+machine	amd64
+cpu	HAMMER
+makeoptions	WITH_CTF=1
+makeoptions	DEBUG=-g
+options	EVDEV_SUPPORT
+options	XENHVM
+options	USB_DEBUG
+options	ATH_ENABLE_11N
+options	AH_AR5416_INTERRUPT_MITIGATION
+options	AH_SUPPORT_AR5416
+options	IEEE80211_SUPPORT_MESH
+options	IEEE80211_AMPDU_AGE
+options	IEEE80211_DEBUG
+options	SC_PIXEL_MODE
+options	VESA
+options	PCI_IOV
+options	PCI_HP
+options	ACPI_DMAR
+options	EARLY_AP_STARTUP
+options	SMP
+options	NETDUMP
+options	ZSTDIO
+options	GZIO
+options	EKCD
+options	KDB_TRACE
+options	KDB
+options	RCTL
+options	RACCT_DEFAULT_TO_DISABLED
+options	RACCT
+options	INCLUDE_CONFIG_FILE
+options	DDB_CTF
+options	KDTRACE_HOOKS
+options	KDTRACE_FRAME
+options	MAC
+options	CAPABILITIES
+options	CAPABILITY_MODE
+options	AUDIT
+options	HWPMC_HOOKS
+options	KBD_INSTALL_CDEV
+options	PRINTF_BUFR_SIZE=128
+options	_KPOSIX_PRIORITY_SCHEDULING
+options	SYSVSEM
+options	SYSVMSG
+options	SYSVSHM
+options	STACK
+options	KTRACE
+options	SCSI_DELAY=5000
+options	COMPAT_FREEBSD11
+options	COMPAT_FREEBSD10
+options	COMPAT_FREEBSD9
+options	COMPAT_FREEBSD7
+options	COMPAT_FREEBSD6
+options	COMPAT_FREEBSD5
+options	COMPAT_FREEBSD4
+options	COMPAT_FREEBSD32
+options	EFIRT
+options	GEOM_LABEL
+options	GEOM_RAID
+options	PSEUDOFS
+options	PROCFS
+options	CD9660
+options	MSDOSFS
+options	NFS_ROOT
+options	NFSLOCKD
+options	NFSD
+options	NFSCL
+options	MD_ROOT
+options	QUOTA
+options	UFS_GJOURNAL
+options	UFS_DIRHASH
+options	UFS_ACL
+options	SOFTUPDATES
+options	FFS
+options	SCTP
+options	TCP_RFC7413
+options	TCP_HHOOK
+options	TCP_BLACKBOX
+options	TCP_OFFLOAD
+options	IPSEC_SUPPORT
+options	IPSEC
+options	INET6
+options	INET
+options	VIMAGE
+options	PREEMPTION
+options	NUMA
+options	SCHED_ULE
+options	NEW_PCIB
+options	GEOM_PART_GPT
+options	GEOM_PART_MBR
+options	GEOM_PART_EBR_COMPAT
+options	GEOM_PART_EBR
+options	GEOM_PART_BSD
+device	isa
+device	mem
+device	io
+device	uart_ns8250
+device	cpufreq
+device	acpi
+device	pci
+device	fdc
+device	ahci
+device	ata
+device	mvs
+device	siis
+device	ahc
+device	ahd
+device	esp
+device	hptiop
+device	isp
+device	mpt
+device	mps
+device	mpr
+device	sym
+device	trm
+device	isci
+device	ocs_fc
+device	scbus
+device	ch
+device	da
+device	sa
+device	cd
+device	pass
+device	ses
+device	amr
+device	arcmsr
+device	ciss
+device	dpt
+device	hptmv
+device	hptnr
+device	hptrr
+device	hpt27xx
+device	iir
+device	ips
+device	mly
+device	twa
+device	smartpqi
+device	tws
+device	aac
+device	aacp
+device	aacraid
+device	ida
+device	mfi
+device	mlx
+device	mrsas
+device	pmspcv
+device	twe
+device	nvme
+device	nvd
+device	atkbdc
+device	atkbd
+device	psm
+device	kbdmux
+device	vga
+device	splash
+device	sc
+device	vt
+device	vt_vga
+device	vt_efifb
+device	agp
+device	cbb
+device	pccard
+device	cardbus
+device	uart
+device	ppc
+device	ppbus
+device	lpt
+device	ppi
+device	puc
+device	iflib
+device	em
+device	ix
+device	ixv
+device	ixl
+device	iavf
+device	vmx
+device	bxe
+device	de
+device	le
+device	ti
+device	txp
+device	vx
+device	miibus
+device	ae
+device	age
+device	alc
+device	ale
+device	bce
+device	bfe
+device	bge
+device	cas
+device	dc
+device	et
+device	fxp
+device	gem
+device	hme
+device	jme
+device	lge
+device	msk
+device	nfe
+device	nge
+device	pcn
+device	re
+device	rl
+device	sf
+device	sge
+device	sis
+device	sk
+device	ste
+device	stge
+device	tl
+device	tx
+device	vge
+device	vr
+device	wb
+device	xl
+device	wlan
+device	wlan_wep
+device	wlan_ccmp
+device	wlan_tkip
+device	wlan_amrr
+device	an
+device	ath
+device	ath_pci
+device	ath_hal
+device	ath_rate_sample
+device	ipw
+device	iwi
+device	iwn
+device	malo
+device	mwl
+device	ral
+device	wi
+device	wpi
+device	crypto
+device	loop
+device	random
+device	padlock_rng
+device	rdrand_rng
+device	ether
+device	vlan
+device	tun
+device	md
+device	gif
+device	firmware
+device	bpf
+device	uhci
+device	ohci
+device	ehci
+device	xhci
+device	usb
+device	ukbd
+device	umass
+device	sound
+device	snd_cmi
+device	snd_csa
+device	snd_emu10kx
+device	snd_es137x
+device	snd_hda
+device	snd_ich
+device	snd_via8233
+device	mmc
+device	mmcsd
+device	sdhci
+device	virtio
+device	virtio_pci
+device	vtnet
+device	virtio_blk
+device	virtio_scsi
+device	virtio_balloon
+device	hyperv
+device	xenpci
+device	netmap
+device	evdev
+device	uinput
+
+kern.supported_archs: amd64 i386
+kern.maxusers: 711
+kern.compiler_version: FreeBSD clang version 8.0.1 (tags/RELEASE_801/final 366581) (based on LLVM 8.0.1)
+kern.ident: GENERIC
+kern.malloc_count: 470
+kern.module_path: /boot/kernel;/boot/modules;/boot/dtb;/boot/dtb/overlays
+kern.ktrace.request_pool: 100
+kern.ktrace.genio_size: 4096
+kern.randompid: 0
+kern.lastpid: 45721
+kern.disallow_high_osrel: 0
+kern.ps_arg_cache_limit: 256
+kern.stackprot: 7
+kern.coredump_pack_vmmapinfo: 1
+kern.coredump_pack_fileinfo: 1
+kern.kq_calloutmax: 4096
+kern.eventtimer.periodic: 0
+kern.eventtimer.timer: LAPIC
+kern.eventtimer.idletick: 0
+kern.eventtimer.singlemul: 2
+kern.eventtimer.choice: LAPIC(600) HPET(550) HPET1(440) HPET2(440) HPET3(440) HPET4(440) i8254(100) RTC(0)
+kern.eventtimer.et.i8254.quality: 100
+kern.eventtimer.et.i8254.frequency: 1193182
+kern.eventtimer.et.i8254.flags: 1
+kern.eventtimer.et.RTC.quality: 0
+kern.eventtimer.et.RTC.frequency: 32768
+kern.eventtimer.et.RTC.flags: 17
+kern.eventtimer.et.HPET4.quality: 440
+kern.eventtimer.et.HPET4.frequency: 14318180
+kern.eventtimer.et.HPET4.flags: 3
+kern.eventtimer.et.HPET3.quality: 440
+kern.eventtimer.et.HPET3.frequency: 14318180
+kern.eventtimer.et.HPET3.flags: 3
+kern.eventtimer.et.HPET2.quality: 440
+kern.eventtimer.et.HPET2.frequency: 14318180
+kern.eventtimer.et.HPET2.flags: 3
+kern.eventtimer.et.HPET1.quality: 440
+kern.eventtimer.et.HPET1.frequency: 14318180
+kern.eventtimer.et.HPET1.flags: 3
+kern.eventtimer.et.HPET.quality: 550
+kern.eventtimer.et.HPET.frequency: 14318180
+kern.eventtimer.et.HPET.flags: 7
+kern.eventtimer.et.LAPIC.quality: 600
+kern.eventtimer.et.LAPIC.frequency: 2394615088
+kern.eventtimer.et.LAPIC.flags: 7
+kern.openfiles: 1229
+kern.chroot_allow_open_directories: 1
+kern.vty: vt
+kern.constty_wakeups_per_second: 5
+kern.consmsgbuf_size: 8192
+kern.consmute: 0
+kern.console: ttyv0,/ttyv0,
+kern.cp_times: 162769 0 25902 9948 2466233 172181 0 26456 1177 2465037 157335 0 30364 40680 2436473 169561 0 31456 1118 2462717
+kern.cp_time: 661846 0 114178 52923 9830460
+kern.acct_suspended: 0
+kern.acct_configured: 0
+kern.acct_chkfreq: 15
+kern.acct_resume: 4
+kern.acct_suspend: 2
+kern.init_shutdown_timeout: 120
+kern.init_path: /sbin/init:/sbin/oinit:/sbin/init.bak:/rescue/init
+kern.elf32.aslr.stack_gap: 3
+kern.elf32.aslr.honor_sbrk: 1
+kern.elf32.aslr.pie_enable: 0
+kern.elf32.aslr.enable: 0
+kern.elf32.read_exec: 0
+kern.elf32.nxstack: 1
+kern.elf32.fallback_brand: -1
+kern.elf64.aslr.stack_gap: 3
+kern.elf64.aslr.honor_sbrk: 1
+kern.elf64.aslr.pie_enable: 0
+kern.elf64.aslr.enable: 0
+kern.elf64.nxstack: 1
+kern.elf64.fallback_brand: -1
+kern.geom.raid.raid5.enable: 1
+kern.geom.raid.raid1e.enable: 1
+kern.geom.raid.raid1e.rebuild_meta_update: 1024
+kern.geom.raid.raid1e.rebuild_cluster_idle: 100
+kern.geom.raid.raid1e.rebuild_fair_io: 20
+kern.geom.raid.raid1e.rebuild_slab_size: 1048576
+kern.geom.raid.raid1.enable: 1
+kern.geom.raid.raid1.rebuild_meta_update: 1024
+kern.geom.raid.raid1.rebuild_cluster_idle: 100
+kern.geom.raid.raid1.rebuild_fair_io: 20
+kern.geom.raid.raid1.rebuild_slab_size: 1048576
+kern.geom.raid.raid0.enable: 1
+kern.geom.raid.concat.enable: 1
+kern.geom.raid.sii.enable: 1
+kern.geom.raid.promise.enable: 1
+kern.geom.raid.nvidia.enable: 1
+kern.geom.raid.jmicron.enable: 1
+kern.geom.raid.intel.enable: 1
+kern.geom.raid.ddf.enable: 1
+kern.geom.raid.idle_threshold: 1000000
+kern.geom.raid.name_format: 0
+kern.geom.raid.disconnect_on_failure: 1
+kern.geom.raid.clean_time: 5
+kern.geom.raid.start_timeout: 30
+kern.geom.raid.read_err_thresh: 10
+kern.geom.raid.debug: 0
+kern.geom.raid.aggressive_spare: 0
+kern.geom.raid.enable: 1
+kern.geom.part.mbr.enforce_chs: 0
+kern.geom.part.gpt.allow_nesting: 0
+kern.geom.part.allow_nesting: 0
+kern.geom.part.auto_resize: 1
+kern.geom.part.check_integrity: 1
+kern.geom.label.disk_ident.enable: 1
+kern.geom.label.gptid.enable: 1
+kern.geom.label.gpt.enable: 1
+kern.geom.label.ufs.enable: 1
+kern.geom.label.ufsid.enable: 1
+kern.geom.label.reiserfs.enable: 1
+kern.geom.label.ntfs.enable: 1
+kern.geom.label.msdosfs.enable: 1
+kern.geom.label.iso9660.enable: 1
+kern.geom.label.flashmap.enable: 1
+kern.geom.label.ext2fs.enable: 1
+kern.geom.label.debug: 0
+kern.geom.collectstats: 1
+kern.geom.notaste: 0
+kern.geom.debugflags: 0
+kern.geom.conftxt: 0 DISK ada0 500107862016 512 hd 16 sc 63
+1 PART ada0p3 4039098368 512 i 3 o 496068743168 ty freebsd-swap xs GPT xt 516e7cb5-6ecf-11d6-8ff8-00022d09712b
+1 PART ada0p2 496068198400 512 i 2 o 544768 ty freebsd-ufs xs GPT xt 516e7cb6-6ecf-11d6-8ff8-00022d09712b
+1 PART ada0p1 524288 512 i 1 o 20480 ty freebsd-boot xs GPT xt 83bd6b9d-7f41-11dc-be0b-001560b84f0f
+2 LABEL gptid/2a26359e-d1f7-11ea-874f-8c89a50af14b 524288 512 i 0 o 0
+0 DISK cd0 0 2048 hd 0 sc 0
+
+kern.geom.confdot: digraph geom {
+z0xfffff80004791100 [shape=box,label="DEV\ngptid/2a26359e-d1f7-11ea-874f-8c89a50af14b\nr#4"];
+z0xfffff80004795380 [label="r0w0e0"];
+z0xfffff80004795380 -> z0xfffff80003541500;
+z0xfffff80004791100 -> z0xfffff80004795380;
+z0xfffff800040c5100 [shape=box,label="DEV\nada0p3\nr#3"];
+z0xfffff80003584b00 [label="r0w0e0"];
+z0xfffff80003584b00 -> z0xfffff800040c5000;
+z0xfffff800040c5100 -> z0xfffff80003584b00;
+z0xfffff800040c5300 [shape=box,label="DEV\nada0p2\nr#3"];
+z0xfffff80003584d00 [label="r0w0e0"];
+z0xfffff80003584d00 -> z0xfffff800040c5200;
+z0xfffff800040c5300 -> z0xfffff80003584d00;
+z0xfffff800040c5700 [shape=box,label="DEV\nada0p1\nr#3"];
+z0xfffff800046cd380 [label="r0w0e0"];
+z0xfffff800046cd380 -> z0xfffff800040c5400;
+z0xfffff800040c5700 -> z0xfffff800046cd380;
+z0xfffff80003688900 [shape=box,label="DEV\nada0\nr#2"];
+z0xfffff800046cd500 [label="r0w0e0"];
+z0xfffff800046cd500 -> z0xfffff800040c5a00;
+z0xfffff80003688900 -> z0xfffff800046cd500;
+z0xfffff80003688700 [shape=box,label="DEV\ncd0\nr#2"];
+z0xfffff800047de100 [label="r0w0e0"];
+z0xfffff800047de100 -> z0xfffff800037c3800;
+z0xfffff80003688700 -> z0xfffff800047de100;
+z0xfffff80004792900 [shape=box,label="SWAP\nswap\nr#3"];
+z0xfffff8000335de80 [label="r1w1e0"];
+z0xfffff8000335de80 -> z0xfffff800040c5000;
+z0xfffff80004792900 -> z0xfffff8000335de80;
+z0xfffff80003346e00 [shape=box,label="PART\nada0\nr#2"];
+z0xfffff8000335c400 [label="r2w2e3"];
+z0xfffff8000335c400 -> z0xfffff800040c5a00;
+z0xfffff80003346e00 -> z0xfffff8000335c400;
+z0xfffff800040c5000 [shape=hexagon,label="ada0p3\nr1w1e0\nerr#0\nsector=512\nstripe=0"];
+z0xfffff800040c5000 -> z0xfffff80003346e00;
+z0xfffff800040c5200 [shape=hexagon,label="ada0p2\nr1w1e1\nerr#0\nsector=512\nstripe=0"];
+z0xfffff800040c5200 -> z0xfffff80003346e00;
+z0xfffff800040c5400 [shape=hexagon,label="ada0p1\nr0w0e0\nerr#0\nsector=512\nstripe=0"];
+z0xfffff800040c5400 -> z0xfffff80003346e00;
+z0xfffff80003541600 [shape=box,label="LABEL\nada0p1\nr#3"];
+z0xfffff80003584b80 [label="r0w0e0"];
+z0xfffff80003584b80 -> z0xfffff800040c5400;
+z0xfffff80003541600 -> z0xfffff80003584b80;
+z0xfffff80003541500 [shape=hexagon,label="gptid/2a26359e-d1f7-11ea-874f-8c89a50af14b\nr0w0e0\nerr#0\nsector=512\nstripe=0"];
+z0xfffff80003541500 -> z0xfffff80003541600;
+z0xfffff8000333e900 [shape=box,label="VFS\nffs.ada0p2\nr#3"];
+z0xfffff80003584400 [label="r1w1e1"];
+z0xfffff80003584400 -> z0xfffff800040c5200;
+z0xfffff8000333e900 -> z0xfffff80003584400;
+z0xfffff80003345000 [shape=box,label="DISK\nada0\nr#1"];
+z0xfffff800040c5a00 [shape=hexagon,label="ada0\nr2w2e3\nerr#0\nsector=512\nstripe=0"];
+z0xfffff800040c5a00 -> z0xfffff80003345000;
+z0xfffff800037c3900 [shape=box,label="DISK\ncd0\nr#1"];
+z0xfffff800037c3800 [shape=hexagon,label="cd0\nr0w0e0\nerr#0\nsector=2048\nstripe=0"];
+z0xfffff800037c3800 -> z0xfffff800037c3900;
+}
+
+kern.geom.confxml: <mesh>
+  <class id="0xffffffff83130b28">
+    <name>ZFS::VDEV</name>
+  </class>
+  <class id="0xffffffff83130650">
+    <name>ZFS::ZVOL</name>
+  </class>
+  <class id="0xffffffff81b73230">
+    <name>FD</name>
+  </class>
+  <class id="0xffffffff81aff518">
+    <name>RAID</name>
+  </class>
+  <class id="0xffffffff81afc368">
+    <name>DEV</name>
+    <geom id="0xfffff80004791100">
+      <class ref="0xffffffff81afc368"/>
+      <name>gptid/2a26359e-d1f7-11ea-874f-8c89a50af14b</name>
+      <rank>4</rank>
+	<consumer id="0xfffff80004795380">
+	  <geom ref="0xfffff80004791100"/>
+	  <provider ref="0xfffff80003541500"/>
+	  <mode>r0w0e0</mode>
+	</consumer>
+    </geom>
+    <geom id="0xfffff800040c5100">
+      <class ref="0xffffffff81afc368"/>
+      <name>ada0p3</name>
+      <rank>3</rank>
+	<consumer id="0xfffff80003584b00">
+	  <geom ref="0xfffff800040c5100"/>
+	  <provider ref="0xfffff800040c5000"/>
+	  <mode>r0w0e0</mode>
+	</consumer>
+    </geom>
+    <geom id="0xfffff800040c5300">
+      <class ref="0xffffffff81afc368"/>
+      <name>ada0p2</name>
+      <rank>3</rank>
+	<consumer id="0xfffff80003584d00">
+	  <geom ref="0xfffff800040c5300"/>
+	  <provider ref="0xfffff800040c5200"/>
+	  <mode>r0w0e0</mode>
+	</consumer>
+    </geom>
+    <geom id="0xfffff800040c5700">
+      <class ref="0xffffffff81afc368"/>
+      <name>ada0p1</name>
+      <rank>3</rank>
+	<consumer id="0xfffff800046cd380">
+	  <geom ref="0xfffff800040c5700"/>
+	  <provider ref="0xfffff800040c5400"/>
+	  <mode>r0w0e0</mode>
+	</consumer>
+    </geom>
+    <geom id="0xfffff80003688900">
+      <class ref="0xffffffff81afc368"/>
+      <name>ada0</name>
+      <rank>2</rank>
+	<consumer id="0xfffff800046cd500">
+	  <geom ref="0xfffff80003688900"/>
+	  <provider ref="0xfffff800040c5a00"/>
+	  <mode>r0w0e0</mode>
+	</consumer>
+    </geom>
+    <geom id="0xfffff80003688700">
+      <class ref="0xffffffff81afc368"/>
+      <name>cd0</name>
+      <rank>2</rank>
+	<consumer id="0xfffff800047de100">
+	  <geom ref="0xfffff80003688700"/>
+	  <provider ref="0xfffff800037c3800"/>
+	  <mode>r0w0e0</mode>
+	</consumer>
+    </geom>
+  </class>
+  <class id="0xffffffff81a7dc30">
+    <name>MD</name>
+  </class>
+  <class id="0xffffffff81b613d8">
+    <name>SWAP</name>
+    <geom id="0xfffff80004792900">
+      <class ref="0xffffffff81b613d8"/>
+      <name>swap</name>
+      <rank>3</rank>
+	<consumer id="0xfffff8000335de80">
+	  <geom ref="0xfffff80004792900"/>
+	  <provider ref="0xfffff800040c5000"/>
+	  <mode>r1w1e0</mode>
+	</consumer>
+    </geom>
+  </class>
+  <class id="0xffffffff81afe340">
+    <name>PART</name>
+    <geom id="0xfffff80003346e00">
+      <class ref="0xffffffff81afe340"/>
+      <name>ada0</name>
+      <rank>2</rank>
+      <config>
+	<scheme>GPT</scheme>
+	<entries>128</entries>
+	<first>40</first>
+	<last>976773127</last>
+	<fwsectors>63</fwsectors>
+	<fwheads>16</fwheads>
+	<state>OK</state>
+	<modified>false</modified>
+      </config>
+	<consumer id="0xfffff8000335c400">
+	  <geom ref="0xfffff80003346e00"/>
+	  <provider ref="0xfffff800040c5a00"/>
+	  <mode>r2w2e3</mode>
+	  <config>
+	  </config>
+	</consumer>
+	<provider id="0xfffff800040c5000">
+	  <geom ref="0xfffff80003346e00"/>
+	  <mode>r1w1e0</mode>
+	  <name>ada0p3</name>
+	  <mediasize>4039098368</mediasize>
+	  <sectorsize>512</sectorsize>
+	  <stripesize>0</stripesize>
+	  <stripeoffset>2147504128</stripeoffset>
+	  <config>
+	    <start>968884264</start>
+	    <end>976773127</end>
+	    <index>3</index>
+	    <type>freebsd-swap</type>
+	    <offset>496068743168</offset>
+	    <length>4039098368</length>
+	    <label></label>
+	    <rawtype>516e7cb5-6ecf-11d6-8ff8-00022d09712b</rawtype>
+	    <rawuuid>2a273afa-d1f7-11ea-874f-8c89a50af14b</rawuuid>
+	    <efimedia>HD(3,GPT,2a273afa-d1f7-11ea-874f-8c89a50af14b,0x39c00028,0x785fe0)</efimedia>
+	  </config>
+	</provider>
+	<provider id="0xfffff800040c5200">
+	  <geom ref="0xfffff80003346e00"/>
+	  <mode>r1w1e1</mode>
+	  <name>ada0p2</name>
+	  <mediasize>496068198400</mediasize>
+	  <sectorsize>512</sectorsize>
+	  <stripesize>0</stripesize>
+	  <stripeoffset>544768</stripeoffset>
+	  <config>
+	    <start>1064</start>
+	    <end>968884263</end>
+	    <index>2</index>
+	    <type>freebsd-ufs</type>
+	    <offset>544768</offset>
+	    <length>496068198400</length>
+	    <label></label>
+	    <rawtype>516e7cb6-6ecf-11d6-8ff8-00022d09712b</rawtype>
+	    <rawuuid>2a269b0d-d1f7-11ea-874f-8c89a50af14b</rawuuid>
+	    <efimedia>HD(2,GPT,2a269b0d-d1f7-11ea-874f-8c89a50af14b,0x428,0x39bffc00)</efimedia>
+	  </config>
+	</provider>
+	<provider id="0xfffff800040c5400">
+	  <geom ref="0xfffff80003346e00"/>
+	  <mode>r0w0e0</mode>
+	  <name>ada0p1</name>
+	  <mediasize>524288</mediasize>
+	  <sectorsize>512</sectorsize>
+	  <stripesize>0</stripesize>
+	  <stripeoffset>20480</stripeoffset>
+	  <config>
+	    <start>40</start>
+	    <end>1063</end>
+	    <index>1</index>
+	    <type>freebsd-boot</type>
+	    <offset>20480</offset>
+	    <length>524288</length>
+	    <label></label>
+	    <rawtype>83bd6b9d-7f41-11dc-be0b-001560b84f0f</rawtype>
+	    <rawuuid>2a26359e-d1f7-11ea-874f-8c89a50af14b</rawuuid>
+	    <efimedia>HD(1,GPT,2a26359e-d1f7-11ea-874f-8c89a50af14b,0x28,0x400)</efimedia>
+	  </config>
+	</provider>
+    </geom>
+  </class>
+  <class id="0xffffffff81afd290">
+    <name>LABEL</name>
+    <geom id="0xfffff80003541600">
+      <class ref="0xffffffff81afd290"/>
+      <name>ada0p1</name>
+      <rank>3</rank>
+      <config>
+      </config>
+	<consumer id="0xfffff80003584b80">
+	  <geom ref="0xfffff80003541600"/>
+	  <provider ref="0xfffff800040c5400"/>
+	  <mode>r0w0e0</mode>
+	  <config>
+	  </config>
+	</consumer>
+	<provider id="0xfffff80003541500">
+	  <geom ref="0xfffff80003541600"/>
+	  <mode>r0w0e0</mode>
+	  <name>gptid/2a26359e-d1f7-11ea-874f-8c89a50af14b</name>
+	  <mediasize>524288</mediasize>
+	  <sectorsize>512</sectorsize>
+	  <stripesize>0</stripesize>
+	  <stripeoffset>20480</stripeoffset>
+	  <config>
+	    <index>0</index>
+	    <length>524288</length>
+	    <seclength>1024</seclength>
+	    <offset>0</offset>
+	    <secoffset>0</secoffset>
+	  </config>
+	</provider>
+    </geom>
+  </class>
+  <class id="0xffffffff81afd0c0">
+    <name>VFS</name>
+    <geom id="0xfffff8000333e900">
+      <class ref="0xffffffff81afd0c0"/>
+      <name>ffs.ada0p2</name>
+      <rank>3</rank>
+	<consumer id="0xfffff80003584400">
+	  <geom ref="0xfffff8000333e900"/>
+	  <provider ref="0xfffff800040c5200"/>
+	  <mode>r1w1e1</mode>
+	</consumer>
+    </geom>
+  </class>
+  <class id="0xffffffff81afc868">
+    <name>Flashmap</name>
+  </class>
+  <class id="0xffffffff81afc678">
+    <name>DISK</name>
+    <geom id="0xfffff80003345000">
+      <class ref="0xffffffff81afc678"/>
+      <name>ada0</name>
+      <rank>1</rank>
+      <config>
+      </config>
+	<provider id="0xfffff800040c5a00">
+	  <geom ref="0xfffff80003345000"/>
+	  <mode>r2w2e3</mode>
+	  <name>ada0</name>
+	  <mediasize>500107862016</mediasize>
+	  <sectorsize>512</sectorsize>
+	  <stripesize>0</stripesize>
+	  <stripeoffset>0</stripeoffset>
+	  <config>
+	    <fwheads>16</fwheads>
+	    <fwsectors>63</fwsectors>
+	    <rotationrate>5400</rotationrate>
+	    <ident>110901PBN400M7KZASLE</ident>
+	    <lunid>5000cca67bf8120a</lunid>
+	    <descr>Hitachi HTS545050B9A300</descr>
+	  </config>
+	</provider>
+    </geom>
+    <geom id="0xfffff800037c3900">
+      <class ref="0xffffffff81afc678"/>
+      <name>cd0</name>
+      <rank>1</rank>
+      <config>
+      </config>
+	<provider id="0xfffff800037c3800">
+	  <geom ref="0xfffff800037c3900"/>
+	  <mode>r0w0e0</mode>
+	  <name>cd0</name>
+	  <mediasize>0</mediasize>
+	  <sectorsize>2048</sectorsize>
+	  <stripesize>0</stripesize>
+	  <stripeoffset>0</stripeoffset>
+	  <config>
+	    <fwheads>0</fwheads>
+	    <fwsectors>0</fwsectors>
+	    <rotationrate>unknown</rotationrate>
+	    <ident></ident>
+	    <descr>Slimtype DVD A  DS8A9SH</descr>
+	  </config>
+	</provider>
+    </geom>
+  </class>
+</mesh>
+
+kern.geom.inflight_transient_maps: 0
+kern.geom.transient_map_soft_failures: 0
+kern.geom.transient_map_hard_failures: 0
+kern.geom.transient_map_retries: 10
+kern.geom.transient_maps: 0
+kern.geom.disk.ada0.flags: ba<OPEN,CANFLUSHCACHE,UNMAPPEDBIO,DIRECTCOMPLETION,CANZONE>
+kern.geom.disk.ada0.led: 
+kern.geom.disk.cd0.flags: 0
+kern.geom.disk.cd0.led: 
+kern.geom.dev.delete_max_sectors: 262144
+kern.disks: ada0 cd0
+kern.vt.splash_cpu_duration: 10
+kern.vt.splash_cpu_style: 2
+kern.vt.splash_ncpu: 0
+kern.vt.splash_cpu: 0
+kern.vt.kbd_panic: 0
+kern.vt.kbd_debug: 1
+kern.vt.kbd_reboot: 1
+kern.vt.kbd_poweroff: 1
+kern.vt.kbd_halt: 1
+kern.vt.suspendswitch: 1
+kern.vt.deadtimer: 15
+kern.vt.debug: 0
+kern.vt.enable_bell: 1
+kern.vt.enable_altgr: 1
+kern.random.fortuna.minpoolsize: 64
+kern.random.harvest.mask_symbolic: [UMA],[FS_ATIME],SWI,INTERRUPT,NET_NG,NET_ETHER,NET_TUN,MOUSE,KEYBOARD,ATTACH,CACHED
+kern.random.harvest.mask_bin: 000000000000000111111111
+kern.random.harvest.mask: 511
+kern.random.random_sources: 
+kern.evdev.input.4.uniq: 
+kern.evdev.input.4.phys: ums0
+kern.evdev.input.4.id: { bustype = 0x0003, vendor = 0x0461, product = 0x4dfb, version = 0x0000 }
+kern.evdev.input.4.name: vendor 0x0461 USB Optical Mouse, class 0/0, rev 2.00/2.00, addr 1
+kern.evdev.input.3.uniq: 
+kern.evdev.input.3.phys: ukbd0
+kern.evdev.input.3.id: { bustype = 0x0003, vendor = 0x04f3, product = 0x0103, version = 0x0000 }
+kern.evdev.input.3.name: vendor 0x04f3 product 0x0103, class 0/0, rev 1.10/1.07, addr 2
+kern.evdev.input.2.uniq: 
+kern.evdev.input.2.phys: atkbd0
+kern.evdev.input.2.id: { bustype = 0x0011, vendor = 0x0001, product = 0x0001, version = 0x0000 }
+kern.evdev.input.2.name: AT keyboard
+kern.evdev.input.1.uniq: 
+kern.evdev.input.1.phys: sysmouse
+kern.evdev.input.1.id: { bustype = 0x0006, vendor = 0x0000, product = 0x0000, version = 0x0000 }
+kern.evdev.input.1.name: System mouse
+kern.evdev.input.0.uniq: 
+kern.evdev.input.0.phys: kbdmux0
+kern.evdev.input.0.id: { bustype = 0x0006, vendor = 0x0000, product = 0x0000, version = 0x0000 }
+kern.evdev.input.0.name: System keyboard multiplexer
+kern.evdev.sysmouse_t_axis: 0
+kern.evdev.rcpt_mask: 3
+kern.cam.enc.emulate_array_devices: 1
+kern.cam.enc.verbose: 0
+kern.cam.sa.allow_io_split: 0
+kern.cam.da.default_softtimeout: 0
+kern.cam.da.disable_wp_detection: 0
+kern.cam.da.send_ordered: 1
+kern.cam.da.default_timeout: 60
+kern.cam.da.retry_count: 4
+kern.cam.da.poll_period: 3
+kern.cam.ada.0.sort_io_queue: -1
+kern.cam.ada.0.max_seq_zones: 0
+kern.cam.ada.0.optimal_nonseq_zones: 0
+kern.cam.ada.0.optimal_seq_zones: 0
+kern.cam.ada.0.zone_support: None
+kern.cam.ada.0.zone_mode: Not Zoned
+kern.cam.ada.0.rotating: 1
+kern.cam.ada.0.unmapped_io: 1
+kern.cam.ada.0.write_cache: -1
+kern.cam.ada.0.read_ahead: -1
+kern.cam.ada.0.delete_method: NONE
+kern.cam.ada.write_cache: 1
+kern.cam.ada.read_ahead: 1
+kern.cam.ada.spindown_suspend: 1
+kern.cam.ada.spindown_shutdown: 1
+kern.cam.ada.send_ordered: 1
+kern.cam.ada.default_timeout: 30
+kern.cam.ada.retry_count: 4
+kern.cam.cd.0.minimum_cmd_size: 6
+kern.cam.cd.timeout: 30000
+kern.cam.cd.retry_count: 4
+kern.cam.cd.poll_period: 3
+kern.cam.scsi_delay: 5000
+kern.cam.cam_srch_hi: 0
+kern.cam.nda.max_trim: 256
+kern.cam.pmp.hide_special: 1
+kern.cam.pmp.default_timeout: 30
+kern.cam.pmp.retry_count: 1
+kern.cam.debug_delay: 0
+kern.cam.dflags: 0
+kern.cam.num_doneqs: 1
+kern.cam.announce_nosbuf: 0
+kern.cam.xpt_generation: 9
+kern.cam.boot_delay: 0
+kern.cam.mapmem_thresh: 65536
+kern.cam.sort_io_queues: 1
+vm.vmtotal: 
+System wide totals computed every five seconds: (values in kilobytes)
+===============================================
+Processes:		(RUNQ: 2 Disk Wait: 0 Page Wait: 0 Sleep: 434)
+Virtual Memory:		(Total: 30359352K Active: 30329252K)
+Real Memory:		(Total: 2615120K Active: 2610672K)
+Shared Virtual Memory:	(Total: 374416K Active: 344944K)
+Shared Real Memory:	(Total: 206096K Active: 201896K)
+Free Memory:	560640K
+vm.loadavg: { 0.70 0.57 0.54 }
+vm.v_free_min: 9480
+vm.v_free_target: 31887
+vm.v_free_reserved: 2011
+vm.v_inactive_target: 47830
+vm.v_pageout_free_min: 34
+vm.swap_enabled: 1
+vm.overcommit: 0
+vm.domain.0.pidctrl.kdd: 8
+vm.domain.0.pidctrl.kid: 4
+vm.domain.0.pidctrl.kpd: 3
+vm.domain.0.pidctrl.bound: 510192
+vm.domain.0.pidctrl.interval: 100
+vm.domain.0.pidctrl.setpoint: 31887
+vm.domain.0.pidctrl.ticks: -2127100632
+vm.domain.0.pidctrl.output: 0
+vm.domain.0.pidctrl.input: 140164
+vm.domain.0.pidctrl.derivative: 0
+vm.domain.0.pidctrl.integral: 0
+vm.domain.0.pidctrl.olderror: -108277
+vm.domain.0.pidctrl.error: -108277
+vm.domain.0.stats.free_severe: 5745
+vm.domain.0.stats.free_min: 9480
+vm.domain.0.stats.free_reserved: 2011
+vm.domain.0.stats.free_target: 31887
+vm.domain.0.stats.inactive_target: 47830
+vm.domain.0.stats.unswppdpgs: 0
+vm.domain.0.stats.unswappable: 0
+vm.domain.0.stats.laundpdpgs: 0
+vm.domain.0.stats.laundry: 57004
+vm.domain.0.stats.inactpdpgs: 0
+vm.domain.0.stats.inactive: 717439
+vm.domain.0.stats.actpdpgs: 8820148
+vm.domain.0.stats.active: 318873
+vm.domain.0.stats.free_count: 140160
+vm.kvm_free: 2197945315328
+vm.kvm_size: 2199023251456
+vm.pmap.pdpe.demotions: 0
+vm.pmap.pde.promotions: 4286
+vm.pmap.pde.p_failures: 1130
+vm.pmap.pde.mappings: 40124
+vm.pmap.pde.demotions: 1846
+vm.pmap.di_locked: 0
+vm.pmap.pcid_save_cnt: 48736528
+vm.pmap.pti: 1
+vm.pmap.invpcid_works: 0
+vm.pmap.pcid_enabled: 1
+vm.pmap.pg_ps_enabled: 1
+vm.pmap.pat_works: 1
+vm.swap_idle_threshold2: 10
+vm.swap_idle_threshold1: 2
+vm.swap_idle_enabled: 0
+vm.reserv.reclaimed: 1441
+vm.reserv.partpopq: 
+DOMAIN    LEVEL     SIZE  NUMBER
+
+     0,      -1, 558640K,    455
+
+vm.reserv.fullpop: 112
+vm.reserv.freed: 183950
+vm.reserv.broken: 1687
+vm.ndomains: 1
+vm.phys_locality: 
+0: -1 
+
+vm.phys_segs: 
+SEGMENT 0:
+
+start:     0x10000
+end:       0x9d000
+domain:    0
+free list: 0xffffffff81fadaf0
+
+SEGMENT 1:
+
+start:     0x100000
+end:       0x1000000
+domain:    0
+free list: 0xffffffff81fadaf0
+
+SEGMENT 2:
+
+start:     0x1000000
+end:       0x265d000
+domain:    0
+free list: 0xffffffff81fad880
+
+SEGMENT 3:
+
+start:     0x266a000
+end:       0x269f000
+domain:    0
+free list: 0xffffffff81fad880
+
+SEGMENT 4:
+
+start:     0x2800000
+end:       0x20000000
+domain:    0
+free list: 0xffffffff81fad880
+
+SEGMENT 5:
+
+start:     0x20200000
+end:       0x40004000
+domain:    0
+free list: 0xffffffff81fad880
+
+SEGMENT 6:
+
+start:     0x40005000
+end:       0xd9e8c000
+domain:    0
+free list: 0xffffffff81fad880
+
+SEGMENT 7:
+
+start:     0xda735000
+end:       0xdadc5000
+domain:    0
+free list: 0xffffffff81fad880
+
+SEGMENT 8:
+
+start:     0xdaff7000
+end:       0xdb000000
+domain:    0
+free list: 0xffffffff81fad880
+
+SEGMENT 9:
+
+start:     0x100000000
+end:       0x19509a000
+domain:    0
+free list: 0xffffffff81fad880
+
+vm.phys_free: 
+DOMAIN 0:
+
+FREE LIST 0:
+
+  ORDER (SIZE)  |  NUMBER
+                |  POOL 0  |  POOL 1
+--            -- --      -- --      --
+  12 ( 16384K)  |       0  |       0
+  11 (  8192K)  |       0  |       0
+  10 (  4096K)  |       0  |       0
+   9 (  2048K)  |       0  |       0
+   8 (  1024K)  |       0  |       0
+   7 (   512K)  |       0  |       0
+   6 (   256K)  |       0  |       1
+   5 (   128K)  |       1  |       0
+   4 (    64K)  |       7  |       1
+   3 (    32K)  |      13  |       0
+   2 (    16K)  |       0  |       1
+   1 (     8K)  |       0  |      33
+   0 (     4K)  |       0  |     102
+
+FREE LIST 1:
+
+  ORDER (SIZE)  |  NUMBER
+                |  POOL 0  |  POOL 1
+--            -- --      -- --      --
+  12 ( 16384K)  |       0  |       0
+  11 (  8192K)  |       0  |       0
+  10 (  4096K)  |       0  |       0
+   9 (  2048K)  |       0  |       0
+   8 (  1024K)  |       0  |       0
+   7 (   512K)  |       0  |       0
+   6 (   256K)  |       0  |       0
+   5 (   128K)  |       0  |       0
+   4 (    64K)  |       0  |       0
+   3 (    32K)  |       0  |       0
+   2 (    16K)  |       0  |       0
+   1 (     8K)  |       0  |       0
+   0 (     4K)  |       0  |       0
+
+vm.oom_pf_secs: 10
+vm.max_wired: 489945
+vm.background_launder_max: 20480
+vm.background_launder_rate: 4096
+vm.act_scan_laundry_weight: 3
+vm.pageout_oom_seq: 12
+vm.pageout_lock_miss: 0
+vm.disable_swapspace_pageouts: 0
+vm.lowmem_period: 10
+vm.pageout_update_period: 600
+vm.panic_on_oom: 0
+vm.page_blacklist: 
+vm.tryrelock_restart: 25
+vm.boot_pages: 6
+vm.old_msync: 0
+vm.mincore_mapped: 1
+vm.old_mlock: 0
+vm.stats.object.bypasses: 308187
+vm.stats.object.collapses: 942952
+vm.stats.vm.v_pdpages: 8820148
+vm.stats.vm.v_tcached: 0
+vm.stats.vm.v_cache_count: 0
+vm.stats.vm.v_free_severe: 5745
+vm.stats.vm.v_interrupt_free_min: 2
+vm.stats.vm.v_pageout_free_min: 34
+vm.stats.vm.v_laundry_count: 57004
+vm.stats.vm.v_inactive_count: 717437
+vm.stats.vm.v_inactive_target: 47830
+vm.stats.vm.v_active_count: 318873
+vm.stats.vm.v_wire_count: 278351
+vm.stats.vm.v_free_count: 140160
+vm.stats.vm.v_free_min: 9480
+vm.stats.vm.v_free_target: 31887
+vm.stats.vm.v_free_reserved: 2011
+vm.stats.vm.v_page_count: 1494091
+vm.stats.vm.v_page_size: 4096
+vm.stats.vm.v_kthreadpages: 0
+vm.stats.vm.v_rforkpages: 3210242
+vm.stats.vm.v_vforkpages: 9650095
+vm.stats.vm.v_forkpages: 10709843
+vm.stats.vm.v_kthreads: 27
+vm.stats.vm.v_rforks: 4319
+vm.stats.vm.v_vforks: 71523
+vm.stats.vm.v_forks: 269306
+vm.stats.vm.v_tfree: 60709240
+vm.stats.vm.v_pfree: 32942912
+vm.stats.vm.v_dfree: 0
+vm.stats.vm.v_pdshortfalls: 0
+vm.stats.vm.v_pdwakeups: 0
+vm.stats.vm.v_reactivated: 0
+vm.stats.vm.v_intrans: 390
+vm.stats.vm.v_vnodepgsout: 43226
+vm.stats.vm.v_vnodepgsin: 111985
+vm.stats.vm.v_vnodeout: 2088
+vm.stats.vm.v_vnodein: 14617
+vm.stats.vm.v_swappgsout: 0
+vm.stats.vm.v_swappgsin: 0
+vm.stats.vm.v_swapout: 0
+vm.stats.vm.v_swapin: 0
+vm.stats.vm.v_ozfod: 23248
+vm.stats.vm.v_zfod: 37709937
+vm.stats.vm.v_cow_optim: 38893
+vm.stats.vm.v_cow_faults: 10009345
+vm.stats.vm.v_io_faults: 14231
+vm.stats.vm.v_vm_faults: 56305422
+vm.stats.sys.v_soft: 700082
+vm.stats.sys.v_intr: 7037497
+vm.stats.sys.v_syscall: 206683421
+vm.stats.sys.v_trap: 58496918
+vm.stats.sys.v_swtch: 77615961
+vm.v_free_severe: 5745
+vm.aslr_restarts: 0
+vm.cluster_anon: 1
+vm.max_kernel_address: 18446744073709547520
+vm.min_kernel_address: 18446741874686296064
+vm.kstacks: 659
+vm.kstack_cache_size: 128
+vm.pfault_oom_wait: 10
+vm.pfault_oom_attempts: 3
+vm.zone_warnings: 1
+vm.zone_count: 271
+vm.uma_kmem_total: 362553344
+vm.uma_kmem_limit: 6119796736
+vm.nswapdev: 1
+vm.dmmax: 32
+vm.swap_fragmentation: 
+Free space on device ada0p3:
+number of maximal free ranges: 1
+largest free range: 986106
+average maximal free range size: 986106
+number of maximal free ranges of different sizes:
+               count  |  size range
+               -----  |  ----------
+                   1  |  986106
+
+vm.swap_async_max: 4
+vm.swap_maxpages: 11953104
+vm.swzone: 101601384
+vm.swap_total: 4039098368
+vm.swap_reserved: 38784589824
+vm.phys_pager_cluster: 1024
+vm.kmem_map_free: 5757243392
+vm.kmem_map_size: 362553344
+vm.kmem_size_scale: 1
+vm.kmem_size_max: 1319413950874
+vm.kmem_size_min: 0
+vm.kmem_zmax: 65536
+vm.kmem_size: 6119796736
+vm.md_malloc_wait: 0
+vfs.msdosfs.use_buf_pager: 1
+vfs.ufs.rename_restarts: 0
+vfs.ufs.dirhash_reclaimpercent: 10
+vfs.ufs.dirhash_lowmemcount: 0
+vfs.ufs.dirhash_docheck: 0
+vfs.ufs.dirhash_mem: 3332589
+vfs.ufs.dirhash_maxmem: 9998336
+vfs.ufs.dirhash_minsize: 2560
+vfs.nfs.downdelayinitial: 12
+vfs.nfs.downdelayinterval: 30
+vfs.nfs.defect: 0
+vfs.nfs.iodmax: 20
+vfs.nfs.iodmin: 0
+vfs.nfs.iodmaxidle: 120
+vfs.nfs.use_buf_pager: 1
+vfs.nfs.fileid_maxwarnings: 10
+vfs.nfs.diskless_rootpath: 
+vfs.nfs.diskless_valid: 0
+vfs.nfs.nfs_ip_paranoia: 1
+vfs.nfs.nfs_directio_allow_mmap: 1
+vfs.nfs.nfs_keep_dirty_on_error: 0
+vfs.nfs.nfs_directio_enable: 0
+vfs.nfs.clean_pages_on_close: 1
+vfs.nfs.commit_on_close: 0
+vfs.nfs.prime_access_cache: 0
+vfs.nfs.access_cache_timeout: 60
+vfs.nfs.dssameconn: 0
+vfs.nfs.ignore_eexist: 0
+vfs.nfs.pnfsiothreads: -1
+vfs.nfs.userhashsize: 100
+vfs.nfs.debuglevel: 0
+vfs.nfs.callback_addr: 
+vfs.nfs.realign_count: 0
+vfs.nfs.realign_test: 0
+vfs.nfs.pnfsmirror: 1
+vfs.nfs.enable_uidtostring: 0
+vfs.nfs.dsretries: 2
+vfs.nfs.skip_wcc_data_onerr: 1
+vfs.nfs.nfs3_jukebox_delay: 10
+vfs.nfs.reconnects: 0
+vfs.nfs.bufpackets: 4
+vfs.devfs.dotimes: 0
+vfs.devfs.rule_depth: 1
+vfs.devfs.generation: 661
+vfs.tmpfs.memory_reserved: 4194304
+vfs.tmpfs.rename_restarts: 0
+vfs.cd9660.use_buf_pager: 1
+vfs.zfs.trim.max_interval: 1
+vfs.zfs.trim.timeout: 30
+vfs.zfs.trim.txg_delay: 32
+vfs.zfs.trim.enabled: 1
+vfs.zfs.vol.immediate_write_sz: 32768
+vfs.zfs.vol.unmap_sync_enabled: 0
+vfs.zfs.vol.unmap_enabled: 1
+vfs.zfs.vol.recursive: 0
+vfs.zfs.vol.mode: 1
+vfs.zfs.version.zpl: 5
+vfs.zfs.version.spa: 5000
+vfs.zfs.version.acl: 1
+vfs.zfs.version.ioctl: 7
+vfs.zfs.debug: 0
+vfs.zfs.super_owner: 0
+vfs.zfs.immediate_write_sz: 32768
+vfs.zfs.sync_pass_rewrite: 2
+vfs.zfs.sync_pass_dont_compress: 5
+vfs.zfs.sync_pass_deferred_free: 2
+vfs.zfs.zio.dva_throttle_enabled: 1
+vfs.zfs.zio.exclude_metadata: 0
+vfs.zfs.zio.use_uma: 1
+vfs.zfs.zil_slog_bulk: 786432
+vfs.zfs.zil_nocacheflush: 0
+vfs.zfs.zil_replay_disable: 0
+vfs.zfs.cache_flush_disable: 0
+vfs.zfs.standard_sm_blksz: 131072
+vfs.zfs.dtl_sm_blksz: 4096
+vfs.zfs.min_auto_ashift: 9
+vfs.zfs.max_auto_ashift: 13
+vfs.zfs.vdev.trim_max_pending: 10000
+vfs.zfs.vdev.bio_delete_disable: 0
+vfs.zfs.vdev.bio_flush_disable: 0
+vfs.zfs.vdev.def_queue_depth: 32
+vfs.zfs.vdev.queue_depth_pct: 1000
+vfs.zfs.vdev.write_gap_limit: 4096
+vfs.zfs.vdev.read_gap_limit: 32768
+vfs.zfs.vdev.aggregation_limit_non_rotating: 131072
+vfs.zfs.vdev.aggregation_limit: 1048576
+vfs.zfs.vdev.initializing_max_active: 1
+vfs.zfs.vdev.initializing_min_active: 1
+vfs.zfs.vdev.removal_max_active: 2
+vfs.zfs.vdev.removal_min_active: 1
+vfs.zfs.vdev.trim_max_active: 64
+vfs.zfs.vdev.trim_min_active: 1
+vfs.zfs.vdev.scrub_max_active: 2
+vfs.zfs.vdev.scrub_min_active: 1
+vfs.zfs.vdev.async_write_max_active: 10
+vfs.zfs.vdev.async_write_min_active: 1
+vfs.zfs.vdev.async_read_max_active: 3
+vfs.zfs.vdev.async_read_min_active: 1
+vfs.zfs.vdev.sync_write_max_active: 10
+vfs.zfs.vdev.sync_write_min_active: 10
+vfs.zfs.vdev.sync_read_max_active: 10
+vfs.zfs.vdev.sync_read_min_active: 10
+vfs.zfs.vdev.max_active: 1000
+vfs.zfs.vdev.async_write_active_max_dirty_percent: 60
+vfs.zfs.vdev.async_write_active_min_dirty_percent: 30
+vfs.zfs.vdev.mirror.non_rotating_seek_inc: 1
+vfs.zfs.vdev.mirror.non_rotating_inc: 0
+vfs.zfs.vdev.mirror.rotating_seek_offset: 1048576
+vfs.zfs.vdev.mirror.rotating_seek_inc: 5
+vfs.zfs.vdev.mirror.rotating_inc: 0
+vfs.zfs.vdev.trim_on_init: 1
+vfs.zfs.vdev.cache.bshift: 16
+vfs.zfs.vdev.cache.size: 0
+vfs.zfs.vdev.cache.max: 16384
+vfs.zfs.vdev.validate_skip: 0
+vfs.zfs.vdev.max_ms_shift: 38
+vfs.zfs.vdev.default_ms_shift: 29
+vfs.zfs.vdev.max_ms_count_limit: 131072
+vfs.zfs.vdev.min_ms_count: 16
+vfs.zfs.vdev.max_ms_count: 200
+vfs.zfs.txg.timeout: 5
+vfs.zfs.space_map_ibs: 14
+vfs.zfs.spa_allocators: 4
+vfs.zfs.spa_min_slop: 134217728
+vfs.zfs.spa_slop_shift: 5
+vfs.zfs.spa_asize_inflation: 24
+vfs.zfs.deadman_enabled: 1
+vfs.zfs.deadman_checktime_ms: 5000
+vfs.zfs.deadman_synctime_ms: 1000000
+vfs.zfs.debugflags: 0
+vfs.zfs.recover: 0
+vfs.zfs.spa_load_verify_data: 1
+vfs.zfs.spa_load_verify_metadata: 1
+vfs.zfs.spa_load_verify_maxinflight: 10000
+vfs.zfs.max_missing_tvds_scan: 0
+vfs.zfs.max_missing_tvds_cachefile: 2
+vfs.zfs.max_missing_tvds: 0
+vfs.zfs.spa_load_print_vdev_tree: 0
+vfs.zfs.ccw_retry_interval: 300
+vfs.zfs.check_hostid: 1
+vfs.zfs.mg_fragmentation_threshold: 85
+vfs.zfs.mg_noalloc_threshold: 0
+vfs.zfs.condense_pct: 200
+vfs.zfs.metaslab_sm_blksz: 4096
+vfs.zfs.metaslab.bias_enabled: 1
+vfs.zfs.metaslab.lba_weighting_enabled: 1
+vfs.zfs.metaslab.fragmentation_factor_enabled: 1
+vfs.zfs.metaslab.preload_enabled: 1
+vfs.zfs.metaslab.preload_limit: 3
+vfs.zfs.metaslab.unload_delay: 8
+vfs.zfs.metaslab.load_pct: 50
+vfs.zfs.metaslab.min_alloc_size: 33554432
+vfs.zfs.metaslab.df_free_pct: 4
+vfs.zfs.metaslab.df_alloc_threshold: 131072
+vfs.zfs.metaslab.debug_unload: 0
+vfs.zfs.metaslab.debug_load: 0
+vfs.zfs.metaslab.fragmentation_threshold: 70
+vfs.zfs.metaslab.force_ganging: 16777217
+vfs.zfs.free_bpobj_enabled: 1
+vfs.zfs.free_max_blocks: 18446744073709551615
+vfs.zfs.zfs_scan_checkpoint_interval: 7200
+vfs.zfs.zfs_scan_legacy: 0
+vfs.zfs.no_scrub_prefetch: 0
+vfs.zfs.no_scrub_io: 0
+vfs.zfs.resilver_min_time_ms: 3000
+vfs.zfs.free_min_time_ms: 1000
+vfs.zfs.scan_min_time_ms: 1000
+vfs.zfs.scan_idle: 50
+vfs.zfs.scrub_delay: 4
+vfs.zfs.resilver_delay: 2
+vfs.zfs.top_maxinflight: 32
+vfs.zfs.zfetch.array_rd_sz: 1048576
+vfs.zfs.zfetch.max_idistance: 67108864
+vfs.zfs.zfetch.max_distance: 8388608
+vfs.zfs.zfetch.min_sec_reap: 2
+vfs.zfs.zfetch.max_streams: 8
+vfs.zfs.prefetch_disable: 0
+vfs.zfs.delay_scale: 500000
+vfs.zfs.delay_min_dirty_percent: 60
+vfs.zfs.dirty_data_sync_pct: 20
+vfs.zfs.dirty_data_max_percent: 10
+vfs.zfs.dirty_data_max_max: 4294967296
+vfs.zfs.dirty_data_max: 629427814
+vfs.zfs.max_recordsize: 1048576
+vfs.zfs.default_ibs: 17
+vfs.zfs.default_bs: 9
+vfs.zfs.send_holes_without_birth_time: 1
+vfs.zfs.mdcomp_disable: 0
+vfs.zfs.per_txg_dirty_frees_percent: 30
+vfs.zfs.nopwrite_enabled: 1
+vfs.zfs.dedup.prefetch: 1
+vfs.zfs.dbuf_cache_lowater_pct: 10
+vfs.zfs.dbuf_cache_hiwater_pct: 10
+vfs.zfs.dbuf_metadata_cache_overflow: 0
+vfs.zfs.dbuf_metadata_cache_shift: 6
+vfs.zfs.dbuf_cache_shift: 5
+vfs.zfs.dbuf_metadata_cache_max_bytes: 78844608
+vfs.zfs.dbuf_cache_max_bytes: 157689216
+vfs.zfs.arc_min_prescient_prefetch_ms: 6
+vfs.zfs.arc_min_prefetch_ms: 1
+vfs.zfs.l2c_only_size: 0
+vfs.zfs.mfu_ghost_data_esize: 0
+vfs.zfs.mfu_ghost_metadata_esize: 0
+vfs.zfs.mfu_ghost_size: 0
+vfs.zfs.mfu_data_esize: 0
+vfs.zfs.mfu_metadata_esize: 0
+vfs.zfs.mfu_size: 0
+vfs.zfs.mru_ghost_data_esize: 0
+vfs.zfs.mru_ghost_metadata_esize: 0
+vfs.zfs.mru_ghost_size: 0
+vfs.zfs.mru_data_esize: 0
+vfs.zfs.mru_metadata_esize: 0
+vfs.zfs.mru_size: 0
+vfs.zfs.anon_data_esize: 0
+vfs.zfs.anon_metadata_esize: 0
+vfs.zfs.anon_size: 0
+vfs.zfs.l2arc_norw: 1
+vfs.zfs.l2arc_feed_again: 1
+vfs.zfs.l2arc_noprefetch: 1
+vfs.zfs.l2arc_feed_min_ms: 200
+vfs.zfs.l2arc_feed_secs: 1
+vfs.zfs.l2arc_headroom: 2
+vfs.zfs.l2arc_write_boost: 8388608
+vfs.zfs.l2arc_write_max: 8388608
+vfs.zfs.arc_meta_strategy: 0
+vfs.zfs.arc_meta_limit: 1261513728
+vfs.zfs.arc_free_target: 31887
+vfs.zfs.arc_kmem_cache_reap_retry_ms: 1000
+vfs.zfs.compressed_arc_enabled: 1
+vfs.zfs.arc_grow_retry: 60
+vfs.zfs.arc_shrink_shift: 7
+vfs.zfs.arc_average_blocksize: 8192
+vfs.zfs.arc_no_grow_shift: 5
+vfs.zfs.arc_min: 630756864
+vfs.zfs.arc_max: 5046054912
+vfs.zfs.abd_chunk_size: 4096
+vfs.zfs.abd_scatter_enabled: 1
+vfs.ffs.use_buf_pager: 1
+vfs.ffs.compute_summary_at_mount: 0
+vfs.ffs.doasyncinodeinit: 1
+vfs.ffs.maxclustersearch: 10
+vfs.ffs.dotrimcons: 1
+vfs.ffs.doreallocblks: 1
+vfs.ffs.doasyncfree: 1
+vfs.ino64_trunc_error: 0
+vfs.worklist_len: 40
+vfs.timestamp_precision: 2
+vfs.free_owe_inact: 2
+vfs.reassignbufcalls: 535953
+vfs.recycles: 0
+vfs.freevnodes: 66851
+vfs.wantfreevnodes: 44626
+vfs.mnt_free_list_batch: 128
+vfs.vnodes_created: 201122
+vfs.numvnodes: 157312
+vfs.root_mount_hold: 
+vfs.root_mount_always_wait: 0
+vfs.default_autoro: 0
+vfs.usermount: 0
+vfs.lookup_cap_dotdot_nonlocal: 1
+vfs.lookup_cap_dotdot: 1
+vfs.typenumhash: 1
+vfs.read_min: 1
+vfs.read_max: 64
+vfs.write_behind: 1
+vfs.cache.yield: 0
+vfs.cache.cache_lock_vnodes_cel_3_failures: 0
+vfs.cache.zap_and_exit_bucket_fail: 2
+vfs.cache.numfullpathfound: 152540
+vfs.cache.numfullpathfail4: 0
+vfs.cache.numfullpathfail2: 26
+vfs.cache.numfullpathfail1: 0
+vfs.cache.numfullpathcalls: 152566
+vfs.cache.numneghits: 2107023
+vfs.cache.numnegzaps: 26
+vfs.cache.numposhits: 47309766
+vfs.cache.numposzaps: 162823
+vfs.cache.nummisszap: 108366
+vfs.cache.nummiss: 581369
+vfs.cache.numchecks: 57902121
+vfs.cache.dotdothits: 744789
+vfs.cache.dothits: 497104
+vfs.cache.numcalls: 51511264
+vfs.cache.numcache: 168116
+vfs.cache.numneg: 14009
+vfs.ncneghitsrequeue: 8
+vfs.ncpurgeminvnodes: 512
+vfs.ncsizefactor: 2
+vfs.ncnegfactor: 12
+vfs.buf_pager_relbuf: 0
+vfs.flushwithdeps: 0
+vfs.maxbcachebuf: 65536
+vfs.unmapped_buf_allowed: 1
+vfs.barrierwrites: 556
+vfs.notbufdflushes: 0
+vfs.flushbufqtarget: 100
+vfs.numbufallocfails: 0
+vfs.mappingrestarts: 0
+vfs.getnewbufrestarts: 0
+vfs.getnewbufcalls: 252024
+vfs.hifreebuffers: 768
+vfs.lofreebuffers: 512
+vfs.numfreebuffers: 39081
+vfs.dirtybufthresh: 8811
+vfs.hidirtybuffers: 9790
+vfs.lodirtybuffers: 4895
+vfs.numdirtybuffers: 77
+vfs.recursiveflushes: 60542
+vfs.altbufferflushes: 0
+vfs.bdwriteskip: 0
+vfs.dirtybufferflushes: 0
+vfs.hirunningspace: 10027008
+vfs.lorunningspace: 6684672
+vfs.bufdefragcnt: 0
+vfs.buffreekvacnt: 49794
+vfs.bufspacethresh: 623656548
+vfs.hibufspace: 639647744
+vfs.lobufspace: 607665353
+vfs.maxmallocbufspace: 31982387
+vfs.bufmallocspace: 0
+vfs.maxbufspace: 640303104
+vfs.bufkvaspace: 304283648
+vfs.bufspace: 564396032
+vfs.runningbufspace: 0
+vfs.vmiodirenable: 1
+vfs.aio.max_buf_aio: 16
+vfs.aio.max_aio_queue_per_proc: 256
+vfs.aio.max_aio_per_proc: 32
+vfs.aio.aiod_lifetime: 30000
+vfs.aio.num_unmapped_aio: 0
+vfs.aio.num_buf_aio: 0
+vfs.aio.num_queue_count: 0
+vfs.aio.max_aio_queue: 1024
+vfs.aio.target_aio_procs: 4
+vfs.aio.num_aio_procs: 0
+vfs.aio.max_aio_procs: 32
+vfs.aio.unsafe_warningcnt: 1
+vfs.aio.enable_unsafe: 0
+vfs.acl_nfs4_old_semantics: 0
+vfs.pfs.vncache.misses: 7
+vfs.pfs.vncache.hits: 26
+vfs.pfs.vncache.maxentries: 1
+vfs.pfs.vncache.entries: 1
+vfs.nfsd.fha.fhe_stats: No file handle entries.
+vfs.nfsd.fha.max_reqs_per_nfsd: 0
+vfs.nfsd.fha.max_nfsds_per_fh: 8
+vfs.nfsd.fha.bin_shift: 22
+vfs.nfsd.fha.write: 1
+vfs.nfsd.fha.read: 1
+vfs.nfsd.fha.enable: 1
+vfs.nfsd.request_space_throttle_count: 0
+vfs.nfsd.request_space_throttled: 0
+vfs.nfsd.request_space_low: 127495508
+vfs.nfsd.request_space_high: 191243264
+vfs.nfsd.request_space_used_highest: 0
+vfs.nfsd.request_space_used: 0
+vfs.nfsd.groups: 1
+vfs.nfsd.threads: 0
+vfs.nfsd.maxthreads: 1
+vfs.nfsd.minthreads: 1
+vfs.nfsd.cachetcp: 1
+vfs.nfsd.tcpcachetimeo: 43200
+vfs.nfsd.udphighwater: 500
+vfs.nfsd.tcphighwater: 0
+vfs.nfsd.dsdirsize: 20
+vfs.nfsd.pnfsgetdsattr: 1
+vfs.nfsd.enable_stringtouid: 0
+vfs.nfsd.debuglevel: 0
+vfs.nfsd.enable_locallocks: 0
+vfs.nfsd.issue_delegations: 0
+vfs.nfsd.commit_miss: 0
+vfs.nfsd.commit_blks: 0
+vfs.nfsd.mirrormnt: 1
+vfs.nfsd.default_flexfile: 0
+vfs.nfsd.async: 0
+vfs.nfsd.server_max_nfsvers: 4
+vfs.nfsd.server_min_nfsvers: 2
+vfs.nfsd.nfs_privport: 0
+vfs.nfsd.flexlinuxhack: 0
+vfs.nfsd.pnfsstrictatime: 0
+vfs.nfsd.allowreadforwriteopen: 1
+vfs.nfsd.writedelegifpos: 0
+vfs.nfsd.v4statelimit: 500000
+vfs.nfsd.layouthighwater: 1000000
+vfs.nfsd.sessionhashsize: 20
+vfs.nfsd.fhhashsize: 20
+vfs.nfsd.clienthashsize: 20
+vfs.nfsd.statehashsize: 10
+vfs.nfsd.enable_nogroupcheck: 1
+vfs.nfsd.enable_nobodycheck: 1
+vfs.nfsd.enable_checkutf8: 1
+net.local.stream.recvspace: 8192
+net.local.stream.sendspace: 8192
+net.local.dgram.recvspace: 4096
+net.local.dgram.maxdgram: 2048
+net.local.seqpacket.recvspace: 8192
+net.local.seqpacket.maxseqpacket: 8192
+net.local.taskcount: 2
+net.local.recycled: 0
+net.local.deferred: 0
+net.local.inflight: 0
+net.inet.ip.portrange.randomtime: 45
+net.inet.ip.portrange.randomcps: 10
+net.inet.ip.portrange.randomized: 1
+net.inet.ip.portrange.reservedlow: 0
+net.inet.ip.portrange.reservedhigh: 1023
+net.inet.ip.portrange.hilast: 65535
+net.inet.ip.portrange.hifirst: 49152
+net.inet.ip.portrange.last: 65535
+net.inet.ip.portrange.first: 10000
+net.inet.ip.portrange.lowlast: 600
+net.inet.ip.portrange.lowfirst: 1023
+net.inet.ip.forwarding: 0
+net.inet.ip.redirect: 1
+net.inet.ip.ttl: 64
+net.inet.ip.sourceroute: 0
+net.inet.ip.intr_queue_maxlen: 256
+net.inet.ip.intr_queue_drops: 0
+net.inet.ip.accept_sourceroute: 0
+net.inet.ip.gifttl: 30
+net.inet.ip.maxfragbucketsize: 22
+net.inet.ip.maxfragsperpacket: 16
+net.inet.ip.fragpackets: 0
+net.inet.ip.maxfragpackets: 11715
+net.inet.ip.curfrags: 0
+net.inet.ip.maxfrags: 11672
+net.inet.ip.process_options: 1
+net.inet.ip.check_interface: 0
+net.inet.ip.mcast.loop: 1
+net.inet.ip.mcast.maxsocksrc: 128
+net.inet.ip.mcast.maxgrpsrc: 512
+net.inet.ip.random_id_total: 0
+net.inet.ip.random_id_collisions: 0
+net.inet.ip.random_id_period: 0
+net.inet.ip.rfc6864: 1
+net.inet.ip.random_id: 0
+net.inet.ip.no_same_prefix: 0
+net.inet.icmp.maskrepl: 0
+net.inet.icmp.icmplim: 200
+net.inet.icmp.error_keeptags: 0
+net.inet.icmp.tstamprepl: 1
+net.inet.icmp.bmcastecho: 0
+net.inet.icmp.quotelen: 548
+net.inet.icmp.reply_from_interface: 0
+net.inet.icmp.reply_src: 
+net.inet.icmp.log_redirect: 0
+net.inet.icmp.drop_redirect: 0
+net.inet.icmp.maskfake: 0
+net.inet.icmp.icmplim_output: 1
+net.inet.igmp.gsrdelay: 10
+net.inet.igmp.default_version: 3
+net.inet.igmp.legacysupp: 0
+net.inet.igmp.v2enable: 1
+net.inet.igmp.v1enable: 1
+net.inet.igmp.sendlocal: 1
+net.inet.igmp.sendra: 1
+net.inet.igmp.recvifkludge: 1
+net.inet.tcp.rfc1323: 1
+net.inet.tcp.mssdflt: 536
+net.inet.tcp.keepidle: 7200000
+net.inet.tcp.keepintvl: 75000
+net.inet.tcp.sendspace: 32768
+net.inet.tcp.recvspace: 65536
+net.inet.tcp.keepinit: 75000
+net.inet.tcp.delacktime: 100
+net.inet.tcp.v6mssdflt: 1220
+net.inet.tcp.nolocaltimewait: 0
+net.inet.tcp.maxtcptw: 27767
+net.inet.tcp.per_cpu_timers: 0
+net.inet.tcp.v6pmtud_blackhole_mss: 1220
+net.inet.tcp.pmtud_blackhole_mss: 1200
+net.inet.tcp.pmtud_blackhole_detection: 0
+net.inet.tcp.rexmit_drop_options: 0
+net.inet.tcp.keepcnt: 8
+net.inet.tcp.finwait2_timeout: 60000
+net.inet.tcp.fast_finwait2_recycle: 0
+net.inet.tcp.always_keepalive: 1
+net.inet.tcp.rexmit_slop: 200
+net.inet.tcp.rexmit_min: 30
+net.inet.tcp.rexmit_initial: 1000
+net.inet.tcp.msl: 30000
+net.inet.tcp.persmax: 60000
+net.inet.tcp.persmin: 5000
+net.inet.tcp.syncache.rst_on_sock_fail: 1
+net.inet.tcp.syncache.rexmtlimit: 3
+net.inet.tcp.syncache.hashsize: 512
+net.inet.tcp.syncache.count: 0
+net.inet.tcp.syncache.cachelimit: 15364
+net.inet.tcp.syncache.bucketlimit: 30
+net.inet.tcp.functions_inherit_listen_socket_stack: 1
+net.inet.tcp.syncookies_only: 0
+net.inet.tcp.syncookies: 1
+net.inet.tcp.functions_available: 
+Stack                           D Alias                            PCB count
+freebsd                         * freebsd                          148
+
+net.inet.tcp.functions_default: freebsd
+net.inet.tcp.soreceive_stream: 0
+net.inet.tcp.isn_reseed_interval: 0
+net.inet.tcp.icmp_may_rst: 1
+net.inet.tcp.pcbcount: 148
+net.inet.tcp.do_tcpdrain: 1
+net.inet.tcp.tcbhashsize: 65536
+net.inet.tcp.log_debug: 0
+net.inet.tcp.ts_offset_per_conn: 1
+net.inet.tcp.minmss: 216
+net.inet.tcp.sack.globalholes: 0
+net.inet.tcp.sack.globalmaxholes: 65536
+net.inet.tcp.sack.maxholes: 128
+net.inet.tcp.sack.enable: 1
+net.inet.tcp.reass.queueguard: 16
+net.inet.tcp.reass.new_limit: 0
+net.inet.tcp.reass.maxqueuelen: 100
+net.inet.tcp.reass.cursegments: 1
+net.inet.tcp.reass.maxsegments: 23406
+net.inet.tcp.sendbuf_auto_lowat: 0
+net.inet.tcp.sendbuf_max: 2097152
+net.inet.tcp.sendbuf_inc: 8192
+net.inet.tcp.sendbuf_auto: 1
+net.inet.tcp.tso: 1
+net.inet.tcp.path_mtu_discovery: 1
+net.inet.tcp.lro.entries: 8
+net.inet.tcp.bb.log_auto_all: 0
+net.inet.tcp.bb.log_auto_mode: 1
+net.inet.tcp.bb.log_auto_ratio: 0
+net.inet.tcp.bb.log_version: 6
+net.inet.tcp.bb.log_id_tcpcb_entries: 0
+net.inet.tcp.bb.log_id_tcpcb_limit: 0
+net.inet.tcp.bb.log_id_entries: 0
+net.inet.tcp.bb.log_id_limit: 0
+net.inet.tcp.bb.log_global_entries: 0
+net.inet.tcp.bb.log_global_limit: 1000000
+net.inet.tcp.bb.log_session_limit: 10000
+net.inet.tcp.bb.log_verbose: 0
+net.inet.tcp.recvbuf_max: 2097152
+net.inet.tcp.recvbuf_inc: 16384
+net.inet.tcp.recvbuf_auto: 1
+net.inet.tcp.insecure_rst: 0
+net.inet.tcp.insecure_syn: 0
+net.inet.tcp.ecn.maxretries: 1
+net.inet.tcp.ecn.enable: 2
+net.inet.tcp.abc_l_var: 2
+net.inet.tcp.rfc3465: 1
+net.inet.tcp.initcwnd_segments: 10
+net.inet.tcp.rfc3390: 1
+net.inet.tcp.rfc3042: 1
+net.inet.tcp.rfc6675_pipe: 0
+net.inet.tcp.drop_synfin: 0
+net.inet.tcp.delayed_ack: 1
+net.inet.tcp.blackhole: 0
+net.inet.tcp.log_in_vain: 0
+net.inet.tcp.hostcache.purgenow: 0
+net.inet.tcp.hostcache.purge: 0
+net.inet.tcp.hostcache.prune: 300
+net.inet.tcp.hostcache.expire: 3600
+net.inet.tcp.hostcache.count: 158
+net.inet.tcp.hostcache.bucketlimit: 30
+net.inet.tcp.hostcache.hashsize: 512
+net.inet.tcp.hostcache.cachelimit: 15360
+net.inet.tcp.hostcache.enable: 1
+net.inet.tcp.fastopen.server_enable: 0
+net.inet.tcp.fastopen.psk_enable: 0
+net.inet.tcp.fastopen.path_disable_time: 900
+net.inet.tcp.fastopen.numpsks: 0
+net.inet.tcp.fastopen.numkeys: 0
+net.inet.tcp.fastopen.maxpsks: 2
+net.inet.tcp.fastopen.maxkeys: 2
+net.inet.tcp.fastopen.keylen: 16
+net.inet.tcp.fastopen.client_enable: 1
+net.inet.tcp.fastopen.ccache_buckets: 2048
+net.inet.tcp.fastopen.ccache_bucket_limit: 16
+net.inet.tcp.fastopen.autokey: 120
+net.inet.tcp.fastopen.acceptany: 0
+net.inet.tcp.cc.newreno.beta_ecn: 80
+net.inet.tcp.cc.newreno.beta: 50
+net.inet.tcp.cc.abe_frlossreduce: 0
+net.inet.tcp.cc.abe: 0
+net.inet.tcp.cc.available: newreno
+net.inet.tcp.cc.algorithm: newreno
+net.inet.udp.checksum: 1
+net.inet.udp.maxdgram: 9216
+net.inet.udp.recvspace: 42080
+net.inet.udp.blackhole: 0
+net.inet.udp.log_in_vain: 0
+net.inet.esp.esp_enable: 1
+net.inet.ah.ah_cleartos: 1
+net.inet.ah.ah_enable: 1
+net.inet.ipcomp.ipcomp_enable: 1
+net.inet.sctp.diag_info_code: 0
+net.inet.sctp.blackhole: 0
+net.inet.sctp.use_dcccecn: 1
+net.inet.sctp.rttvar_steady_step: 20
+net.inet.sctp.rttvar_eqret: 0
+net.inet.sctp.rttvar_rtt: 5
+net.inet.sctp.rttvar_bw: 4
+net.inet.sctp.initial_cwnd: 3
+net.inet.sctp.buffer_splitting: 0
+net.inet.sctp.vtag_time_wait: 60
+net.inet.sctp.nat_friendly_init: 0
+net.inet.sctp.enable_sack_immediately: 1
+net.inet.sctp.udp_tunneling_port: 0
+net.inet.sctp.mobility_fasthandoff: 0
+net.inet.sctp.mobility_base: 0
+net.inet.sctp.default_frag_interleave: 1
+net.inet.sctp.default_ss_module: 0
+net.inet.sctp.default_cc_module: 0
+net.inet.sctp.log_level: 0
+net.inet.sctp.max_retran_chunk: 30
+net.inet.sctp.min_residual: 1452
+net.inet.sctp.abort_at_limit: 0
+net.inet.sctp.hb_max_burst: 4
+net.inet.sctp.do_sctp_drain: 1
+net.inet.sctp.max_chained_mbufs: 5
+net.inet.sctp.abc_l_var: 2
+net.inet.sctp.nat_friendly: 1
+net.inet.sctp.cwnd_maxburst: 1
+net.inet.sctp.cmt_use_dac: 0
+net.inet.sctp.cmt_on_off: 0
+net.inet.sctp.outgoing_streams: 10
+net.inet.sctp.incoming_streams: 2048
+net.inet.sctp.add_more_on_output: 1452
+net.inet.sctp.path_pf_threshold: 65535
+net.inet.sctp.path_rtx_max: 5
+net.inet.sctp.assoc_rtx_max: 10
+net.inet.sctp.init_rtx_max: 8
+net.inet.sctp.valid_cookie_life: 60000
+net.inet.sctp.init_rto_max: 60000
+net.inet.sctp.rto_initial: 3000
+net.inet.sctp.rto_min: 1000
+net.inet.sctp.rto_max: 60000
+net.inet.sctp.secret_lifetime: 3600
+net.inet.sctp.shutdown_guard_time: 0
+net.inet.sctp.pmtu_raise_time: 600
+net.inet.sctp.heartbeat_interval: 30000
+net.inet.sctp.asoc_resource: 10
+net.inet.sctp.sys_resource: 1000
+net.inet.sctp.sack_freq: 2
+net.inet.sctp.delayed_sack_time: 200
+net.inet.sctp.chunkscale: 10
+net.inet.sctp.min_split_point: 2904
+net.inet.sctp.pcbhashsize: 256
+net.inet.sctp.tcbhashsize: 1024
+net.inet.sctp.maxchunks: 46690
+net.inet.sctp.fr_maxburst: 4
+net.inet.sctp.maxburst: 4
+net.inet.sctp.peer_chkoh: 256
+net.inet.sctp.pktdrop_enable: 0
+net.inet.sctp.nrsack_enable: 0
+net.inet.sctp.reconfig_enable: 1
+net.inet.sctp.asconf_enable: 1
+net.inet.sctp.auth_enable: 1
+net.inet.sctp.pr_enable: 1
+net.inet.sctp.ecn_enable: 1
+net.inet.sctp.auto_asconf: 1
+net.inet.sctp.recvspace: 1864135
+net.inet.sctp.sendspace: 1864135
+net.inet.ipsec.def_policy: 1
+net.inet.ipsec.esp_trans_deflev: 1
+net.inet.ipsec.esp_net_deflev: 1
+net.inet.ipsec.ah_trans_deflev: 1
+net.inet.ipsec.ah_net_deflev: 1
+net.inet.ipsec.ah_cleartos: 1
+net.inet.ipsec.dfbit: 0
+net.inet.ipsec.ecn: 0
+net.inet.ipsec.debug: 0
+net.inet.ipsec.crypto_warn_interval: 1
+net.inet.ipsec.filtertunnel: 0
+net.inet.ipsec.natt_cksum_policy: 0
+net.inet.ipsec.check_policy_history: 0
+net.inet.ipsec.async_crypto: 0
+net.inet.ipsec.crypto_support: 50331648
+net.inet.raw.recvspace: 9216
+net.inet.raw.maxdgram: 9216
+net.link.generic.system.ifcount: 5
+net.link.ether.inet.allow_multicast: 0
+net.link.ether.inet.log_arp_permanent_modify: 1
+net.link.ether.inet.log_arp_movements: 1
+net.link.ether.inet.log_arp_wrong_iface: 1
+net.link.ether.inet.garp_rexmit_count: 0
+net.link.ether.inet.max_log_per_second: 1
+net.link.ether.inet.maxhold: 1
+net.link.ether.inet.wait: 20
+net.link.ether.inet.proxyall: 0
+net.link.ether.inet.maxtries: 5
+net.link.ether.inet.max_age: 1200
+net.link.vlan.mtag_pcp: 0
+net.link.vlan.soft_pad: 0
+net.link.bridge.ipfw: 0
+net.link.bridge.allow_llz_overlap: 0
+net.link.bridge.inherit_mac: 0
+net.link.bridge.log_stp: 0
+net.link.bridge.pfil_local_phys: 0
+net.link.bridge.pfil_member: 1
+net.link.bridge.ipfw_arp: 0
+net.link.bridge.pfil_bridge: 1
+net.link.bridge.pfil_onlyip: 1
+net.link.gif.max_nesting: 1
+net.link.tap.debug: 0
+net.link.tap.devfs_cloning: 1
+net.link.tap.up_on_open: 1
+net.link.tap.user_open: 0
+net.link.tun.devfs_cloning: 1
+net.link.log_promisc_mode_change: 1
+net.link.log_link_state_change: 1
+net.link.ifqmaxlen: 50
+net.key.debug: 0
+net.key.spi_trycnt: 1000
+net.key.spi_minval: 256
+net.key.spi_maxval: 268435455
+net.key.int_random: 60
+net.key.larval_lifetime: 30
+net.key.blockacq_count: 10
+net.key.blockacq_lifetime: 20
+net.key.esp_keymin: 256
+net.key.esp_auth: 0
+net.key.ah_keymin: 128
+net.key.preferred_oldsa: 1
+net.key.spdcache.threshold: 32
+net.key.spdcache.maxentries: 0
+net.inet6.ip6.forwarding: 0
+net.inet6.ip6.redirect: 1
+net.inet6.ip6.hlim: 64
+net.inet6.ip6.maxfragpackets: 11672
+net.inet6.ip6.accept_rtadv: 0
+net.inet6.ip6.log_interval: 5
+net.inet6.ip6.hdrnestlimit: 15
+net.inet6.ip6.dad_count: 1
+net.inet6.ip6.auto_flowlabel: 1
+net.inet6.ip6.defmcasthlim: 1
+net.inet6.ip6.gifhlim: 30
+net.inet6.ip6.kame_version: FreeBSD
+net.inet6.ip6.use_deprecated: 1
+net.inet6.ip6.rr_prune: 5
+net.inet6.ip6.v6only: 1
+net.inet6.ip6.use_tempaddr: 0
+net.inet6.ip6.temppltime: 86400
+net.inet6.ip6.tempvltime: 604800
+net.inet6.ip6.auto_linklocal: 1
+net.inet6.ip6.prefer_tempaddr: 0
+net.inet6.ip6.use_defaultzone: 0
+net.inet6.ip6.maxfrags: 11672
+net.inet6.ip6.mcast_pmtu: 0
+net.inet6.ip6.no_radr: 0
+net.inet6.ip6.norbit_raif: 0
+net.inet6.ip6.rfc6204w3: 0
+net.inet6.ip6.intr_queue_maxlen: 256
+net.inet6.ip6.maxfragsperpacket: 64
+net.inet6.ip6.maxfragbucketsize: 22
+net.inet6.ip6.deembed_scopeid: 1
+net.inet6.ip6.dad_enhanced: 1
+net.inet6.ip6.mcast.loop: 1
+net.inet6.ip6.mcast.maxsocksrc: 128
+net.inet6.ip6.mcast.maxgrpsrc: 512
+net.inet6.ipsec6.def_policy: 1
+net.inet6.ipsec6.esp_trans_deflev: 1
+net.inet6.ipsec6.esp_net_deflev: 1
+net.inet6.ipsec6.ah_trans_deflev: 1
+net.inet6.ipsec6.ah_net_deflev: 1
+net.inet6.ipsec6.ecn: 0
+net.inet6.ipsec6.debug: 0
+net.inet6.ipsec6.filtertunnel: 0
+net.inet6.icmp6.rediraccept: 1
+net.inet6.icmp6.redirtimeout: 600
+net.inet6.icmp6.nd6_prune: 1
+net.inet6.icmp6.nd6_delay: 5
+net.inet6.icmp6.nd6_umaxtries: 3
+net.inet6.icmp6.nd6_mmaxtries: 3
+net.inet6.icmp6.nd6_useloopback: 1
+net.inet6.icmp6.nodeinfo: 3
+net.inet6.icmp6.errppslimit: 100
+net.inet6.icmp6.nd6_maxnudhint: 0
+net.inet6.icmp6.nd6_debug: 0
+net.inet6.icmp6.nd6_maxqueuelen: 1
+net.inet6.icmp6.nodeinfo_oldmcprefix: 1
+net.inet6.icmp6.nd6_onlink_ns_rfc4861: 0
+net.inet6.icmp6.nd6_gctimer: 86400
+net.inet6.mld.use_allow: 1
+net.inet6.mld.v2enable: 1
+net.inet6.mld.v1enable: 1
+net.inet6.mld.gsrdelay: 10
+net.pf.rule_tag_hashsize: 128
+net.pf.request_maxcount: 65535
+net.pf.source_nodes_hashsize: 32768
+net.pf.states_hashsize: 131072
+net.netdump.arp_retries: 3
+net.netdump.retries: 10
+net.netdump.polls: 2000
+net.netdump.path: 
+net.netdump.enabled: 0
+net.netdump.debug: 0
+net.wlan.0.force_restart: 0
+net.wlan.0.ampdu_mintraffic_vi: 32
+net.wlan.0.ampdu_mintraffic_vo: 32
+net.wlan.0.ampdu_mintraffic_be: 64
+net.wlan.0.ampdu_mintraffic_bk: 128
+net.wlan.0.inact_init: 30
+net.wlan.0.inact_auth: 180
+net.wlan.0.inact_probe: 30
+net.wlan.0.inact_run: 300
+net.wlan.0.bmiss_max: 2
+net.wlan.0.debug: 0
+net.wlan.0.driver_caps: 1200153153
+net.wlan.0.%parent: ath0
+net.wlan.mesh.maxholding: 2
+net.wlan.mesh.maxretries: 2
+net.wlan.mesh.backofftimeout: 5000
+net.wlan.mesh.confirmtimeout: 40
+net.wlan.mesh.holdingtimeout: 40
+net.wlan.mesh.retrytimeout: 40
+net.wlan.mesh.gateint: 10000
+net.wlan.hwmp.inact: 5000
+net.wlan.hwmp.rootconfint: 2000
+net.wlan.hwmp.rannint: 1000
+net.wlan.hwmp.rootint: 2000
+net.wlan.hwmp.roottimeout: 5000
+net.wlan.hwmp.net_diameter_traversal_time: 512
+net.wlan.hwmp.maxpreq_retries: 3
+net.wlan.hwmp.pathlifetime: 5000
+net.wlan.hwmp.targetonly: 0
+net.wlan.addba_maxtries: 3
+net.wlan.addba_backoff: 10000
+net.wlan.addba_timeout: 250
+net.wlan.recv_bar: 1
+net.wlan.ampdu_age: 500
+net.wlan.debug: 0
+net.wlan.cac_timeout: 60
+net.wlan.nol_timeout: 1800
+net.wlan.devices: ath0
+net.route.netisr_maxqlen: 256
+net.my_fibnum: 0
+net.add_addr_allfibs: 1
+net.fibs: 1
+net.raw.recvspace: 8192
+net.raw.sendspace: 8192
+net.isr.numthreads: 1
+net.isr.maxprot: 16
+net.isr.defaultqlimit: 256
+net.isr.maxqlimit: 10240
+net.isr.bindthreads: 0
+net.isr.maxthreads: 1
+net.isr.dispatch: direct
+net.iflib.no_tx_batch: 0
+net.iflib.min_tx_latency: 0
+net.ifdescr_maxlen: 1024
+net.bpf.maxbufsize: 524288
+net.bpf.bufsize: 4096
+net.bpf.optimize_writers: 0
+net.bpf.zerocopy_enable: 0
+net.bpf.maxinsns: 512
+net.accf.unloadable: 0
+debug.nullfs_bug_bypass: 0
+debug.if_tap_debug: 0
+debug.minidump: 1
+debug.hwpstate_verify: 0
+debug.hwpstate_verbose: 0
+debug.x86bios.int: 0
+debug.x86bios.call: 0
+debug.fdc.settle: 0
+debug.fdc.spec2: 16
+debug.fdc.spec1: 175
+debug.fdc.retries: 10
+debug.fdc.debugflags: 0
+debug.fdc.fifo: 8
+debug.vesa.shadow_rom: 0
+debug.psm.pkterrthresh: 2
+debug.psm.usecs: 500000
+debug.psm.secs: 0
+debug.psm.errusecs: 0
+debug.psm.errsecs: 2
+debug.psm.hz: 20
+debug.psm.loglevel: 0
+debug.efi_time: 0
+debug.vnode_domainset: <NULL>
+debug.vm_lowmem: 0
+debug.dircheck: 0
+debug.dobkgrdwrite: 1
+debug.bigcgs: 0
+debug.softdep.print_threads: 0
+debug.softdep.emptyjblocks: 18
+debug.softdep.flushcache: 0
+debug.softdep.cleanup_failures: 0
+debug.softdep.cleanup_retries: 0
+debug.softdep.cleanup_high_delay: 0
+debug.softdep.cleanup_inorequests: 0
+debug.softdep.cleanup_blkrequests: 0
+debug.softdep.jwait_newblk: 497
+debug.softdep.jwait_inode: 3350
+debug.softdep.jwait_freeblks: 0
+debug.softdep.jwait_filepage: 1126
+debug.softdep.journal_wait: 4973
+debug.softdep.journal_min: 0
+debug.softdep.journal_low: 0
+debug.softdep.jnewblk_rollback: 7448
+debug.softdep.jaddref_rollback: 5503
+debug.softdep.dir_entry: 5970
+debug.softdep.direct_blk_ptrs: 6955
+debug.softdep.inode_bitmap: 2379
+debug.softdep.indir_blk_ptrs: 74
+debug.softdep.sync_limit_hit: 0
+debug.softdep.ino_limit_hit: 0
+debug.softdep.blk_limit_hit: 0
+debug.softdep.ino_limit_push: 0
+debug.softdep.blk_limit_push: 0
+debug.softdep.worklist_push: 0
+debug.softdep.flush_threads: 1
+debug.softdep.tickdelay: 2
+debug.softdep.max_softdeps: 714016
+debug.softdep.write.jfsync: 0
+debug.softdep.write.jtrunc: 0
+debug.softdep.write.sbdep: 643
+debug.softdep.write.jsegdep: 3592
+debug.softdep.write.jseg: 18438
+debug.softdep.write.jfreefrag: 0
+debug.softdep.write.jfreeblk: 0
+debug.softdep.write.jnewblk: 0
+debug.softdep.write.jmvref: 0
+debug.softdep.write.jremref: 0
+debug.softdep.write.jaddref: 0
+debug.softdep.write.freedep: 0
+debug.softdep.write.freework: 0
+debug.softdep.write.newdirblk: 0
+debug.softdep.write.dirrem: 0
+debug.softdep.write.mkdir: 0
+debug.softdep.write.diradd: 0
+debug.softdep.write.freefile: 0
+debug.softdep.write.freeblks: 31065
+debug.softdep.write.freefrag: 0
+debug.softdep.write.allocindir: 28973
+debug.softdep.write.indirdep: 892
+debug.softdep.write.allocdirect: 135799
+debug.softdep.write.newblk: 0
+debug.softdep.write.bmsafemap: 7732
+debug.softdep.write.inodedep: 530357
+debug.softdep.write.pagedep: 30902
+debug.softdep.current.jfsync: 0
+debug.softdep.current.jtrunc: 0
+debug.softdep.current.sbdep: 0
+debug.softdep.current.jsegdep: 117
+debug.softdep.current.jseg: 41
+debug.softdep.current.jfreefrag: 1
+debug.softdep.current.jfreeblk: 0
+debug.softdep.current.jnewblk: 4
+debug.softdep.current.jmvref: 0
+debug.softdep.current.jremref: 0
+debug.softdep.current.jaddref: 3
+debug.softdep.current.freedep: 0
+debug.softdep.current.freework: 33
+debug.softdep.current.newdirblk: 0
+debug.softdep.current.dirrem: 14
+debug.softdep.current.mkdir: 0
+debug.softdep.current.diradd: 17
+debug.softdep.current.freefile: 15
+debug.softdep.current.freeblks: 23
+debug.softdep.current.freefrag: 3
+debug.softdep.current.allocindir: 0
+debug.softdep.current.indirdep: 0
+debug.softdep.current.allocdirect: 46
+debug.softdep.current.newblk: 0
+debug.softdep.current.bmsafemap: 6
+debug.softdep.current.inodedep: 88
+debug.softdep.current.pagedep: 11
+debug.softdep.highuse.jfsync: 0
+debug.softdep.highuse.jtrunc: 0
+debug.softdep.highuse.sbdep: 1
+debug.softdep.highuse.jsegdep: 28622
+debug.softdep.highuse.jseg: 1060
+debug.softdep.highuse.jfreefrag: 17
+debug.softdep.highuse.jfreeblk: 0
+debug.softdep.highuse.jnewblk: 3622
+debug.softdep.highuse.jmvref: 324
+debug.softdep.highuse.jremref: 4297
+debug.softdep.highuse.jaddref: 4616
+debug.softdep.highuse.freedep: 14
+debug.softdep.highuse.freework: 5246
+debug.softdep.highuse.newdirblk: 2285
+debug.softdep.highuse.dirrem: 4298
+debug.softdep.highuse.mkdir: 4028
+debug.softdep.highuse.diradd: 10455
+debug.softdep.highuse.freefile: 2658
+debug.softdep.highuse.freeblks: 4319
+debug.softdep.highuse.freefrag: 176
+debug.softdep.highuse.allocindir: 3322
+debug.softdep.highuse.indirdep: 37
+debug.softdep.highuse.allocdirect: 11018
+debug.softdep.highuse.newblk: 3
+debug.softdep.highuse.bmsafemap: 21
+debug.softdep.highuse.inodedep: 10573
+debug.softdep.highuse.pagedep: 2431
+debug.softdep.total.jfsync: 0
+debug.softdep.total.jtrunc: 0
+debug.softdep.total.sbdep: 643
+debug.softdep.total.jsegdep: 543923
+debug.softdep.total.jseg: 18461
+debug.softdep.total.jfreefrag: 20998
+debug.softdep.total.jfreeblk: 0
+debug.softdep.total.jnewblk: 224529
+debug.softdep.total.jmvref: 6652
+debug.softdep.total.jremref: 88920
+debug.softdep.total.jaddref: 209476
+debug.softdep.total.freedep: 346
+debug.softdep.total.freework: 59871
+debug.softdep.total.newdirblk: 23829
+debug.softdep.total.dirrem: 78640
+debug.softdep.total.mkdir: 47316
+debug.softdep.total.diradd: 162160
+debug.softdep.total.freefile: 43468
+debug.softdep.total.freeblks: 43125
+debug.softdep.total.freefrag: 20998
+debug.softdep.total.allocindir: 30202
+debug.softdep.total.indirdep: 1160
+debug.softdep.total.allocdirect: 194327
+debug.softdep.total.newblk: 224529
+debug.softdep.total.bmsafemap: 130869
+debug.softdep.total.inodedep: 149767
+debug.softdep.total.pagedep: 27982
+debug.collectsnapstats: 0
+debug.snapdebug: 0
+debug.dopersistence: 0
+debug.fsckcmds: 0
+debug.crypto_timing: 0
+debug.nlm_debug: 0
+debug.if_tun_debug: 0
+debug.vn_io_faults: 111566
+debug.vn_io_fault_prefault: 0
+debug.vn_io_fault_enable: 1
+debug.max_vnlru_free: 10000
+debug.vnlru_nowhere: 0
+debug.rush_requests: 0
+debug.disablefullpath: 0
+debug.disablecwd: 0
+debug.vfscache: 1
+debug.numcachehv: 9126
+debug.numcache: 168116
+debug.numneg: 14009
+debug.nchash: 262143
+debug.devfs_iosize_max_clamp: 1
+debug.iosize_max_clamp: 0
+debug.clock_do_io: 0
+debug.clock_show_io: 0
+debug.rman_debug: 0
+debug.lock.delay.restrict_starvation: 0
+debug.lock.delay.starvation_limit: 131072
+debug.kdb.alt_break_to_debugger: 0
+debug.kdb.break_to_debugger: 0
+debug.kdb.stack_overflow: 0
+debug.kdb.trap_code: 0
+debug.kdb.trap: 0
+debug.kdb.panic: 0
+debug.kdb.enter: 0
+debug.kdb.current: 
+debug.kdb.available: 
+debug.bioq_batchsize: 0
+debug.clocktime: 0
+debug.obsolete_panic: 0
+debug.umtx.robust_faults_verbose: 1
+debug.umtx.umtx_pi_allocated: 0
+debug.allow_insane_settime: 0
+debug.sx.delay_max: 2048
+debug.sx.delay_base: 1
+debug.sx.loops: 10000
+debug.sx.retries: 10
+debug.ncores: 5
+debug.trace_all_panics: 1
+debug.trace_on_panic: 1
+debug.debugger_on_trap: 0
+debug.debugger_on_panic: 1
+debug.rwlock.delay_max: 2048
+debug.rwlock.delay_base: 1
+debug.rwlock.loops: 10000
+debug.rwlock.retry: 10
+debug.osd: 0
+debug.mtx_spin.delay_max: 2048
+debug.mtx_spin.delay_base: 1
+debug.mtx.delay_max: 2048
+debug.mtx.delay_base: 1
+debug.adaptive_machine_arch: 1
+debug.sizeof.znode: 272
+debug.sizeof.namecache: 72
+debug.sizeof.devstat: 288
+debug.sizeof.pcb: 320
+debug.sizeof.kinfo_proc: 1088
+debug.sizeof.buf: 568
+debug.sizeof.bio: 376
+debug.sizeof.proc: 1328
+debug.sizeof.vnode: 480
+debug.sizeof.g_bioq: 56
+debug.sizeof.g_consumer: 96
+debug.sizeof.g_provider: 136
+debug.sizeof.g_geom: 184
+debug.sizeof.g_class: 176
+debug.sizeof.cdev_priv: 376
+debug.sizeof.cdev: 288
+debug.fail_point.status_nlm_deny_grant: off
+sleeping_thread_stacks = {
+},
+sleeping_thread_count = 0,
+paused_thread_stacks = {
+},
+paused_thread_count = 0
+
+debug.fail_point.nlm_deny_grant: off
+debug.fail_point.status_fill_kinfo_vnode__random_path: off
+sleeping_thread_stacks = {
+},
+sleeping_thread_count = 0,
+paused_thread_stacks = {
+},
+paused_thread_count = 0
+
+debug.fail_point.fill_kinfo_vnode__random_path: off
+debug.fail_point.status_sysctl_running: off
+sleeping_thread_stacks = {
+},
+sleeping_thread_count = 0,
+paused_thread_stacks = {
+},
+paused_thread_count = 0
+
+debug.fail_point.sysctl_running: off
+debug.fail_point.status_test_fail_point: off
+sleeping_thread_stacks = {
+},
+sleeping_thread_count = 0,
+paused_thread_stacks = {
+},
+paused_thread_count = 0
+
+debug.fail_point.test_fail_point: off
+debug.fail_point.test_trigger_fail_point: 
+debug.fail_point.status_nfscl_force_fileid_warning: off
+sleeping_thread_stacks = {
+},
+sleeping_thread_count = 0,
+paused_thread_stacks = {
+},
+paused_thread_count = 0
+
+debug.fail_point.nfscl_force_fileid_warning: off
+debug.cpufreq.verbose: 0
+debug.cpufreq.lowest: 0
+debug.bootverbose: 0
+debug.boothowto: 0
+debug.elf32_legacy_coredump: 0
+debug.elf64_legacy_coredump: 0
+debug.uart_force_poll: 0
+debug.uart_poll_freq: 50
+debug.mddebug: 0
+debug.iwi: 0
+debug.ipw: 0
+debug.acpi.resume_beep: 0
+debug.acpi.batt.batt_sleep_ms: 0
+debug.acpi.ec.timeout: 750
+debug.acpi.ec.polled: 0
+debug.acpi.ec.burst: 0
+debug.acpi.cpu_unordered: 0
+debug.acpi.suspend_bounce: 0
+debug.acpi.default_register_width: 1
+debug.acpi.interpreter_slack: 1
+debug.acpi.enable_debug_objects: 0
+debug.acpi.acpi_ca_version: 20181213
+debug.acpi.max_threads: 3
+debug.acpi.tasks_hiwater: 6
+debug.acpi.max_tasks: 1024
+hw.machine: amd64
+hw.model: Intel(R) Core(TM) i3-3110M CPU @ 2.40GHz
+hw.ncpu: 4
+hw.byteorder: 1234
+hw.physmem: 6294278144
+hw.usermem: 5149884416
+hw.pagesize: 4096
+hw.floatingpoint: 1
+hw.machine_arch: amd64
+hw.realmem: 6442450944
+hw.vmm.amdvi.domain_id: 0
+hw.vmm.amdvi.disable_io_fault: 0
+hw.vmm.amdvi.ptp_level: 4
+hw.vmm.amdvi.host_ptp: 1
+hw.vmm.amdvi.enable: 0
+hw.vmm.amdvi.count: 0
+hw.vmm.npt.pmap_flags: 0
+hw.vmm.svm.num_asids: 0
+hw.vmm.svm.disable_npf_assist: 0
+hw.vmm.svm.features: 4294967295
+hw.vmm.svm.vmcb_clean: 1023
+hw.vmm.vmx.l1d_flush_sw: 1
+hw.vmm.vmx.l1d_flush: 1
+hw.vmm.vmx.vpid_alloc_failed: 0
+hw.vmm.vmx.posted_interrupt_vector: -1
+hw.vmm.vmx.cap.posted_interrupts: 0
+hw.vmm.vmx.cap.virtual_interrupt_delivery: 0
+hw.vmm.vmx.cap.invpcid: 0
+hw.vmm.vmx.cap.monitor_trap: 1
+hw.vmm.vmx.cap.unrestricted_guest: 1
+hw.vmm.vmx.cap.pause_exit: 1
+hw.vmm.vmx.cap.halt_exit: 1
+hw.vmm.vmx.initialized: 1
+hw.vmm.vmx.cr4_zeros_mask: 18446744073708034048
+hw.vmm.vmx.cr4_ones_mask: 8192
+hw.vmm.vmx.cr0_zeros_mask: 18446744071025197056
+hw.vmm.vmx.cr0_ones_mask: 32
+hw.vmm.vmx.no_flush_rsb: 0
+hw.vmm.ept.pmap_flags: 2043
+hw.vmm.vrtc.flag_broken_time: 1
+hw.vmm.ppt.devices: 0
+hw.vmm.iommu.enable: 1
+hw.vmm.iommu.initialized: 0
+hw.vmm.bhyve_xcpuids: 0
+hw.vmm.topology.cpuid_leaf_b: 1
+hw.vmm.create: beavis
+hw.vmm.destroy: beavis
+hw.vmm.trace_guest_exceptions: 0
+hw.vmm.ipinum: 251
+hw.vmm.halt_detection: 1
+hw.dri.timestamp_precision: 20
+hw.dri.vblank_offdelay: 5000
+hw.dri.debug: 0
+hw.dri.0.modesetting: 1
+hw.dri.0.busid: pci:0000:00:02.0
+hw.dri.0.vblank: 
+crtc ref count    last     enabled inmodeset
+  00  00 01256612 01258281 00      00
+  01  00 01257200 01257200 00      00
+  02  01 00000000 00000000 00      01
+hw.dri.0.bufs: 
+hw.dri.0.clients: 
+a dev            pid   uid      magic     ioctls
+y drm/0        100131     0          4          0
+y drm/0        100131     0          3          0
+y drm/0        100131     0          2          0
+y drm/0        100131     0          1          0
+y drm/0        100131     0          0          0
+
+hw.dri.0.vm: 
+slot offset	        size       type flags address            mtrr
+
+hw.dri.0.name: i915 0x176 pci:0000:00:02.0
+hw.acpi.battery.info_expire: 5
+hw.acpi.battery.units: 1
+hw.acpi.battery.state: 0
+hw.acpi.battery.rate: 0
+hw.acpi.battery.time: -1
+hw.acpi.battery.life: 0
+hw.acpi.acline: 1
+hw.acpi.thermal.tz0._TSP: -1
+hw.acpi.thermal.tz0._TC2: -1
+hw.acpi.thermal.tz0._TC1: -1
+hw.acpi.thermal.tz0._ACx: -1 -1 -1 -1 -1 -1 -1 -1 -1 -1
+hw.acpi.thermal.tz0._CRT: 100.1C
+hw.acpi.thermal.tz0._HOT: -1
+hw.acpi.thermal.tz0._PSV: -1
+hw.acpi.thermal.tz0.thermal_flags: 0
+hw.acpi.thermal.tz0.passive_cooling: 0
+hw.acpi.thermal.tz0.active: -1
+hw.acpi.thermal.tz0.temperature: 59.1C
+hw.acpi.thermal.user_override: 0
+hw.acpi.thermal.polling_rate: 10
+hw.acpi.thermal.min_runtime: 0
+hw.acpi.cpu.cx_lowest: C1
+hw.acpi.reset_video: 0
+hw.acpi.handle_reboot: 1
+hw.acpi.disable_on_reboot: 0
+hw.acpi.verbose: 0
+hw.acpi.s4bios: 0
+hw.acpi.sleep_delay: 1
+hw.acpi.suspend_state: S3
+hw.acpi.standby_state: S1
+hw.acpi.lid_switch_state: NONE
+hw.acpi.sleep_button_state: S1
+hw.acpi.power_button_state: S5
+hw.acpi.supported_sleep_state: S1 S3 S4 S5
+hw.mca.cmc_throttle: 60
+hw.mca.force_scan: 0
+hw.mca.interval: 3600
+hw.mca.count: 0
+hw.mca.erratum383: 0
+hw.mca.intel6h_HSD131: 0
+hw.mca.amd10h_L1TP: 1
+hw.mca.enabled: 1
+hw.apic.timer_tsc_deadline: 1
+hw.apic.eoi_suppression: 1
+hw.apic.x2apic_mode: 1
+hw.apic.enable_extint: 0
+hw.intrs: irq0: attimer0:3 @cpu0(domain0): 0
+irq1: atkbd0:1 @cpu0(domain0): 48
+irq3::5 @cpu0(domain0): 0
+irq4::7 @cpu0(domain0): 0
+irq5::9 @cpu0(domain0): 0
+irq6::11 @cpu0(domain0): 0
+irq7::13 @cpu0(domain0): 0
+irq8: atrtc0:15 @cpu0(domain0): 0
+irq9: acpi0:17 @cpu0(domain0): 188653
+irq10::19 @cpu0(domain0): 0
+irq11::21 @cpu0(domain0): 0
+irq12::23 @cpu0(domain0): 0
+irq13::25 @cpu0(domain0): 0
+irq14::27 @cpu0(domain0): 0
+irq15::29 @cpu0(domain0): 0
+irq16: ath0 ehci0:31 @cpu0(domain0): 2209897
+irq17::33 @cpu0(domain0): 0
+irq18::35 @cpu0(domain0): 0
+irq19::37 @cpu0(domain0): 0
+irq20::39 @cpu0(domain0): 0
+irq21::41 @cpu0(domain0): 0
+irq22::43 @cpu0(domain0): 0
+irq23: ehci1:45 @cpu0(domain0): 31454
+irq256: hpet0:t0:51 @cpu0(domain0): 0
+irq257: hpet0:t1:53 @cpu1(domain0): 0
+irq258: hpet0:t2:55 @cpu2(domain0): 0
+irq259: hpet0:t3:57 @cpu3(domain0): 0
+irq260: hpet0:t4:59 @cpu0(domain0): 0
+irq261: hpet0:t5:61 @cpu0(domain0): 0
+irq262: hpet0:t6:63 @cpu0(domain0): 0
+irq263: hpet0:t7:65 @cpu0(domain0): 0
+irq264: xhci0:67 @cpu0(domain0): 411570
+irq265: hdac0:69 @cpu0(domain0): 3919439
+irq266: re0:71 @cpu0(domain0): 0
+irq267: ahci0:73 @cpu0(domain0): 231699
+irq268: vgapci0:75 @cpu0(domain0): 44777
+
+hw.intrbalance: 0
+hw.hv_vendor: 
+hw.clockrate: 2394
+hw.via_feature_xcrypt: 0
+hw.via_feature_rng: 0
+hw.mds_disable: 0
+hw.mds_disable_state: inactive
+hw.spec_store_bypass_disable: 0
+hw.spec_store_bypass_disable_active: 0
+hw.ibrs_disable: 1
+hw.ibrs_active: 0
+hw.busdma.zone0.domain: 0
+hw.busdma.zone0.alignment: 4096
+hw.busdma.zone0.lowaddr: 0xffffffff
+hw.busdma.zone0.total_deferred: 0
+hw.busdma.zone0.total_bounced: 989381
+hw.busdma.zone0.active_bpages: 22
+hw.busdma.zone0.reserved_bpages: 0
+hw.busdma.zone0.free_bpages: 8196
+hw.busdma.zone0.total_bpages: 8218
+hw.busdma.total_bpages: 8218
+hw.dmar.timeout: 1000000
+hw.dmar.batch_coalesce: 100
+hw.dmar.tbl_pagecnt: 0
+hw.vmbus.pin_evttask: 1
+hw.hvtimesync.sample_verbose: 0
+hw.hvtimesync.sample_thresh: 100
+hw.hvtimesync.ignore_sync: 0
+hw.storvsc.chan_cnt: 0
+hw.storvsc.max_io: 512
+hw.storvsc.ringbuffer_size: 262144
+hw.storvsc.use_pim_unmapped: 1
+hw.storvsc.use_win8ext_flags: 1
+hw.hn.vf_xpnt_attwait: 2
+hw.hn.vf_xpnt_accbpf: 0
+hw.hn.vf_transparent: 1
+hw.hn.vfmap: 
+hw.hn.vflist: 
+hw.hn.tx_agg_pkts: -1
+hw.hn.tx_agg_size: -1
+hw.hn.lro_mbufq_depth: 0
+hw.hn.tx_swq_depth: 0
+hw.hn.tx_ring_cnt: 0
+hw.hn.chan_cnt: 0
+hw.hn.use_if_start: 0
+hw.hn.use_txdesc_bufring: 1
+hw.hn.tx_taskq_mode: 0
+hw.hn.tx_taskq_cnt: 1
+hw.hn.lro_entry_count: 128
+hw.hn.direct_tx_size: 128
+hw.hn.tx_chimney_size: 0
+hw.hn.tso_maxlen: 65535
+hw.hn.udpcs_fixup_mtu: 1420
+hw.hn.udpcs_fixup: 0
+hw.hn.enable_udp6cs: 1
+hw.hn.enable_udp4cs: 1
+hw.hn.trust_hostip: 1
+hw.hn.trust_hostudp: 1
+hw.hn.trust_hosttcp: 1
+hw.iavf.tx_itr: 122
+hw.iavf.rx_itr: 62
+hw.iavf.shared_debug_mask: 0
+hw.iavf.core_debug_mask: 0
+hw.iavf.enable_head_writeback: 0
+hw.ixl.tx_itr: 122
+hw.ixl.rx_itr: 62
+hw.ixl.shared_debug_mask: 0
+hw.ixl.core_debug_mask: 0
+hw.ixl.enable_head_writeback: 1
+hw.ixl.enable_vf_loopback: 1
+hw.ixl.i2c_access_method: 0
+hw.ixl.enable_tx_fc_filter: 1
+hw.bxe.udp_rss: 0
+hw.bxe.autogreeen: 0
+hw.bxe.mrrs: -1
+hw.bxe.max_aggregation_size: 0
+hw.bxe.rx_budget: -1
+hw.bxe.hc_tx_ticks: 50
+hw.bxe.hc_rx_ticks: 25
+hw.bxe.max_rx_bufs: 0
+hw.bxe.queue_count: 4
+hw.bxe.interrupt_mode: 2
+hw.bxe.debug: 0
+hw.psm.elantech_support: 0
+hw.psm.trackpoint_support: 0
+hw.psm.synaptics_support: 0
+hw.psm.tap_timeout: 125000
+hw.psm.tap_threshold: 25
+hw.psm.tap_enabled: -1
+hw.lower_amd64_sharedpage: 0
+hw.instruction_sse: 1
+hw.lazy_fpu_switch: 0
+hw.bus.devctl_queue: 1000
+hw.bus.devctl_disable: 0
+hw.pagesizes: 4096 2097152 0
+hw.availpages: 1536689
+hw.intr_storm_threshold: 1000
+hw.xbd.xbd_enable_indirect: 1
+hw.wi.debug: 0
+hw.wi.txerate: 0
+hw.watchdog.wd_last_u_secs: 0
+hw.watchdog.wd_last_u: 0
+hw.vtnet.rx_process_limit: 512
+hw.vtnet.mq_max_pairs: 8
+hw.vtnet.mq_disable: 0
+hw.vtnet.lro_disable: 0
+hw.vtnet.tso_disable: 0
+hw.vtnet.csum_disable: 0
+hw.usb.wmt.debug: 0
+hw.usb.ums.debug: 0
+hw.usb.uhid.debug: 0
+hw.usb.ukbd.pollrate: 0
+hw.usb.ukbd.no_leds: 0
+hw.usb.ukbd.debug: 0
+hw.usb.full_ddesc: 0
+hw.usb.no_cs_fail: 0
+hw.usb.proc.debug: 0
+hw.usb.disable_port_power: 0
+hw.usb.disable_enumeration: 0
+hw.usb.power_timeout: 30
+hw.usb.uhub.debug: 0
+hw.usb.ugen.debug: 0
+hw.usb.usb_lang_mask: 255
+hw.usb.usb_lang_id: 9
+hw.usb.template: -1
+hw.usb.dev.debug: 0
+hw.usb.timings.extra_power_up_time: 20
+hw.usb.timings.resume_recovery: 50
+hw.usb.timings.resume_wait: 50
+hw.usb.timings.resume_delay: 250
+hw.usb.timings.set_address_settle: 10
+hw.usb.timings.port_resume_delay: 40
+hw.usb.timings.port_powerup_delay: 300
+hw.usb.timings.port_reset_recovery: 250
+hw.usb.timings.port_root_reset_delay: 200
+hw.usb.timings.port_reset_delay: 50
+hw.usb.debug: 0
+hw.usb.umass.throttle: 0
+hw.usb.umass.debug: 0
+hw.usb.no_shutdown_wait: 0
+hw.usb.no_suspend_wait: 0
+hw.usb.no_boot_wait: 0
+hw.usb.ctrl.debug: 0
+hw.usb.xhci.ctlstep: 0
+hw.usb.xhci.dma32: 0
+hw.usb.xhci.use_polling: 0
+hw.usb.xhci.xhci_port_route: 0
+hw.usb.xhci.debug: 0
+hw.usb.xhci.streams: 0
+hw.usb.uhci.loop: 0
+hw.usb.uhci.debug: 0
+hw.usb.ohci.debug: 0
+hw.usb.ehci.lostintrbug: 0
+hw.usb.ehci.iaadbug: 0
+hw.usb.ehci.no_hs: 0
+hw.usb.ehci.debug: 0
+hw.broken_txfifo: 0
+hw.syscons.sc_no_suspend_vtswitch: 0
+hw.syscons.kbd_debug: 1
+hw.syscons.kbd_reboot: 1
+hw.syscons.bell: 1
+hw.syscons.saver.keybonly: 1
+hw.midi.seq.debug: 0
+hw.midi.instroff: 0
+hw.midi.dumpraw: 0
+hw.midi.debug: 0
+hw.midi.stat.verbose: 0
+hw.snd.maxautovchans: 16
+hw.snd.default_unit: 2
+hw.snd.version: 2009061500/amd64
+hw.snd.default_auto: 0
+hw.snd.verbose: 0
+hw.snd.vpc_mixer_bypass: 1
+hw.snd.feeder_rate_quality: 1
+hw.snd.feeder_rate_round: 25
+hw.snd.feeder_rate_max: 2016000
+hw.snd.feeder_rate_min: 1
+hw.snd.feeder_rate_polyphase_max: 183040
+hw.snd.feeder_rate_presets: 100:8:0.85 100:36:0.92 100:164:0.97
+hw.snd.feeder_eq_exact_rate: 0
+hw.snd.feeder_eq_presets: PEQ:16000,0.2500,62,0.2500:-9,9,1.0:44100,48000,88200,96000,176400,192000
+hw.snd.basename_clone: 1
+hw.snd.compat_linux_mmap: 0
+hw.snd.syncdelay: -1
+hw.snd.usefrags: 0
+hw.snd.vpc_reset: 0
+hw.snd.vpc_0db: 45
+hw.snd.vpc_autoreset: 1
+hw.snd.timeout: 5
+hw.snd.latency_profile: 1
+hw.snd.latency: 2
+hw.snd.report_soft_matrix: 1
+hw.snd.report_soft_formats: 1
+hw.sdhci.enable_msi: 1
+hw.sdhci.quirk_set: 0
+hw.sdhci.quirk_clear: 0
+hw.sdhci.debug: 0
+hw.puc.msi_disable: 0
+hw.pci.host_mem_start: 2147483648
+hw.pci.mcfg: 1
+hw.pci.default_vgapci_unit: 0
+hw.pci.enable_pcie_hp: 1
+hw.pci.clear_pcib: 0
+hw.pci.iov_max_config: 1048576
+hw.pci.clear_aer_on_attach: 0
+hw.pci.enable_ari: 1
+hw.pci.clear_buses: 0
+hw.pci.clear_bars: 0
+hw.pci.usb_early_takeover: 1
+hw.pci.honor_msi_blacklist: 1
+hw.pci.msix_rewrite_table: 0
+hw.pci.enable_msix: 1
+hw.pci.enable_msi: 1
+hw.pci.do_power_suspend: 1
+hw.pci.do_power_resume: 1
+hw.pci.do_power_nodriver: 0
+hw.pci.realloc_bars: 0
+hw.pci.enable_io_modes: 1
+hw.pcic.pd6722_vsense: 1
+hw.pcic.intr_mask: 57016
+hw.cbb.debug: 0
+hw.cbb.start_32_io: 4096
+hw.cbb.start_16_io: 256
+hw.cbb.start_memory: 2281701376
+hw.pccard.cis_debug: 0
+hw.pccard.debug: 0
+hw.nvme.verbose_cmd_dump: 0
+hw.nvme.use_nvd: 1
+hw.nvd.delete_max: 1073741824
+hw.mwl.rxdmalow: 3
+hw.mwl.rxquota: 640
+hw.mwl.txcoalesce: 8
+hw.mwl.txbuf: 256
+hw.mwl.rxbuf: 640
+hw.mwl.rxdesc: 256
+hw.mmcsd.cache: 1
+hw.mmc.debug: 0
+hw.mfi.mrsas_enable: 0
+hw.mfi.msi: 1
+hw.mfi.cmd_timeout: 30
+hw.mfi.polled_cmd_timeout: 60
+hw.mfi.detect_jbod_change: 1
+hw.mfi.max_cmds: 128
+hw.mfi.event_class: 0
+hw.mfi.event_locale: 65535
+hw.malo.pci.msi_disable: 0
+hw.malo.txbuf: 256
+hw.malo.rxquota: 256
+hw.malo.rxbuf: 256
+hw.malo.txcoalesce: 8
+hw.kbd.keymap_restrict_change: 0
+hw.ix.enable_rss: 1
+hw.ix.enable_fdir: 0
+hw.ix.unsupported_sfp: 0
+hw.ix.enable_msix: 1
+hw.ix.advertise_speed: 0
+hw.ix.flow_control: 3
+hw.ix.max_interrupt_rate: 31250
+hw.em.max_interrupt_rate: 8000
+hw.em.eee_setting: 1
+hw.em.rx_process_limit: 100
+hw.em.sbp: 1
+hw.em.smart_pwr_down: 0
+hw.em.rx_abs_int_delay: 66
+hw.em.tx_abs_int_delay: 66
+hw.em.rx_int_delay: 0
+hw.em.tx_int_delay: 66
+hw.em.disable_crc_stripping: 0
+hw.cardbus.cis_debug: 0
+hw.cardbus.debug: 0
+hw.bge.allow_asf: 1
+hw.bce.rx_ticks: 18
+hw.bce.rx_ticks_int: 18
+hw.bce.rx_quick_cons_trip: 6
+hw.bce.rx_quick_cons_trip_int: 6
+hw.bce.tx_ticks: 80
+hw.bce.tx_ticks_int: 80
+hw.bce.tx_quick_cons_trip: 20
+hw.bce.tx_quick_cons_trip_int: 20
+hw.bce.strict_rx_mtu: 0
+hw.bce.hdr_split: 1
+hw.bce.tx_pages: 2
+hw.bce.rx_pages: 2
+hw.bce.msi_enable: 1
+hw.bce.tso_enable: 1
+hw.bce.verbose: 1
+hw.ath.bstuck: 4
+hw.ath.txbuf_mgmt: 32
+hw.ath.txbuf: 512
+hw.ath.rxbuf: 512
+hw.ath.anical: 100
+hw.ath.resetcal: 1200
+hw.ath.shortcal: 100
+hw.ath.longcal: 30
+hw.ata.ata_dma_check_80pin: 1
+hw.an.an_cache_iponly: 1
+hw.an.an_cache_mcastonly: 0
+hw.an.an_cache_mode: dbm
+hw.an.an_dump: off
+hw.amr.force_sg32: 0
+hw.aac.enable_msi: 1
+machdep.tsc_freq: 2394615088
+machdep.disable_tsc_calibration: 0
+machdep.disable_tsc: 0
+machdep.disable_msix_migration: 0
+machdep.num_msi_irqs: 512
+machdep.hyperthreading_allowed: 1
+machdep.disable_mtrrs: 0
+machdep.kdb_on_nmi: 1
+machdep.nmi_is_broadcast: 1
+machdep.panic_on_nmi: 1
+machdep.idle: acpi
+machdep.idle_available: spin, mwait, hlt, acpi
+machdep.idle_apl31: 0
+machdep.idle_mwait: 1
+machdep.i8254_freq: 1193182
+machdep.acpi_root: 984144
+machdep.vga_aspect_scale: 100
+machdep.acpi_timer_freq: 3579545
+machdep.syscall_ret_flush_l1d: 0
+machdep.nmi_flush_l1d_sw: 1
+machdep.uprintf_signal: 0
+machdep.prot_fault_translation: 0
+machdep.max_ldt_segment: 512
+machdep.nkpt: 53
+machdep.dump_retry_count: 5
+machdep.smap: 
+SMAP type=01, xattr=01, base=0000000000000000, len=000000000009d800
+SMAP type=02, xattr=01, base=000000000009d800, len=0000000000002800
+SMAP type=02, xattr=01, base=00000000000e0000, len=0000000000020000
+SMAP type=01, xattr=01, base=0000000000100000, len=000000001ff00000
+SMAP type=02, xattr=01, base=0000000020000000, len=0000000000200000
+SMAP type=01, xattr=01, base=0000000020200000, len=000000001fe04000
+SMAP type=02, xattr=01, base=0000000040004000, len=0000000000001000
+SMAP type=01, xattr=01, base=0000000040005000, len=0000000099e87000
+SMAP type=02, xattr=01, base=00000000d9e8c000, len=00000000005e1000
+SMAP type=04, xattr=01, base=00000000da46d000, len=0000000000280000
+SMAP type=03, xattr=01, base=00000000da6ed000, len=0000000000005000
+SMAP type=04, xattr=01, base=00000000da6f2000, len=0000000000043000
+SMAP type=01, xattr=01, base=00000000da735000, len=0000000000690000
+SMAP type=02, xattr=01, base=00000000dadc5000, len=000000000022f000
+SMAP type=01, xattr=01, base=00000000daff4000, len=000000000000c000
+SMAP type=01, xattr=01, base=0000000100000000, len=000000009f600000
+SMAP type=02, xattr=01, base=00000000db800000, len=0000000004200000
+SMAP type=02, xattr=01, base=00000000f8000000, len=0000000004000000
+SMAP type=02, xattr=01, base=00000000fec00000, len=0000000000001000
+SMAP type=02, xattr=01, base=00000000fed00000, len=0000000000004000
+SMAP type=02, xattr=01, base=00000000fed1c000, len=0000000000004000
+SMAP type=02, xattr=01, base=00000000fee00000, len=0000000000001000
+SMAP type=02, xattr=01, base=00000000ff000000, len=0000000001000000
+machdep.bootmethod: BIOS
+machdep.disable_rtc_set: 0
+machdep.wall_cmos_clock: 1
+machdep.adjkerntz: 14400
+machdep.rtc_save_period: 1800
+machdep.enable_panic_key: 0
+machdep.efi_rt_handle_faults: 1
+user.cs_path: /usr/bin:/bin:/usr/sbin:/sbin
+user.bc_base_max: 99
+user.bc_dim_max: 2048
+user.bc_scale_max: 99
+user.bc_string_max: 1000
+user.coll_weights_max: 10
+user.expr_nest_max: 32
+user.line_max: 2048
+user.re_dup_max: 255
+user.posix2_version: 199212
+user.posix2_c_bind: 0
+user.posix2_c_dev: 0
+user.posix2_char_term: 0
+user.posix2_fort_dev: 0
+user.posix2_fort_run: 0
+user.posix2_localedef: 0
+user.posix2_sw_dev: 0
+user.posix2_upe: 0
+user.stream_max: 20
+user.tzname_max: 255
+p1003_1b.asynchronous_io: 200112
+p1003_1b.mapped_files: 200112
+p1003_1b.memlock: 0
+p1003_1b.memlock_range: 0
+p1003_1b.memory_protection: 0
+p1003_1b.message_passing: 0
+p1003_1b.prioritized_io: 0
+p1003_1b.priority_scheduling: 200112
+p1003_1b.realtime_signals: 200112
+p1003_1b.semaphores: 0
+p1003_1b.fsync: 200112
+p1003_1b.shared_memory_objects: 200112
+p1003_1b.synchronized_io: 0
+p1003_1b.timers: 200112
+p1003_1b.aio_listio_max: 256
+p1003_1b.aio_max: 1024
+p1003_1b.aio_prio_delta_max: 0
+p1003_1b.delaytimer_max: 2147483647
+p1003_1b.mq_open_max: 0
+p1003_1b.pagesize: 4096
+p1003_1b.rtsig_max: 62
+p1003_1b.sem_nsems_max: 0
+p1003_1b.sem_value_max: 0
+p1003_1b.sigqueue_max: 128
+p1003_1b.timer_max: 32
+kstat.zfs.misc.vdev_cache_stats.misses: 0
+kstat.zfs.misc.vdev_cache_stats.hits: 0
+kstat.zfs.misc.vdev_cache_stats.delegations: 0
+kstat.zfs.misc.arcstats.demand_hit_prescient_prefetch: 0
+kstat.zfs.misc.arcstats.demand_hit_predictive_prefetch: 0
+kstat.zfs.misc.arcstats.async_upgrade_sync: 0
+kstat.zfs.misc.arcstats.arc_meta_min: 315378432
+kstat.zfs.misc.arcstats.arc_meta_max: 0
+kstat.zfs.misc.arcstats.arc_dnode_limit: 126151372
+kstat.zfs.misc.arcstats.arc_meta_limit: 1261513728
+kstat.zfs.misc.arcstats.arc_meta_used: 0
+kstat.zfs.misc.arcstats.arc_prune: 0
+kstat.zfs.misc.arcstats.arc_loaned_bytes: 0
+kstat.zfs.misc.arcstats.arc_tempreserve: 0
+kstat.zfs.misc.arcstats.arc_no_grow: 0
+kstat.zfs.misc.arcstats.memory_available_bytes: 0
+kstat.zfs.misc.arcstats.memory_free_bytes: 0
+kstat.zfs.misc.arcstats.memory_all_bytes: 0
+kstat.zfs.misc.arcstats.memory_indirect_count: 0
+kstat.zfs.misc.arcstats.memory_direct_count: 0
+kstat.zfs.misc.arcstats.memory_throttle_count: 0
+kstat.zfs.misc.arcstats.l2_write_buffer_list_null_iter: 0
+kstat.zfs.misc.arcstats.l2_write_buffer_list_iter: 0
+kstat.zfs.misc.arcstats.l2_write_buffer_bytes_scanned: 0
+kstat.zfs.misc.arcstats.l2_write_pios: 0
+kstat.zfs.misc.arcstats.l2_write_buffer_iter: 0
+kstat.zfs.misc.arcstats.l2_write_full: 0
+kstat.zfs.misc.arcstats.l2_write_not_cacheable: 0
+kstat.zfs.misc.arcstats.l2_write_io_in_progress: 0
+kstat.zfs.misc.arcstats.l2_write_in_l2: 0
+kstat.zfs.misc.arcstats.l2_write_spa_mismatch: 0
+kstat.zfs.misc.arcstats.l2_write_passed_headroom: 0
+kstat.zfs.misc.arcstats.l2_write_trylock_fail: 0
+kstat.zfs.misc.arcstats.l2_hdr_size: 0
+kstat.zfs.misc.arcstats.l2_asize: 0
+kstat.zfs.misc.arcstats.l2_size: 0
+kstat.zfs.misc.arcstats.l2_io_error: 0
+kstat.zfs.misc.arcstats.l2_cksum_bad: 0
+kstat.zfs.misc.arcstats.l2_abort_lowmem: 0
+kstat.zfs.misc.arcstats.l2_free_on_write: 0
+kstat.zfs.misc.arcstats.l2_evict_l1cached: 0
+kstat.zfs.misc.arcstats.l2_evict_reading: 0
+kstat.zfs.misc.arcstats.l2_evict_lock_retry: 0
+kstat.zfs.misc.arcstats.l2_writes_lock_retry: 0
+kstat.zfs.misc.arcstats.l2_writes_error: 0
+kstat.zfs.misc.arcstats.l2_writes_done: 0
+kstat.zfs.misc.arcstats.l2_writes_sent: 0
+kstat.zfs.misc.arcstats.l2_write_bytes: 0
+kstat.zfs.misc.arcstats.l2_read_bytes: 0
+kstat.zfs.misc.arcstats.l2_rw_clash: 0
+kstat.zfs.misc.arcstats.l2_feeds: 0
+kstat.zfs.misc.arcstats.l2_misses: 0
+kstat.zfs.misc.arcstats.l2_hits: 0
+kstat.zfs.misc.arcstats.mfu_ghost_evictable_metadata: 0
+kstat.zfs.misc.arcstats.mfu_ghost_evictable_data: 0
+kstat.zfs.misc.arcstats.mfu_ghost_size: 0
+kstat.zfs.misc.arcstats.mfu_evictable_metadata: 0
+kstat.zfs.misc.arcstats.mfu_evictable_data: 0
+kstat.zfs.misc.arcstats.mfu_size: 0
+kstat.zfs.misc.arcstats.mru_ghost_evictable_metadata: 0
+kstat.zfs.misc.arcstats.mru_ghost_evictable_data: 0
+kstat.zfs.misc.arcstats.mru_ghost_size: 0
+kstat.zfs.misc.arcstats.mru_evictable_metadata: 0
+kstat.zfs.misc.arcstats.mru_evictable_data: 0
+kstat.zfs.misc.arcstats.mru_size: 0
+kstat.zfs.misc.arcstats.anon_evictable_metadata: 0
+kstat.zfs.misc.arcstats.anon_evictable_data: 0
+kstat.zfs.misc.arcstats.anon_size: 0
+kstat.zfs.misc.arcstats.other_size: 0
+kstat.zfs.misc.arcstats.bonus_size: 0
+kstat.zfs.misc.arcstats.dnode_size: 0
+kstat.zfs.misc.arcstats.dbuf_size: 0
+kstat.zfs.misc.arcstats.metadata_size: 0
+kstat.zfs.misc.arcstats.data_size: 0
+kstat.zfs.misc.arcstats.hdr_size: 0
+kstat.zfs.misc.arcstats.overhead_size: 0
+kstat.zfs.misc.arcstats.uncompressed_size: 0
+kstat.zfs.misc.arcstats.compressed_size: 0
+kstat.zfs.misc.arcstats.size: 0
+kstat.zfs.misc.arcstats.c_max: 5046054912
+kstat.zfs.misc.arcstats.c_min: 630756864
+kstat.zfs.misc.arcstats.c: 5046054912
+kstat.zfs.misc.arcstats.p: 2523027456
+kstat.zfs.misc.arcstats.hash_chain_max: 0
+kstat.zfs.misc.arcstats.hash_chains: 0
+kstat.zfs.misc.arcstats.hash_collisions: 0
+kstat.zfs.misc.arcstats.hash_elements_max: 0
+kstat.zfs.misc.arcstats.hash_elements: 0
+kstat.zfs.misc.arcstats.evict_l2_skip: 0
+kstat.zfs.misc.arcstats.evict_l2_ineligible: 0
+kstat.zfs.misc.arcstats.evict_l2_eligible: 0
+kstat.zfs.misc.arcstats.evict_l2_cached: 0
+kstat.zfs.misc.arcstats.evict_not_enough: 0
+kstat.zfs.misc.arcstats.evict_skip: 0
+kstat.zfs.misc.arcstats.access_skip: 0
+kstat.zfs.misc.arcstats.mutex_miss: 0
+kstat.zfs.misc.arcstats.deleted: 0
+kstat.zfs.misc.arcstats.allocated: 0
+kstat.zfs.misc.arcstats.mfu_ghost_hits: 0
+kstat.zfs.misc.arcstats.mfu_hits: 0
+kstat.zfs.misc.arcstats.mru_ghost_hits: 0
+kstat.zfs.misc.arcstats.mru_hits: 0
+kstat.zfs.misc.arcstats.prefetch_metadata_misses: 0
+kstat.zfs.misc.arcstats.prefetch_metadata_hits: 0
+kstat.zfs.misc.arcstats.prefetch_data_misses: 0
+kstat.zfs.misc.arcstats.prefetch_data_hits: 0
+kstat.zfs.misc.arcstats.demand_metadata_misses: 0
+kstat.zfs.misc.arcstats.demand_metadata_hits: 0
+kstat.zfs.misc.arcstats.demand_data_misses: 0
+kstat.zfs.misc.arcstats.demand_data_hits: 0
+kstat.zfs.misc.arcstats.misses: 0
+kstat.zfs.misc.arcstats.hits: 0
+kstat.zfs.misc.zcompstats.skipped_insufficient_gain: 0
+kstat.zfs.misc.zcompstats.empty: 0
+kstat.zfs.misc.zcompstats.attempts: 0
+kstat.zfs.misc.zfetchstats.max_streams: 0
+kstat.zfs.misc.zfetchstats.misses: 0
+kstat.zfs.misc.zfetchstats.hits: 0
+kstat.zfs.misc.xuio_stats.write_buf_nocopy: 0
+kstat.zfs.misc.xuio_stats.write_buf_copied: 0
+kstat.zfs.misc.xuio_stats.read_buf_nocopy: 0
+kstat.zfs.misc.xuio_stats.read_buf_copied: 0
+kstat.zfs.misc.xuio_stats.onloan_write_buf: 0
+kstat.zfs.misc.xuio_stats.onloan_read_buf: 0
+kstat.zfs.misc.abdstats.linear_data_size: 0
+kstat.zfs.misc.abdstats.linear_cnt: 0
+kstat.zfs.misc.abdstats.scatter_chunk_waste: 0
+kstat.zfs.misc.abdstats.scatter_data_size: 0
+kstat.zfs.misc.abdstats.scatter_cnt: 0
+kstat.zfs.misc.abdstats.struct_size: 0
+kstat.zfs.misc.zio_trim.failed: 0
+kstat.zfs.misc.zio_trim.unsupported: 0
+kstat.zfs.misc.zio_trim.success: 0
+kstat.zfs.misc.zio_trim.bytes: 0
+sys.class.drm.card0-DP-1.modes: 
+sys.class.drm.card0-DP-1.dpms: Off
+sys.class.drm.card0-DP-1.enabled: disabled
+sys.class.drm.card0-HDMI-A-1.modes: 1360x768
+1920x1080
+1920x1080
+1920x1080i
+1920x1080i
+1920x1080
+1920x1080i
+1280x1024
+1280x720
+1280x720
+1280x720
+1280x720
+1280x720
+1024x768
+800x600
+800x600
+800x600
+720x576
+720x480
+720x480
+640x480
+640x480
+640x480
+sys.class.drm.card0-HDMI-A-1.dpms: On
+sys.class.drm.card0-HDMI-A-1.enabled: enabled
+sys.class.drm.card0-VGA-1.modes: 
+sys.class.drm.card0-VGA-1.dpms: Off
+sys.class.drm.card0-VGA-1.enabled: disabled
+sys.class.drm.card0-LVDS-1.modes: 1366x768
+sys.class.drm.card0-LVDS-1.dpms: On
+sys.class.drm.card0-LVDS-1.enabled: enabled
+sys.class.drm.version: drm 1.1.0 20060810
+hptmv.status: RocketRAID 18xx SATA Controller driver Version v1.16
+
+dev.ums.0.parseinfo: i1: X:r0, p8, s12; Y:r0, p20, s12; Z:r0, p32, s8; B1:r0, p0, s1; B2:r0, p1, s1; B3:r0, p2, s1;
+dev.ums.0.%parent: uhub0
+dev.ums.0.%pnpinfo: vendor=0x0461 product=0x4dfb devclass=0x00 devsubclass=0x00 devproto=0x00 sernum="" release=0x0200 mode=host intclass=0x03 intsubclass=0x01 intprotocol=0x02
+dev.ums.0.%location: bus=0 hubaddr=1 port=2 devaddr=2 interface=0 ugen=ugen0.2
+dev.ums.0.%driver: ums
+dev.ums.0.%desc: vendor 0x0461 USB Optical Mouse, class 0/0, rev 2.00/2.00, addr 1
+dev.ums.%parent: 
+dev.uhid.0.%parent: uhub0
+dev.uhid.0.%pnpinfo: vendor=0x04f3 product=0x0103 devclass=0x00 devsubclass=0x00 devproto=0x00 sernum="" release=0x0107 mode=host intclass=0x03 intsubclass=0x00 intprotocol=0x00
+dev.uhid.0.%location: bus=0 hubaddr=1 port=1 devaddr=3 interface=1 ugen=ugen0.3
+dev.uhid.0.%driver: uhid
+dev.uhid.0.%desc: vendor 0x04f3 product 0x0103, class 0/0, rev 1.10/1.07, addr 2
+dev.uhid.%parent: 
+dev.drmn.0.%parent: vgapci0
+dev.drmn.0.%pnpinfo: 
+dev.drmn.0.%location: 
+dev.drmn.0.%driver: drmn
+dev.drmn.0.%desc: drmn
+dev.drmn.%parent: 
+dev.drm.0.PCI_ID: 8086:166
+dev.drm.128.PCI_ID: 8086:166
+dev.drm.always_interruptible: 0
+dev.drm.error_panic: 0
+dev.drm.drm_debug_persist: 0
+dev.drm.skip_ddb: 0
+dev.drm.drm_debug: 0
+dev.ukbd.0.%parent: uhub0
+dev.ukbd.0.%pnpinfo: vendor=0x04f3 product=0x0103 devclass=0x00 devsubclass=0x00 devproto=0x00 sernum="" release=0x0107 mode=host intclass=0x03 intsubclass=0x01 intprotocol=0x01
+dev.ukbd.0.%location: bus=0 hubaddr=1 port=1 devaddr=3 interface=0 ugen=ugen0.3
+dev.ukbd.0.%driver: ukbd
+dev.ukbd.0.%desc: vendor 0x04f3 product 0x0103, class 0/0, rev 1.10/1.07, addr 2
+dev.ukbd.%parent: 
+dev.uhub.4.disable_port_power: 0
+dev.uhub.4.disable_enumeration: 0
+dev.uhub.4.%parent: uhub2
+dev.uhub.4.%pnpinfo: vendor=0x8087 product=0x0024 devclass=0x09 devsubclass=0x00 devproto=0x01 sernum="" release=0x0000 mode=host intclass=0x09 intsubclass=0x00 intprotocol=0x00
+dev.uhub.4.%location: bus=1 hubaddr=1 port=1 devaddr=2 interface=0 ugen=ugen1.2
+dev.uhub.4.%driver: uhub
+dev.uhub.4.%desc: vendor 0x8087 product 0x0024, class 9/0, rev 2.00/0.00, addr 2
+dev.uhub.3.disable_port_power: 0
+dev.uhub.3.disable_enumeration: 0
+dev.uhub.3.%parent: uhub1
+dev.uhub.3.%pnpinfo: vendor=0x8087 product=0x0024 devclass=0x09 devsubclass=0x00 devproto=0x01 sernum="" release=0x0000 mode=host intclass=0x09 intsubclass=0x00 intprotocol=0x00
+dev.uhub.3.%location: bus=2 hubaddr=1 port=1 devaddr=2 interface=0 ugen=ugen2.2
+dev.uhub.3.%driver: uhub
+dev.uhub.3.%desc: vendor 0x8087 product 0x0024, class 9/0, rev 2.00/0.00, addr 2
+dev.uhub.2.disable_port_power: 0
+dev.uhub.2.disable_enumeration: 0
+dev.uhub.2.%parent: usbus1
+dev.uhub.2.%pnpinfo: 
+dev.uhub.2.%location: 
+dev.uhub.2.%driver: uhub
+dev.uhub.2.%desc: Intel EHCI root HUB, class 9/0, rev 2.00/1.00, addr 1
+dev.uhub.1.disable_port_power: 0
+dev.uhub.1.disable_enumeration: 0
+dev.uhub.1.%parent: usbus2
+dev.uhub.1.%pnpinfo: 
+dev.uhub.1.%location: 
+dev.uhub.1.%driver: uhub
+dev.uhub.1.%desc: Intel EHCI root HUB, class 9/0, rev 2.00/1.00, addr 1
+dev.uhub.0.disable_port_power: 0
+dev.uhub.0.disable_enumeration: 0
+dev.uhub.0.%parent: usbus0
+dev.uhub.0.%pnpinfo: 
+dev.uhub.0.%location: 
+dev.uhub.0.%driver: uhub
+dev.uhub.0.%desc: 0x8086 XHCI root HUB, class 9/0, rev 3.00/1.00, addr 1
+dev.uhub.%parent: 
+dev.pcm.2.bitperfect: 0
+dev.pcm.2.buffersize: 65536
+dev.pcm.2.play.vchanformat: s16le:2.0
+dev.pcm.2.play.vchanrate: 48000
+dev.pcm.2.play.vchanmode: passthrough
+dev.pcm.2.play.vchans: 2
+dev.pcm.2.play.32bit: 24
+dev.pcm.2.%parent: hdaa1
+dev.pcm.2.%pnpinfo: 
+dev.pcm.2.%location: nid=7
+dev.pcm.2.%driver: pcm
+dev.pcm.2.%desc: Intel Panther Point (HDMI/DP 8ch)
+dev.pcm.1.bitperfect: 0
+dev.pcm.1.buffersize: 65536
+dev.pcm.1.play.vchanformat: s16le:2.0
+dev.pcm.1.play.vchanrate: 48000
+dev.pcm.1.play.vchanmode: fixed
+dev.pcm.1.play.vchans: 1
+dev.pcm.1.play.32bit: 24
+dev.pcm.1.%parent: hdaa0
+dev.pcm.1.%pnpinfo: 
+dev.pcm.1.%location: nid=33
+dev.pcm.1.%driver: pcm
+dev.pcm.1.%desc: Realtek ALC269 (Rear Analog Headphones)
+dev.pcm.0.bitperfect: 0
+dev.pcm.0.buffersize: 65536
+dev.pcm.0.rec.vchanformat: s16le:2.0
+dev.pcm.0.rec.vchanrate: 48000
+dev.pcm.0.rec.vchanmode: fixed
+dev.pcm.0.rec.vchans: 1
+dev.pcm.0.rec.autosrc: 2
+dev.pcm.0.rec.32bit: 24
+dev.pcm.0.play.vchanformat: s16le:2.0
+dev.pcm.0.play.vchanrate: 48000
+dev.pcm.0.play.vchanmode: fixed
+dev.pcm.0.play.vchans: 1
+dev.pcm.0.play.32bit: 24
+dev.pcm.0.%parent: hdaa0
+dev.pcm.0.%pnpinfo: 
+dev.pcm.0.%location: nid=20,24,25
+dev.pcm.0.%driver: pcm
+dev.pcm.0.%desc: Realtek ALC269 (Analog)
+dev.pcm.%parent: 
+dev.hdaa.1.reconfig: 0
+dev.hdaa.1.gpo_config: 
+dev.hdaa.1.gpo_state: 
+dev.hdaa.1.gpio_config: 
+dev.hdaa.1.gpio_state: 
+dev.hdaa.1.gpi_state: 
+dev.hdaa.1.config: forcestereo,ivref50,ivref80,ivref100,ivref,vref
+dev.hdaa.1.nid8: vendor widget [DISABLED]
+     Widget cap: 0x00f00000
+
+dev.hdaa.1.nid7_original: 0x18560030 as=3 seq=0 device=Digital-out conn=Jack ctype=Digital loc=0x18 color=Unknown misc=0
+dev.hdaa.1.nid7_config: 0x18560030 as=3 seq=0 device=Digital-out conn=Jack ctype=Digital loc=0x18 color=Unknown misc=0
+dev.hdaa.1.nid7: pin: Digital-out (Jack)
+     Widget cap: 0x0040778d PWR DIGITAL UNSOL 8CH
+    Association: 0 (0x0001)
+        Pin cap: 0x09000094 PDC OUT HDMI DP HBR
+     Pin config: 0x18560030 as=3 seq=0 device=Digital-out conn=Jack ctype=Digital loc=0x18 color=Unknown misc=0
+    Pin control: 0x00000040 OUT
+     Output amp: 0x80000000 mute=1 step=0 size=0 offset=0 (0/0dB)
+    Connections: 1
+          + <- nid=4 [audio output]
+
+dev.hdaa.1.nid6_original: 0x58560020 as=2 seq=0 device=Digital-out conn=None ctype=Digital loc=0x18 color=Unknown misc=0
+dev.hdaa.1.nid6_config: 0x58560020 as=2 seq=0 device=Digital-out conn=None ctype=Digital loc=0x18 color=Unknown misc=0
+dev.hdaa.1.nid6: pin: Digital-out (None) [DISABLED]
+     Widget cap: 0x0040778d PWR DIGITAL UNSOL 8CH
+        Pin cap: 0x09000094 PDC OUT HDMI DP HBR
+     Pin config: 0x58560020 as=2 seq=0 device=Digital-out conn=None ctype=Digital loc=0x18 color=Unknown misc=0
+    Pin control: 0x00000000
+     Output amp: 0x80000000 mute=1 step=0 size=0 offset=0 (0/0dB)
+    Connections: 1
+          + [DISABLED] <- nid=3 [audio output] [DISABLED]
+
+dev.hdaa.1.nid5_original: 0x58560010 as=1 seq=0 device=Digital-out conn=None ctype=Digital loc=0x18 color=Unknown misc=0
+dev.hdaa.1.nid5_config: 0x58560010 as=1 seq=0 device=Digital-out conn=None ctype=Digital loc=0x18 color=Unknown misc=0
+dev.hdaa.1.nid5: pin: Digital-out (None) [DISABLED]
+     Widget cap: 0x0040778d PWR DIGITAL UNSOL 8CH
+        Pin cap: 0x09000094 PDC OUT HDMI DP HBR
+     Pin config: 0x58560010 as=1 seq=0 device=Digital-out conn=None ctype=Digital loc=0x18 color=Unknown misc=0
+    Pin control: 0x00000000
+     Output amp: 0x80000000 mute=1 step=0 size=0 offset=0 (0/0dB)
+    Connections: 1
+          + [DISABLED] <- nid=2 [audio output] [DISABLED]
+
+dev.hdaa.1.nid4: audio output
+     Widget cap: 0x00006611 PWR DIGITAL 8CH
+    Association: 0 (0x0001)
+            OSS: pcm (pcm)
+     Stream cap: 0x00000005 AC3 PCM
+        PCM cap: 0x001e07f0 16 20 24 32 bits, 32 44 48 88 96 176 192 KHz
+
+dev.hdaa.1.nid3: audio output [DISABLED]
+     Widget cap: 0x00006611 PWR DIGITAL 8CH
+     Stream cap: 0x00000005 AC3 PCM
+        PCM cap: 0x001e07f0 16 20 24 32 bits, 32 44 48 88 96 176 192 KHz
+
+dev.hdaa.1.nid2: audio output [DISABLED]
+     Widget cap: 0x00006611 PWR DIGITAL 8CH
+     Stream cap: 0x00000005 AC3 PCM
+        PCM cap: 0x001e07f0 16 20 24 32 bits, 32 44 48 88 96 176 192 KHz
+
+dev.hdaa.1.%parent: hdacc1
+dev.hdaa.1.%pnpinfo: type=0x01 subsystem=0x80860101
+dev.hdaa.1.%location: nid=1
+dev.hdaa.1.%driver: hdaa
+dev.hdaa.1.%desc: Intel Panther Point Audio Function Group
+dev.hdaa.0.reconfig: 0
+dev.hdaa.0.gpo_config: 
+dev.hdaa.0.gpo_state: 
+dev.hdaa.0.gpio_config: 0=keep 1=keep
+dev.hdaa.0.gpio_state: 0=disabled 1=disabled
+dev.hdaa.0.gpi_state: 
+dev.hdaa.0.config: forcestereo,ivref50,ivref80,ivref100,ivref,vref
+dev.hdaa.0.nid35: audio mixer
+     Widget cap: 0x0020010b STEREO
+    Association: 2 (0x8001)
+            OSS: speaker, mic, mix, monitor
+      Input amp: 0x80000000 mute=1 step=0 size=0 offset=0 (0/0dB)
+    Connections: 6
+          + <- nid=24 [pin: Mic (Black Jack)]
+          + <- nid=25 [pin: Mic (Fixed)]
+          + [DISABLED] <- nid=26 [pin: Speaker (None)] [DISABLED]
+          + [DISABLED] <- nid=27 [pin: Speaker (None)] [DISABLED]
+          + <- nid=29 [beep widget]
+          + <- nid=11 [audio mixer]
+
+dev.hdaa.0.nid34: audio selector [DISABLED]
+     Widget cap: 0x0030010b STEREO
+    Connections: 7
+          + <- nid=24 [pin: Mic (Black Jack)] (selected)
+          + <- nid=25 [pin: Mic (Fixed)]
+          + [DISABLED] <- nid=26 [pin: Speaker (None)] [DISABLED]
+          + [DISABLED] <- nid=27 [pin: Speaker (None)] [DISABLED]
+          + <- nid=29 [beep widget]
+          + <- nid=11 [audio mixer]
+          + [DISABLED] <- nid=18 [pin: Speaker (None)] [DISABLED]
+
+dev.hdaa.0.nid33_original: 0x01211020 as=2 seq=0 device=Headphones conn=Jack ctype=1/8 loc=Rear color=Black misc=0
+dev.hdaa.0.nid33_config: 0x01211020 as=2 seq=0 device=Headphones conn=Jack ctype=1/8 loc=Rear color=Black misc=0
+dev.hdaa.0.nid33: pin: Headphones (Black Jack)
+     Widget cap: 0x0040018d UNSOL STEREO
+    Association: 1 (0x0001)
+        Pin cap: 0x0000001c PDC HP OUT
+     Pin config: 0x01211020 as=2 seq=0 device=Headphones conn=Jack ctype=1/8 loc=Rear color=Black misc=0
+    Pin control: 0x000000c0 HP OUT
+     Output amp: 0x80000000 mute=1 step=0 size=0 offset=0 (0/0dB)
+    Connections: 2
+          + [DISABLED] <- nid=12 [audio mixer]
+          + <- nid=13 [audio mixer] (selected)
+
+dev.hdaa.0.nid32: vendor widget [DISABLED]
+     Widget cap: 0x00f00040 PROC
+
+dev.hdaa.0.nid31: vendor widget [DISABLED]
+     Widget cap: 0x00f00000
+
+dev.hdaa.0.nid30_original: 0x411111f0 as=15 seq=0 device=Speaker conn=None ctype=1/8 loc=Rear color=Black misc=1
+dev.hdaa.0.nid30_config: 0x411111f0 as=15 seq=0 device=Speaker conn=None ctype=1/8 loc=Rear color=Black misc=1
+dev.hdaa.0.nid30: pin: Speaker (None) [DISABLED]
+     Widget cap: 0x00400381 DIGITAL UNSOL STEREO
+        Pin cap: 0x00000014 PDC OUT
+     Pin config: 0x411111f0 as=15 seq=0 device=Speaker conn=None ctype=1/8 loc=Rear color=Black misc=1
+    Pin control: 0x00000000
+    Connections: 1
+          + <- nid=6 [audio output] [DISABLED]
+
+dev.hdaa.0.nid29_original: 0x40079a2d as=2 seq=13 device=Line-out conn=None ctype=Analog loc=0x00 color=Pink misc=10
+dev.hdaa.0.nid29_config: 0x40079a2d as=2 seq=13 device=Line-out conn=None ctype=Analog loc=0x00 color=Pink misc=10
+dev.hdaa.0.nid29: beep widget
+     Widget cap: 0x00700000
+    Association: -2 (0x0000)
+            OSS: speaker (speaker)
+        Pin cap: 0x00000020 IN
+     Pin config: 0x40079a2d as=2 seq=13 device=Line-out conn=None ctype=Analog loc=0x00 color=Pink misc=10
+    Pin control: 0x00000020 IN
+
+dev.hdaa.0.nid28: vendor widget [DISABLED]
+     Widget cap: 0x00f00000
+
+dev.hdaa.0.nid27_original: 0x411111f0 as=15 seq=0 device=Speaker conn=None ctype=1/8 loc=Rear color=Black misc=1
+dev.hdaa.0.nid27_config: 0x411111f0 as=15 seq=0 device=Speaker conn=None ctype=1/8 loc=Rear color=Black misc=1
+dev.hdaa.0.nid27: pin: Speaker (None) [DISABLED]
+     Widget cap: 0x0040018f UNSOL STEREO
+        Pin cap: 0x00000034 PDC OUT IN
+     Pin config: 0x411111f0 as=15 seq=0 device=Speaker conn=None ctype=1/8 loc=Rear color=Black misc=1
+    Pin control: 0x00000000
+     Output amp: 0x80000000 mute=1 step=0 size=0 offset=0 (0/0dB)
+      Input amp: 0x002f0300 mute=0 step=3 size=47 offset=0 (0/36dB)
+    Connections: 2
+          + [DISABLED] <- nid=12 [audio mixer] (selected)
+          + <- nid=13 [audio mixer]
+
+dev.hdaa.0.nid26_original: 0x411111f0 as=15 seq=0 device=Speaker conn=None ctype=1/8 loc=Rear color=Black misc=1
+dev.hdaa.0.nid26_config: 0x411111f0 as=15 seq=0 device=Speaker conn=None ctype=1/8 loc=Rear color=Black misc=1
+dev.hdaa.0.nid26: pin: Speaker (None) [DISABLED]
+     Widget cap: 0x0040018f UNSOL STEREO
+        Pin cap: 0x0000003c PDC HP OUT IN
+     Pin config: 0x411111f0 as=15 seq=0 device=Speaker conn=None ctype=1/8 loc=Rear color=Black misc=1
+    Pin control: 0x00000000
+     Output amp: 0x80000000 mute=1 step=0 size=0 offset=0 (0/0dB)
+      Input amp: 0x002f0300 mute=0 step=3 size=47 offset=0 (0/36dB)
+    Connections: 2
+          + [DISABLED] <- nid=12 [audio mixer] (selected)
+          + <- nid=13 [audio mixer]
+
+dev.hdaa.0.nid25_original: 0x90a7093f as=3 seq=15 device=Mic conn=Fixed ctype=Analog loc=Internal color=Unknown misc=9
+dev.hdaa.0.nid25_config: 0x90a7093f as=3 seq=15 device=Mic conn=Fixed ctype=Analog loc=Internal color=Unknown misc=9
+dev.hdaa.0.nid25: pin: Mic (Fixed)
+     Widget cap: 0x0040008b UNSOL STEREO
+    Association: 2 (0x8000)
+            OSS: monitor (monitor)
+        Pin cap: 0x00001724 PDC IN VREF[ 50 80 GROUND HIZ ]
+     Pin config: 0x90a7093f as=3 seq=15 device=Mic conn=Fixed ctype=Analog loc=Internal color=Unknown misc=9
+    Pin control: 0x00000024 IN VREFs
+      Input amp: 0x002f0300 mute=0 step=3 size=47 offset=0 (0/36dB)
+
+dev.hdaa.0.nid24_original: 0x01a11c30 as=3 seq=0 device=Mic conn=Jack ctype=1/8 loc=Rear color=Black misc=12
+dev.hdaa.0.nid24_config: 0x01a11c30 as=3 seq=0 device=Mic conn=Jack ctype=1/8 loc=Rear color=Black misc=12
+dev.hdaa.0.nid24: pin: Mic (Black Jack)
+     Widget cap: 0x0040018f UNSOL STEREO
+    Association: 2 (0x0001)
+            OSS: mic (mic)
+        Pin cap: 0x00001734 PDC OUT IN VREF[ 50 80 GROUND HIZ ]
+     Pin config: 0x01a11c30 as=3 seq=0 device=Mic conn=Jack ctype=1/8 loc=Rear color=Black misc=12
+    Pin control: 0x00000024 IN VREFs
+     Output amp: 0x80000000 mute=1 step=0 size=0 offset=0 (0/0dB)
+      Input amp: 0x002f0300 mute=0 step=3 size=47 offset=0 (0/36dB)
+    Connections: 1
+          + [DISABLED] <- nid=13 [audio mixer]
+
+dev.hdaa.0.nid23_original: 0x411111f0 as=15 seq=0 device=Speaker conn=None ctype=1/8 loc=Rear color=Black misc=1
+dev.hdaa.0.nid23_config: 0x411111f0 as=15 seq=0 device=Speaker conn=None ctype=1/8 loc=Rear color=Black misc=1
+dev.hdaa.0.nid23: pin: Speaker (None) [DISABLED]
+     Widget cap: 0x0040010c
+        Pin cap: 0x00000010 OUT
+     Pin config: 0x411111f0 as=15 seq=0 device=Speaker conn=None ctype=1/8 loc=Rear color=Black misc=1
+    Pin control: 0x00000000
+     Output amp: 0x80000000 mute=1 step=0 size=0 offset=0 (0/0dB)
+    Connections: 1
+          + [DISABLED] <- nid=15 [audio mixer] [DISABLED]
+
+dev.hdaa.0.nid22: vendor widget [DISABLED]
+     Widget cap: 0x00f00000
+
+dev.hdaa.0.nid21: vendor widget [DISABLED]
+     Widget cap: 0x00f00000
+
+dev.hdaa.0.nid20_original: 0x90170110 as=1 seq=0 device=Speaker conn=Fixed ctype=Analog loc=Internal color=Unknown misc=1
+dev.hdaa.0.nid20_config: 0x90170110 as=1 seq=0 device=Speaker conn=Fixed ctype=Analog loc=Internal color=Unknown misc=1
+dev.hdaa.0.nid20: pin: Speaker (Fixed)
+     Widget cap: 0x0040018d UNSOL STEREO
+    Association: 0 (0x0001)
+        Pin cap: 0x00010014 PDC OUT EAPD
+     Pin config: 0x90170110 as=1 seq=0 device=Speaker conn=Fixed ctype=Analog loc=Internal color=Unknown misc=1
+    Pin control: 0x00000040 OUT
+           EAPD: 0x00000002 EAPD
+     Output amp: 0x80000000 mute=1 step=0 size=0 offset=0 (0/0dB)
+    Connections: 2
+          + <- nid=12 [audio mixer] (selected)
+          + [DISABLED] <- nid=13 [audio mixer]
+
+dev.hdaa.0.nid19: vendor widget [DISABLED]
+     Widget cap: 0x00f00000
+
+dev.hdaa.0.nid18_original: 0x411111f0 as=15 seq=0 device=Speaker conn=None ctype=1/8 loc=Rear color=Black misc=1
+dev.hdaa.0.nid18_config: 0x411111f0 as=15 seq=0 device=Speaker conn=None ctype=1/8 loc=Rear color=Black misc=1
+dev.hdaa.0.nid18: pin: Speaker (None) [DISABLED]
+     Widget cap: 0x0040000b STEREO
+        Pin cap: 0x00000020 IN
+     Pin config: 0x411111f0 as=15 seq=0 device=Speaker conn=None ctype=1/8 loc=Rear color=Black misc=1
+    Pin control: 0x00000000
+      Input amp: 0x002f0300 mute=0 step=3 size=47 offset=0 (0/36dB)
+
+dev.hdaa.0.nid17: vendor widget [DISABLED]
+     Widget cap: 0x00f00000
+
+dev.hdaa.0.nid16: vendor widget [DISABLED]
+     Widget cap: 0x00f00000
+
+dev.hdaa.0.nid15: audio mixer [DISABLED]
+     Widget cap: 0x0020010a
+      Input amp: 0x80000000 mute=1 step=0 size=0 offset=0 (0/0dB)
+    Connections: 2
+          + [DISABLED] <- nid=2 [audio output]
+          + [DISABLED] <- nid=11 [audio mixer]
+
+dev.hdaa.0.nid14: vendor widget [DISABLED]
+     Widget cap: 0x00f00000
+
+dev.hdaa.0.nid13: audio mixer
+     Widget cap: 0x0020010b STEREO
+    Association: 1 (0x0001)
+            OSS: pcm, mix
+      Input amp: 0x80000000 mute=1 step=0 size=0 offset=0 (0/0dB)
+    Connections: 2
+          + <- nid=3 [audio output]
+          + <- nid=11 [audio mixer]
+
+dev.hdaa.0.nid12: audio mixer
+     Widget cap: 0x0020010b STEREO
+    Association: 0 (0x0001)
+            OSS: pcm, mix
+      Input amp: 0x80000000 mute=1 step=0 size=0 offset=0 (0/0dB)
+    Connections: 2
+          + <- nid=2 [audio output]
+          + <- nid=11 [audio mixer]
+
+dev.hdaa.0.nid11: audio mixer
+     Widget cap: 0x0020010b STEREO
+    Association: 2 (0x8001)
+            OSS: mix (mix)
+      Input amp: 0x80051f17 mute=1 step=31 size=5 offset=23 (-34/12dB)
+    Connections: 5
+          + <- nid=24 [pin: Mic (Black Jack)]
+          + <- nid=25 [pin: Mic (Fixed)]
+          + [DISABLED] <- nid=26 [pin: Speaker (None)] [DISABLED]
+          + [DISABLED] <- nid=27 [pin: Speaker (None)] [DISABLED]
+          + <- nid=29 [beep widget]
+
+dev.hdaa.0.nid10: vendor widget [DISABLED]
+     Widget cap: 0x00f00000
+
+dev.hdaa.0.nid9: audio input [DISABLED]
+     Widget cap: 0x0010011b STEREO
+     Stream cap: 0x00000001 PCM
+        PCM cap: 0x000e0560 16 20 24 bits, 44 48 96 192 KHz
+      Input amp: 0x80051f0b mute=1 step=31 size=5 offset=11 (-16/30dB)
+    Connections: 1
+          + [DISABLED] <- nid=34 [audio selector] [DISABLED]
+
+dev.hdaa.0.nid8: audio input
+     Widget cap: 0x0010011b STEREO
+    Association: 2 (0x8001)
+     Stream cap: 0x00000001 PCM
+        PCM cap: 0x000e0560 16 20 24 bits, 44 48 96 192 KHz
+      Input amp: 0x80051f0b mute=1 step=31 size=5 offset=11 (-16/30dB)
+    Connections: 1
+          + <- nid=35 [audio mixer]
+
+dev.hdaa.0.nid7: vendor widget [DISABLED]
+     Widget cap: 0x00f00000
+
+dev.hdaa.0.nid6: audio output [DISABLED]
+     Widget cap: 0x00000211 DIGITAL STEREO
+     Stream cap: 0x00000001 PCM
+        PCM cap: 0x000e05e0 16 20 24 bits, 44 48 88 96 192 KHz
+
+dev.hdaa.0.nid5: vendor widget [DISABLED]
+     Widget cap: 0x00f00000
+
+dev.hdaa.0.nid4: vendor widget [DISABLED]
+     Widget cap: 0x00f00000
+
+dev.hdaa.0.nid3: audio output
+     Widget cap: 0x0000001d STEREO
+    Association: 1 (0x0001)
+            OSS: pcm (pcm)
+     Stream cap: 0x00000001 PCM
+        PCM cap: 0x000e0560 16 20 24 bits, 44 48 96 192 KHz
+     Output amp: 0x00025757 mute=0 step=87 size=2 offset=87 (-65/0dB)
+
+dev.hdaa.0.nid2: audio output
+     Widget cap: 0x0000001d STEREO
+    Association: 0 (0x0001)
+            OSS: pcm (pcm)
+     Stream cap: 0x00000001 PCM
+        PCM cap: 0x000e0560 16 20 24 bits, 44 48 96 192 KHz
+     Output amp: 0x00025757 mute=0 step=87 size=2 offset=87 (-65/0dB)
+
+dev.hdaa.0.%parent: hdacc0
+dev.hdaa.0.%pnpinfo: type=0x01 subsystem=0x146210c0
+dev.hdaa.0.%location: nid=1
+dev.hdaa.0.%driver: hdaa
+dev.hdaa.0.%desc: Realtek ALC269 Audio Function Group
+dev.hdaa.%parent: 
+dev.hdacc.1.%parent: hdac0
+dev.hdacc.1.%pnpinfo: vendor=0x8086 device=0x2806 revision=0x00 stepping=0x00
+dev.hdacc.1.%location: cad=3
+dev.hdacc.1.%driver: hdacc
+dev.hdacc.1.%desc: Intel Panther Point HDA CODEC
+dev.hdacc.0.%parent: hdac0
+dev.hdacc.0.%pnpinfo: vendor=0x10ec device=0x0269 revision=0x01 stepping=0x00
+dev.hdacc.0.%location: cad=0
+dev.hdacc.0.%driver: hdacc
+dev.hdacc.0.%desc: Realtek ALC269 HDA CODEC
+dev.hdacc.%parent: 
+dev.cpufreq.3.%parent: cpu3
+dev.cpufreq.3.%pnpinfo: 
+dev.cpufreq.3.%location: 
+dev.cpufreq.3.%driver: cpufreq
+dev.cpufreq.3.%desc: 
+dev.cpufreq.2.%parent: cpu2
+dev.cpufreq.2.%pnpinfo: 
+dev.cpufreq.2.%location: 
+dev.cpufreq.2.%driver: cpufreq
+dev.cpufreq.2.%desc: 
+dev.cpufreq.1.%parent: cpu1
+dev.cpufreq.1.%pnpinfo: 
+dev.cpufreq.1.%location: 
+dev.cpufreq.1.%driver: cpufreq
+dev.cpufreq.1.%desc: 
+dev.cpufreq.0.%parent: cpu0
+dev.cpufreq.0.%pnpinfo: 
+dev.cpufreq.0.%location: 
+dev.cpufreq.0.%driver: cpufreq
+dev.cpufreq.0.%desc: 
+dev.cpufreq.%parent: 
+dev.est.3.freq_settings: 2400/35000 2300/32872 2200/31127 2100/29417 2000/27740 1900/26096 1800/24490 1700/22588 1600/21045 1500/19534 1400/18055 1300/16611 1200/15194
+dev.est.3.%parent: cpu3
+dev.est.3.%pnpinfo: 
+dev.est.3.%location: 
+dev.est.3.%driver: est
+dev.est.3.%desc: Enhanced SpeedStep Frequency Control
+dev.est.2.freq_settings: 2400/35000 2300/32872 2200/31127 2100/29417 2000/27740 1900/26096 1800/24490 1700/22588 1600/21045 1500/19534 1400/18055 1300/16611 1200/15194
+dev.est.2.%parent: cpu2
+dev.est.2.%pnpinfo: 
+dev.est.2.%location: 
+dev.est.2.%driver: est
+dev.est.2.%desc: Enhanced SpeedStep Frequency Control
+dev.est.1.freq_settings: 2400/35000 2300/32872 2200/31127 2100/29417 2000/27740 1900/26096 1800/24490 1700/22588 1600/21045 1500/19534 1400/18055 1300/16611 1200/15194
+dev.est.1.%parent: cpu1
+dev.est.1.%pnpinfo: 
+dev.est.1.%location: 
+dev.est.1.%driver: est
+dev.est.1.%desc: Enhanced SpeedStep Frequency Control
+dev.est.0.freq_settings: 2400/35000 2300/32872 2200/31127 2100/29417 2000/27740 1900/26096 1800/24490 1700/22588 1600/21045 1500/19534 1400/18055 1300/16611 1200/15194
+dev.est.0.%parent: cpu0
+dev.est.0.%pnpinfo: 
+dev.est.0.%location: 
+dev.est.0.%driver: est
+dev.est.0.%desc: Enhanced SpeedStep Frequency Control
+dev.est.%parent: 
+dev.acpi_perf.3.%parent: cpu3
+dev.acpi_perf.3.%pnpinfo: 
+dev.acpi_perf.3.%location: 
+dev.acpi_perf.3.%driver: acpi_perf
+dev.acpi_perf.3.%desc: 
+dev.acpi_perf.2.%parent: cpu2
+dev.acpi_perf.2.%pnpinfo: 
+dev.acpi_perf.2.%location: 
+dev.acpi_perf.2.%driver: acpi_perf
+dev.acpi_perf.2.%desc: 
+dev.acpi_perf.1.%parent: cpu1
+dev.acpi_perf.1.%pnpinfo: 
+dev.acpi_perf.1.%location: 
+dev.acpi_perf.1.%driver: acpi_perf
+dev.acpi_perf.1.%desc: 
+dev.acpi_perf.0.%parent: cpu0
+dev.acpi_perf.0.%pnpinfo: 
+dev.acpi_perf.0.%location: 
+dev.acpi_perf.0.%driver: acpi_perf
+dev.acpi_perf.0.%desc: 
+dev.acpi_perf.%parent: 
+dev.orm.0.%parent: isa0
+dev.orm.0.%pnpinfo: pnpid=ORM0000
+dev.orm.0.%location: 
+dev.orm.0.%driver: orm
+dev.orm.0.%desc: ISA Option ROM
+dev.orm.%parent: 
+dev.apic.0.%parent: nexus0
+dev.apic.0.%pnpinfo: 
+dev.apic.0.%location: 
+dev.apic.0.%driver: apic
+dev.apic.0.%desc: APIC resources
+dev.apic.%parent: 
+dev.acpi_lid.0.state: 0
+dev.acpi_lid.0.%parent: acpi0
+dev.acpi_lid.0.%pnpinfo: _HID=PNP0C0D _UID=0
+dev.acpi_lid.0.%location: handle=\_SB_.PCI0.LPCB.EC__.LID0
+dev.acpi_lid.0.%driver: acpi_lid
+dev.acpi_lid.0.%desc: Control Method Lid Switch
+dev.acpi_lid.%parent: 
+dev.battery.0.%parent: acpi0
+dev.battery.0.%pnpinfo: _HID=PNP0C0A _UID=1
+dev.battery.0.%location: handle=\_SB_.PCI0.LPCB.EC__.BAT1
+dev.battery.0.%driver: battery
+dev.battery.0.%desc: ACPI Control Method Battery
+dev.battery.%parent: 
+dev.acpi_acad.0.%parent: acpi0
+dev.acpi_acad.0.%pnpinfo: _HID=ACPI0003 _UID=0
+dev.acpi_acad.0.%location: handle=\_SB_.PCI0.LPCB.EC__.ADP1
+dev.acpi_acad.0.%driver: acpi_acad
+dev.acpi_acad.0.%desc: AC Adapter
+dev.acpi_acad.%parent: 
+dev.psmcpnp.0.%parent: acpi0
+dev.psmcpnp.0.%pnpinfo: _HID=ETD0300 _UID=0
+dev.psmcpnp.0.%location: handle=\_SB_.PCI0.LPCB.PS2M
+dev.psmcpnp.0.%driver: psmcpnp
+dev.psmcpnp.0.%desc: PS/2 mouse port
+dev.psmcpnp.%parent: 
+dev.atkbd.0.%parent: atkbdc0
+dev.atkbd.0.%pnpinfo: 
+dev.atkbd.0.%location: 
+dev.atkbd.0.%driver: atkbd
+dev.atkbd.0.%desc: AT Keyboard
+dev.atkbd.%parent: 
+dev.atkbdc.0.%parent: acpi0
+dev.atkbdc.0.%pnpinfo: _HID=PNP0303 _UID=0
+dev.atkbdc.0.%location: handle=\_SB_.PCI0.LPCB.PS2K
+dev.atkbdc.0.%driver: atkbdc
+dev.atkbdc.0.%desc: Keyboard controller (i8042)
+dev.atkbdc.%parent: 
+dev.fpupnp.0.%parent: acpi0
+dev.fpupnp.0.%pnpinfo: _HID=PNP0C04 _UID=0
+dev.fpupnp.0.%location: handle=\_SB_.PCI0.LPCB.COPR
+dev.fpupnp.0.%driver: fpupnp
+dev.fpupnp.0.%desc: Legacy ISA coprocessor support
+dev.fpupnp.%parent: 
+dev.atdma.0.%parent: acpi0
+dev.atdma.0.%pnpinfo: _HID=PNP0200 _UID=0
+dev.atdma.0.%location: handle=\_SB_.PCI0.LPCB.DMAC
+dev.atdma.0.%driver: atdma
+dev.atdma.0.%desc: AT DMA controller
+dev.atdma.%parent: 
+dev.acpi_tz.0.%parent: acpi0
+dev.acpi_tz.0.%pnpinfo: _HID=none _UID=0
+dev.acpi_tz.0.%location: handle=\_TZ_.THRM
+dev.acpi_tz.0.%driver: acpi_tz
+dev.acpi_tz.0.%desc: Thermal Zone
+dev.acpi_tz.%parent: 
+dev.acpi_button.1.%parent: acpi0
+dev.acpi_button.1.%pnpinfo: _HID=PNP0C0E _UID=0
+dev.acpi_button.1.%location: handle=\_SB_.SLPB
+dev.acpi_button.1.%driver: acpi_button
+dev.acpi_button.1.%desc: Sleep Button
+dev.acpi_button.0.%parent: acpi0
+dev.acpi_button.0.%pnpinfo: _HID=PNP0C0C _UID=0
+dev.acpi_button.0.%location: handle=\_SB_.PWRB
+dev.acpi_button.0.%driver: acpi_button
+dev.acpi_button.0.%desc: Power Button
+dev.acpi_button.%parent: 
+dev.ahciem.%parent: 
+dev.ahcich.1.disable_phy: 0
+dev.ahcich.1.%parent: ahci0
+dev.ahcich.1.%pnpinfo: 
+dev.ahcich.1.%location: channel=1
+dev.ahcich.1.%driver: ahcich
+dev.ahcich.1.%desc: AHCI channel
+dev.ahcich.0.disable_phy: 0
+dev.ahcich.0.%parent: ahci0
+dev.ahcich.0.%pnpinfo: 
+dev.ahcich.0.%location: channel=0
+dev.ahcich.0.%driver: ahcich
+dev.ahcich.0.%desc: AHCI channel
+dev.ahcich.%parent: 
+dev.ahci.0.%parent: pci0
+dev.ahci.0.%pnpinfo: vendor=0x8086 device=0x1e03 subvendor=0x1462 subdevice=0x10c0 class=0x010601
+dev.ahci.0.%location: slot=31 function=2 dbsf=pci0:0:31:2 handle=\_SB_.PCI0.SAT0
+dev.ahci.0.%driver: ahci
+dev.ahci.0.%desc: Intel Panther Point AHCI SATA controller
+dev.ahci.%parent: 
+dev.isa.0.%parent: isab0
+dev.isa.0.%pnpinfo: 
+dev.isa.0.%location: 
+dev.isa.0.%driver: isa
+dev.isa.0.%desc: ISA bus
+dev.isa.%parent: 
+dev.isab.0.%parent: pci0
+dev.isab.0.%pnpinfo: vendor=0x8086 device=0x1e59 subvendor=0x1462 subdevice=0x10c0 class=0x060100
+dev.isab.0.%location: slot=31 function=0 dbsf=pci0:0:31:0 handle=\_SB_.PCI0.LPCB
+dev.isab.0.%driver: isab
+dev.isab.0.%desc: PCI-ISA bridge
+dev.isab.%parent: 
+dev.rgephy.0.%parent: miibus0
+dev.rgephy.0.%pnpinfo: oui=0xe04c model=0x11 rev=0x5
+dev.rgephy.0.%location: phyno=1
+dev.rgephy.0.%driver: rgephy
+dev.rgephy.0.%desc: RTL8169S/8110S/8211 1000BASE-T media interface
+dev.rgephy.%parent: 
+dev.miibus.0.%parent: re0
+dev.miibus.0.%pnpinfo: 
+dev.miibus.0.%location: 
+dev.miibus.0.%driver: miibus
+dev.miibus.0.%desc: MII bus
+dev.miibus.%parent: 
+dev.re.0.wake: 0
+dev.re.0.int_rx_mod: 65
+dev.re.0.stats: -1
+dev.re.0.%parent: pci2
+dev.re.0.%pnpinfo: vendor=0x10ec device=0x8168 subvendor=0x1462 subdevice=0x10c0 class=0x020000
+dev.re.0.%location: slot=0 function=0 dbsf=pci0:2:0:0 handle=\_SB_.PCI0.RP04.PXSX
+dev.re.0.%driver: re
+dev.re.0.%desc: RealTek 8168/8111 B/C/CP/D/DP/E/F/G PCIe Gigabit Ethernet
+dev.re.%parent: 
+dev.ath.0.wake: 0
+dev.ath.0.hal.serialise_reg_war: 0
+dev.ath.0.hal.force_full_reset: 0
+dev.ath.0.hal.swba_backoff: 0
+dev.ath.0.hal.sw_brt: 10
+dev.ath.0.hal.dma_brt: 2
+dev.ath.0.hal.ar5416_biasadj: 0
+dev.ath.0.hal.debug: 0
+dev.ath.0.stats.sync_intr.31: 0
+dev.ath.0.stats.sync_intr.30: 0
+dev.ath.0.stats.sync_intr.29: 0
+dev.ath.0.stats.sync_intr.28: 0
+dev.ath.0.stats.sync_intr.27: 0
+dev.ath.0.stats.sync_intr.26: 0
+dev.ath.0.stats.sync_intr.25: 0
+dev.ath.0.stats.sync_intr.24: 0
+dev.ath.0.stats.sync_intr.23: 0
+dev.ath.0.stats.sync_intr.22: 0
+dev.ath.0.stats.sync_intr.21: 0
+dev.ath.0.stats.sync_intr.20: 0
+dev.ath.0.stats.sync_intr.19: 0
+dev.ath.0.stats.sync_intr.18: 0
+dev.ath.0.stats.sync_intr.17: 0
+dev.ath.0.stats.sync_intr.16: 0
+dev.ath.0.stats.sync_intr.15: 0
+dev.ath.0.stats.sync_intr.14: 0
+dev.ath.0.stats.sync_intr.13: 0
+dev.ath.0.stats.sync_intr.12: 0
+dev.ath.0.stats.sync_intr.11: 0
+dev.ath.0.stats.sync_intr.10: 0
+dev.ath.0.stats.sync_intr.9: 0
+dev.ath.0.stats.sync_intr.8: 0
+dev.ath.0.stats.sync_intr.7: 0
+dev.ath.0.stats.sync_intr.6: 0
+dev.ath.0.stats.sync_intr.5: 0
+dev.ath.0.stats.sync_intr.4: 0
+dev.ath.0.stats.sync_intr.3: 0
+dev.ath.0.stats.sync_intr.2: 0
+dev.ath.0.stats.sync_intr.1: 0
+dev.ath.0.stats.sync_intr.0: 0
+dev.ath.0.stats.rx_phy_err.63: 0
+dev.ath.0.stats.rx_phy_err.62: 0
+dev.ath.0.stats.rx_phy_err.61: 0
+dev.ath.0.stats.rx_phy_err.60: 0
+dev.ath.0.stats.rx_phy_err.59: 0
+dev.ath.0.stats.rx_phy_err.58: 0
+dev.ath.0.stats.rx_phy_err.57: 0
+dev.ath.0.stats.rx_phy_err.56: 0
+dev.ath.0.stats.rx_phy_err.55: 0
+dev.ath.0.stats.rx_phy_err.54: 0
+dev.ath.0.stats.rx_phy_err.53: 0
+dev.ath.0.stats.rx_phy_err.52: 0
+dev.ath.0.stats.rx_phy_err.51: 0
+dev.ath.0.stats.rx_phy_err.50: 0
+dev.ath.0.stats.rx_phy_err.49: 0
+dev.ath.0.stats.rx_phy_err.48: 0
+dev.ath.0.stats.rx_phy_err.47: 0
+dev.ath.0.stats.rx_phy_err.46: 0
+dev.ath.0.stats.rx_phy_err.45: 0
+dev.ath.0.stats.rx_phy_err.44: 0
+dev.ath.0.stats.rx_phy_err.43: 0
+dev.ath.0.stats.rx_phy_err.42: 0
+dev.ath.0.stats.rx_phy_err.41: 0
+dev.ath.0.stats.rx_phy_err.40: 0
+dev.ath.0.stats.rx_phy_err.39: 0
+dev.ath.0.stats.rx_phy_err.38: 0
+dev.ath.0.stats.rx_phy_err.37: 0
+dev.ath.0.stats.rx_phy_err.36: 0
+dev.ath.0.stats.rx_phy_err.35: 0
+dev.ath.0.stats.rx_phy_err.34: 0
+dev.ath.0.stats.rx_phy_err.33: 0
+dev.ath.0.stats.rx_phy_err.32: 0
+dev.ath.0.stats.rx_phy_err.31: 141
+dev.ath.0.stats.rx_phy_err.30: 0
+dev.ath.0.stats.rx_phy_err.29: 0
+dev.ath.0.stats.rx_phy_err.28: 0
+dev.ath.0.stats.rx_phy_err.27: 0
+dev.ath.0.stats.rx_phy_err.26: 0
+dev.ath.0.stats.rx_phy_err.25: 0
+dev.ath.0.stats.rx_phy_err.24: 0
+dev.ath.0.stats.rx_phy_err.23: 101
+dev.ath.0.stats.rx_phy_err.22: 0
+dev.ath.0.stats.rx_phy_err.21: 0
+dev.ath.0.stats.rx_phy_err.20: 0
+dev.ath.0.stats.rx_phy_err.19: 0
+dev.ath.0.stats.rx_phy_err.18: 0
+dev.ath.0.stats.rx_phy_err.17: 0
+dev.ath.0.stats.rx_phy_err.16: 0
+dev.ath.0.stats.rx_phy_err.15: 0
+dev.ath.0.stats.rx_phy_err.14: 0
+dev.ath.0.stats.rx_phy_err.13: 0
+dev.ath.0.stats.rx_phy_err.12: 0
+dev.ath.0.stats.rx_phy_err.11: 0
+dev.ath.0.stats.rx_phy_err.10: 0
+dev.ath.0.stats.rx_phy_err.9: 0
+dev.ath.0.stats.rx_phy_err.8: 0
+dev.ath.0.stats.rx_phy_err.7: 0
+dev.ath.0.stats.rx_phy_err.6: 0
+dev.ath.0.stats.rx_phy_err.5: 0
+dev.ath.0.stats.rx_phy_err.4: 0
+dev.ath.0.stats.rx_phy_err.3: 0
+dev.ath.0.stats.rx_phy_err.2: 0
+dev.ath.0.stats.rx_phy_err.1: 0
+dev.ath.0.stats.rx_phy_err.0: 0
+dev.ath.0.stats.ast_tx_ldpc: 0
+dev.ath.0.stats.ast_tx_stbc: 0
+dev.ath.0.stats.ast_rx_stbc: 0
+dev.ath.0.stats.ast_tx_nodeq_overflow: 14
+dev.ath.0.stats.ast_tx_swfiltered: 413
+dev.ath.0.stats.ast_rx_keymiss: 1386
+dev.ath.0.stats.ast_tx_mcastq_overflow: 0
+dev.ath.0.stats.ast_tx_intr: 913064
+dev.ath.0.stats.ast_rx_intr: 1283659
+dev.ath.0.stats.ast_tx_aggr_fail: 2809
+dev.ath.0.stats.ast_tx_aggr_ok: 17666
+dev.ath.0.stats.ast_tx_aggr_failall: 130
+dev.ath.0.stats.ast_tx_delim_underrun: 0
+dev.ath.0.stats.ast_tx_data_underrun: 0
+dev.ath.0.stats.ast_tx_swretrymax: 82
+dev.ath.0.stats.ast_tx_swretries: 2784
+dev.ath.0.stats.ast_tx_desccfgerr: 0
+dev.ath.0.stats.ast_tx_timerexpired: 0
+dev.ath.0.stats.ast_tx_xtxop: 0
+dev.ath.0.stats.ast_tx_cst: 0
+dev.ath.0.stats.ast_tx_timeout: 215
+dev.ath.0.stats.ast_rx_hitqueueend: 0
+dev.ath.0.stats.ast_tx_htprotect: 464500
+dev.ath.0.stats.ast_rx_hi_rx_chain: 0
+dev.ath.0.stats.ast_rx_decrypt_busy_err: 0
+dev.ath.0.stats.ast_rx_post_crc_err: 337
+dev.ath.0.stats.ast_rx_pre_crc_err: 45315
+dev.ath.0.stats.ast_rx_2040: 2683
+dev.ath.0.stats.ast_rx_halfgi: 2724
+dev.ath.0.stats.ast_rx_agg: 8227
+dev.ath.0.stats.ast_ani_cal: 205213
+dev.ath.0.stats.ast_be_missed: 0
+dev.ath.0.stats.ast_tx_nofrag: 0
+dev.ath.0.stats.ast_tx_raw_fail: 0
+dev.ath.0.stats.ast_tdma_ack: 0
+dev.ath.0.stats.ast_tdma_tsf: 0
+dev.ath.0.stats.ast_tdma_timers: 0
+dev.ath.0.stats.ast_tdma_update: 0
+dev.ath.0.stats.ast_tx_nobuf: 0
+dev.ath.0.stats.ast_tx_qfull: 0
+dev.ath.0.stats.ast_ff_flush: 0
+dev.ath.0.stats.ast_ff_rx: 0
+dev.ath.0.stats.ast_ff_txerr: 0
+dev.ath.0.stats.ast_ff_txok: 0
+dev.ath.0.stats.ast_tx_raw: 63
+dev.ath.0.stats.ast_cabq_busy: 0
+dev.ath.0.stats.ast_cabq_xmit: 0
+dev.ath.0.stats.ast_ant_txswitch: 0
+dev.ath.0.stats.ast_ant_defswitch: 0
+dev.ath.0.stats.ast_rate_drop: 0
+dev.ath.0.stats.ast_rate_raise: 0
+dev.ath.0.stats.ast_rate_calls: 0
+dev.ath.0.stats.ast_per_rfgain: 0
+dev.ath.0.stats.ast_per_calfail: 0
+dev.ath.0.stats.ast_per_cal: 698
+dev.ath.0.stats.ast_be_nombuf: 0
+dev.ath.0.stats.ast_be_xmit: 0
+dev.ath.0.stats.ast_rx_ctl: 0
+dev.ath.0.stats.ast_rx_mgt: 0
+dev.ath.0.stats.ast_rx_packets: 0
+dev.ath.0.stats.ast_rx_toobig: 0
+dev.ath.0.stats.ast_rx_tooshort: 2896
+dev.ath.0.stats.ast_rx_phyerr: 242
+dev.ath.0.stats.ast_rx_badmic: 0
+dev.ath.0.stats.ast_rx_badcrypt: 29
+dev.ath.0.stats.ast_rx_fifoerr: 0
+dev.ath.0.stats.ast_rx_crcerr: 264512
+dev.ath.0.stats.ast_rx_orn: 0
+dev.ath.0.stats.ast_rx_busdma: 0
+dev.ath.0.stats.ast_rx_nombuf: 0
+dev.ath.0.stats.ast_tx_ctsext: 0
+dev.ath.0.stats.ast_tx_ctsburst: 0
+dev.ath.0.stats.ast_tx_protect: 0
+dev.ath.0.stats.ast_tx_altrate: 7904
+dev.ath.0.stats.ast_tx_shortpre: 468605
+dev.ath.0.stats.ast_tx_cts: 0
+dev.ath.0.stats.ast_tx_rts: 0
+dev.ath.0.stats.ast_tx_noack: 0
+dev.ath.0.stats.ast_tx_badrate: 0
+dev.ath.0.stats.ast_tx_longretry: 94369
+dev.ath.0.stats.ast_tx_shortretry: 30882
+dev.ath.0.stats.ast_tx_filtered: 77
+dev.ath.0.stats.ast_tx_fifoerr: 10
+dev.ath.0.stats.ast_tx_xretries: 180
+dev.ath.0.stats.ast_tx_busdma: 0
+dev.ath.0.stats.ast_tx_nodata: 0
+dev.ath.0.stats.ast_tx_linear: 0
+dev.ath.0.stats.ast_tx_nomcl: 0
+dev.ath.0.stats.ast_tx_nombuf: 0
+dev.ath.0.stats.ast_tx_nonode: 0
+dev.ath.0.stats.ast_tx_encap: 0
+dev.ath.0.stats.ast_tx_qstop: 0
+dev.ath.0.stats.ast_tx_discard: 0
+dev.ath.0.stats.ast_tx_mgmt: 0
+dev.ath.0.stats.ast_tx_packets: 0
+dev.ath.0.stats.ast_intrcoal: 0
+dev.ath.0.stats.ast_mib: 0
+dev.ath.0.stats.ast_txurn: 10
+dev.ath.0.stats.ast_rxeol: 0
+dev.ath.0.stats.ast_rxorn: 0
+dev.ath.0.stats.ast_bstuck: 0
+dev.ath.0.stats.ast_bmiss_phantom: 1
+dev.ath.0.stats.ast_bmiss: 3
+dev.ath.0.stats.ast_hardware: 0
+dev.ath.0.stats.ast_watchdog: 0
+dev.ath.0.clear_stats: 0
+dev.ath.0.txq_node_maxdepth: 64
+dev.ath.0.txq_mcastq_maxdepth: 64
+dev.ath.0.txq_data_minfree: 10
+dev.ath.0.delim_min_pad: 0
+dev.ath.0.rts_aggr_limit: 65536
+dev.ath.0.aggr_limit: 65530
+dev.ath.0.tid_hwq_hi: 4
+dev.ath.0.tid_hwq_lo: 2
+dev.ath.0.hwq_limit_aggr: 2
+dev.ath.0.hwq_limit_nonaggr: 32
+dev.ath.0.monpass: 24
+dev.ath.0.intmit: 1
+dev.ath.0.hangcheck: 0
+dev.ath.0.forcebstuck: 0
+dev.ath.0.txagg: 0
+dev.ath.0.rfkill: 1
+dev.ath.0.rfsilent: 29
+dev.ath.0.tpcts: 0
+dev.ath.0.tpack: 0
+dev.ath.0.tpc: 0
+dev.ath.0.tpscale: 0
+dev.ath.0.diag: 0
+dev.ath.0.txintrperiod: 5
+dev.ath.0.diversity: 0
+dev.ath.0.rxantenna: 1
+dev.ath.0.txantenna: 0
+dev.ath.0.led_pwr_pin: -1
+dev.ath.0.led_net_pin: -1
+dev.ath.0.hardled: 0
+dev.ath.0.ledidle: 2700
+dev.ath.0.ledon: 0
+dev.ath.0.ledpin: 0
+dev.ath.0.softled: 0
+dev.ath.0.ctstimeout: 48
+dev.ath.0.acktimeout: 64
+dev.ath.0.slottime: 9
+dev.ath.0.regdomain: 96
+dev.ath.0.countrycode: 0
+dev.ath.0.sample_stats: 0
+dev.ath.0.sample_rate: 10
+dev.ath.0.smoothing_rate: 75
+dev.ath.0.%parent: pci1
+dev.ath.0.%pnpinfo: vendor=0x168c device=0x0032 subvendor=0x1a3b subdevice=0x2c97 class=0x028000
+dev.ath.0.%location: slot=0 function=0 dbsf=pci0:1:0:0 handle=\_SB_.PCI0.RP01.PXSX
+dev.ath.0.%driver: ath
+dev.ath.0.%desc: Atheros AR9485
+dev.ath.%parent: 
+dev.hdac.0.polling: 0
+dev.hdac.0.pindump: 0
+dev.hdac.0.%parent: pci0
+dev.hdac.0.%pnpinfo: vendor=0x8086 device=0x1e20 subvendor=0x1462 subdevice=0x10c0 class=0x040300
+dev.hdac.0.%location: slot=27 function=0 dbsf=pci0:0:27:0 handle=\_SB_.PCI0.HDEF
+dev.hdac.0.%driver: hdac
+dev.hdac.0.%desc: Intel Panther Point HDA Controller
+dev.hdac.%parent: 
+dev.ehci.1.wake: 0
+dev.ehci.1.%parent: pci0
+dev.ehci.1.%pnpinfo: vendor=0x8086 device=0x1e26 subvendor=0x1462 subdevice=0x10c0 class=0x0c0320
+dev.ehci.1.%location: slot=29 function=0 dbsf=pci0:0:29:0 handle=\_SB_.PCI0.EHC1
+dev.ehci.1.%driver: ehci
+dev.ehci.1.%desc: Intel Panther Point USB 2.0 controller
+dev.ehci.0.wake: 0
+dev.ehci.0.%parent: pci0
+dev.ehci.0.%pnpinfo: vendor=0x8086 device=0x1e2d subvendor=0x1462 subdevice=0x10c0 class=0x0c0320
+dev.ehci.0.%location: slot=26 function=0 dbsf=pci0:0:26:0 handle=\_SB_.PCI0.EHC2
+dev.ehci.0.%driver: ehci
+dev.ehci.0.%desc: Intel Panther Point USB 2.0 controller
+dev.ehci.%parent: 
+dev.usbus.2.%parent: ehci1
+dev.usbus.2.%pnpinfo: 
+dev.usbus.2.%location: 
+dev.usbus.2.%driver: usbus
+dev.usbus.2.%desc: 
+dev.usbus.1.%parent: ehci0
+dev.usbus.1.%pnpinfo: 
+dev.usbus.1.%location: 
+dev.usbus.1.%driver: usbus
+dev.usbus.1.%desc: 
+dev.usbus.0.%parent: xhci0
+dev.usbus.0.%pnpinfo: 
+dev.usbus.0.%location: 
+dev.usbus.0.%driver: usbus
+dev.usbus.0.%desc: 
+dev.usbus.%parent: 
+dev.xhci.0.wake: 0
+dev.xhci.0.%parent: pci0
+dev.xhci.0.%pnpinfo: vendor=0x8086 device=0x1e31 subvendor=0x1462 subdevice=0x10c0 class=0x0c0330
+dev.xhci.0.%location: slot=20 function=0 dbsf=pci0:0:20:0 handle=\_SB_.PCI0.XHC_
+dev.xhci.0.%driver: xhci
+dev.xhci.0.%desc: Intel Panther Point USB 3.0 controller
+dev.xhci.%parent: 
+dev.vgapci.0.%parent: pci0
+dev.vgapci.0.%pnpinfo: vendor=0x8086 device=0x0166 subvendor=0x1462 subdevice=0x10c0 class=0x030000
+dev.vgapci.0.%location: slot=2 function=0 dbsf=pci0:0:2:0 handle=\_SB_.PCI0.GFX0
+dev.vgapci.0.%driver: vgapci
+dev.vgapci.0.%desc: VGA-compatible display
+dev.vgapci.%parent: 
+dev.hostb.0.%parent: pci0
+dev.hostb.0.%pnpinfo: vendor=0x8086 device=0x0154 subvendor=0x1462 subdevice=0x10c0 class=0x060000
+dev.hostb.0.%location: slot=0 function=0 dbsf=pci0:0:0:0
+dev.hostb.0.%driver: hostb
+dev.hostb.0.%desc: Host to PCI bridge
+dev.hostb.%parent: 
+dev.pci.2.wake: 0
+dev.pci.2.%parent: pcib2
+dev.pci.2.%pnpinfo: 
+dev.pci.2.%location: 
+dev.pci.2.%driver: pci
+dev.pci.2.%desc: ACPI PCI bus
+dev.pci.1.wake: 0
+dev.pci.1.%parent: pcib1
+dev.pci.1.%pnpinfo: 
+dev.pci.1.%location: 
+dev.pci.1.%driver: pci
+dev.pci.1.%desc: ACPI PCI bus
+dev.pci.0.%parent: pcib0
+dev.pci.0.%pnpinfo: 
+dev.pci.0.%location: 
+dev.pci.0.%driver: pci
+dev.pci.0.%desc: ACPI PCI bus
+dev.pci.%parent: 
+dev.pcib.2.wake: 0
+dev.pcib.2.subbus: 2
+dev.pcib.2.secbus: 2
+dev.pcib.2.pribus: 0
+dev.pcib.2.domain: 0
+dev.pcib.2.%parent: pci0
+dev.pcib.2.%pnpinfo: vendor=0x8086 device=0x1e16 subvendor=0x1462 subdevice=0x10c0 class=0x060400
+dev.pcib.2.%location: slot=28 function=3 dbsf=pci0:0:28:3 handle=\_SB_.PCI0.RP04
+dev.pcib.2.%driver: pcib
+dev.pcib.2.%desc: ACPI PCI-PCI bridge
+dev.pcib.1.wake: 0
+dev.pcib.1.subbus: 1
+dev.pcib.1.secbus: 1
+dev.pcib.1.pribus: 0
+dev.pcib.1.domain: 0
+dev.pcib.1.%parent: pci0
+dev.pcib.1.%pnpinfo: vendor=0x8086 device=0x1e10 subvendor=0x1462 subdevice=0x10c0 class=0x060400
+dev.pcib.1.%location: slot=28 function=0 dbsf=pci0:0:28:0 handle=\_SB_.PCI0.RP01
+dev.pcib.1.%driver: pcib
+dev.pcib.1.%desc: ACPI PCI-PCI bridge
+dev.pcib.0.%parent: acpi0
+dev.pcib.0.%pnpinfo: _HID=PNP0A08 _UID=0
+dev.pcib.0.%location: handle=\_SB_.PCI0
+dev.pcib.0.%driver: pcib
+dev.pcib.0.%desc: ACPI Host-PCI bridge
+dev.pcib.%parent: 
+dev.pci_link.7.%parent: acpi0
+dev.pci_link.7.%pnpinfo: _HID=PNP0C0F _UID=8
+dev.pci_link.7.%location: handle=\_SB_.LNKH
+dev.pci_link.7.%driver: pci_link
+dev.pci_link.7.%desc: ACPI PCI Link LNKH
+dev.pci_link.6.%parent: acpi0
+dev.pci_link.6.%pnpinfo: _HID=PNP0C0F _UID=7
+dev.pci_link.6.%location: handle=\_SB_.LNKG
+dev.pci_link.6.%driver: pci_link
+dev.pci_link.6.%desc: ACPI PCI Link LNKG
+dev.pci_link.5.%parent: acpi0
+dev.pci_link.5.%pnpinfo: _HID=PNP0C0F _UID=6
+dev.pci_link.5.%location: handle=\_SB_.LNKF
+dev.pci_link.5.%driver: pci_link
+dev.pci_link.5.%desc: ACPI PCI Link LNKF
+dev.pci_link.4.%parent: acpi0
+dev.pci_link.4.%pnpinfo: _HID=PNP0C0F _UID=5
+dev.pci_link.4.%location: handle=\_SB_.LNKE
+dev.pci_link.4.%driver: pci_link
+dev.pci_link.4.%desc: ACPI PCI Link LNKE
+dev.pci_link.3.%parent: acpi0
+dev.pci_link.3.%pnpinfo: _HID=PNP0C0F _UID=4
+dev.pci_link.3.%location: handle=\_SB_.LNKD
+dev.pci_link.3.%driver: pci_link
+dev.pci_link.3.%desc: ACPI PCI Link LNKD
+dev.pci_link.2.%parent: acpi0
+dev.pci_link.2.%pnpinfo: _HID=PNP0C0F _UID=3
+dev.pci_link.2.%location: handle=\_SB_.LNKC
+dev.pci_link.2.%driver: pci_link
+dev.pci_link.2.%desc: ACPI PCI Link LNKC
+dev.pci_link.1.%parent: acpi0
+dev.pci_link.1.%pnpinfo: _HID=PNP0C0F _UID=2
+dev.pci_link.1.%location: handle=\_SB_.LNKB
+dev.pci_link.1.%driver: pci_link
+dev.pci_link.1.%desc: ACPI PCI Link LNKB
+dev.pci_link.0.%parent: acpi0
+dev.pci_link.0.%pnpinfo: _HID=PNP0C0F _UID=1
+dev.pci_link.0.%location: handle=\_SB_.LNKA
+dev.pci_link.0.%driver: pci_link
+dev.pci_link.0.%desc: ACPI PCI Link LNKA
+dev.pci_link.%parent: 
+dev.acpi_ec.0.%parent: acpi0
+dev.acpi_ec.0.%pnpinfo: _HID=PNP0C09 _UID=0
+dev.acpi_ec.0.%location: handle=\_SB_.PCI0.LPCB.EC__
+dev.acpi_ec.0.%driver: acpi_ec
+dev.acpi_ec.0.%desc: Embedded Controller: GPE 0x17
+dev.acpi_ec.%parent: 
+dev.acpi_timer.0.%parent: acpi0
+dev.acpi_timer.0.%pnpinfo: unknown
+dev.acpi_timer.0.%location: 
+dev.acpi_timer.0.%driver: acpi_timer
+dev.acpi_timer.0.%desc: 24-bit timer at 3.579545MHz
+dev.acpi_timer.%parent: 
+dev.attimer.0.%parent: acpi0
+dev.attimer.0.%pnpinfo: _HID=PNP0100 _UID=0
+dev.attimer.0.%location: handle=\_SB_.PCI0.LPCB.TIMR
+dev.attimer.0.%driver: attimer
+dev.attimer.0.%desc: AT timer
+dev.attimer.%parent: 
+dev.atrtc.0.%parent: acpi0
+dev.atrtc.0.%pnpinfo: _HID=PNP0B00 _UID=0
+dev.atrtc.0.%location: handle=\_SB_.PCI0.LPCB.RTC_
+dev.atrtc.0.%driver: atrtc
+dev.atrtc.0.%desc: AT realtime clock
+dev.atrtc.%parent: 
+dev.hpet.0.mmap_allow_write: 0
+dev.hpet.0.mmap_allow: 1
+dev.hpet.0.%parent: acpi0
+dev.hpet.0.%pnpinfo: _HID=PNP0103 _UID=0
+dev.hpet.0.%location: handle=\_SB_.PCI0.LPCB.HPET
+dev.hpet.0.%driver: hpet
+dev.hpet.0.%desc: High Precision Event Timer
+dev.hpet.%parent: 
+dev.cpu.3.cx_method: C1/mwait/hwc C2/mwait/hwc
+dev.cpu.3.cx_usage_counters: 5631844 0
+dev.cpu.3.cx_usage: 100.00% 0.00% last 1012us
+dev.cpu.3.cx_lowest: C1
+dev.cpu.3.cx_supported: C1/1/1 C2/2/80
+dev.cpu.3.%parent: acpi0
+dev.cpu.3.%pnpinfo: _HID=none _UID=0
+dev.cpu.3.%location: handle=\_PR_.CPU3
+dev.cpu.3.%driver: cpu
+dev.cpu.3.%desc: ACPI CPU
+dev.cpu.2.cx_method: C1/mwait/hwc C2/mwait/hwc
+dev.cpu.2.cx_usage_counters: 5151025 0
+dev.cpu.2.cx_usage: 100.00% 0.00% last 630us
+dev.cpu.2.cx_lowest: C1
+dev.cpu.2.cx_supported: C1/1/1 C2/2/80
+dev.cpu.2.%parent: acpi0
+dev.cpu.2.%pnpinfo: _HID=none _UID=0
+dev.cpu.2.%location: handle=\_PR_.CPU2
+dev.cpu.2.%driver: cpu
+dev.cpu.2.%desc: ACPI CPU
+dev.cpu.1.cx_method: C1/mwait/hwc C2/mwait/hwc
+dev.cpu.1.cx_usage_counters: 8886934 0
+dev.cpu.1.cx_usage: 100.00% 0.00% last 526us
+dev.cpu.1.cx_lowest: C1
+dev.cpu.1.cx_supported: C1/1/1 C2/2/80
+dev.cpu.1.%parent: acpi0
+dev.cpu.1.%pnpinfo: _HID=none _UID=0
+dev.cpu.1.%location: handle=\_PR_.CPU1
+dev.cpu.1.%driver: cpu
+dev.cpu.1.%desc: ACPI CPU
+dev.cpu.0.cx_method: C1/mwait/hwc C2/mwait/hwc
+dev.cpu.0.cx_usage_counters: 7257508 0
+dev.cpu.0.cx_usage: 100.00% 0.00% last 57us
+dev.cpu.0.cx_lowest: C1
+dev.cpu.0.cx_supported: C1/1/1 C2/2/80
+dev.cpu.0.freq_levels: 2400/35000 2300/32872 2200/31127 2100/29417 2000/27740 1900/26096 1800/24490 1700/22588 1600/21045 1500/19534 1400/18055 1300/16611 1200/15194
+dev.cpu.0.freq: 2400
+dev.cpu.0.%parent: acpi0
+dev.cpu.0.%pnpinfo: _HID=none _UID=0
+dev.cpu.0.%location: handle=\_PR_.CPU0
+dev.cpu.0.%driver: cpu
+dev.cpu.0.%desc: ACPI CPU
+dev.cpu.%parent: 
+dev.acpi_sysresource.5.%parent: acpi0
+dev.acpi_sysresource.5.%pnpinfo: _HID=PNP0C01 _UID=2
+dev.acpi_sysresource.5.%location: handle=\_SB_.MEM2
+dev.acpi_sysresource.5.%driver: acpi_sysresource
+dev.acpi_sysresource.5.%desc: System Resource
+dev.acpi_sysresource.4.%parent: acpi0
+dev.acpi_sysresource.4.%pnpinfo: _HID=PNP0C02 _UID=1
+dev.acpi_sysresource.4.%location: handle=\_SB_.PCI0.PDRC
+dev.acpi_sysresource.4.%driver: acpi_sysresource
+dev.acpi_sysresource.4.%desc: System Resource
+dev.acpi_sysresource.3.%parent: acpi0
+dev.acpi_sysresource.3.%pnpinfo: _HID=PNP0C02 _UID=16
+dev.acpi_sysresource.3.%location: handle=\_SB_.PCI0.LPCB.RMSC
+dev.acpi_sysresource.3.%driver: acpi_sysresource
+dev.acpi_sysresource.3.%desc: System Resource
+dev.acpi_sysresource.2.%parent: acpi0
+dev.acpi_sysresource.2.%pnpinfo: _HID=INT3F0D _UID=0
+dev.acpi_sysresource.2.%location: handle=\_SB_.PCI0.LPCB.CWDT
+dev.acpi_sysresource.2.%driver: acpi_sysresource
+dev.acpi_sysresource.2.%desc: System Resource
+dev.acpi_sysresource.1.%parent: acpi0
+dev.acpi_sysresource.1.%pnpinfo: _HID=PNP0C02 _UID=2
+dev.acpi_sysresource.1.%location: handle=\_SB_.PCI0.LPCB.LDRC
+dev.acpi_sysresource.1.%driver: acpi_sysresource
+dev.acpi_sysresource.1.%desc: System Resource
+dev.acpi_sysresource.0.%parent: acpi0
+dev.acpi_sysresource.0.%pnpinfo: _HID=PNP0C01 _UID=1
+dev.acpi_sysresource.0.%location: handle=\_SB_.PCI0.TPMX
+dev.acpi_sysresource.0.%driver: acpi_sysresource
+dev.acpi_sysresource.0.%desc: System Resource
+dev.acpi_sysresource.%parent: 
+dev.acpi.0.%parent: nexus0
+dev.acpi.0.%pnpinfo: 
+dev.acpi.0.%location: 
+dev.acpi.0.%driver: acpi
+dev.acpi.0.%desc: MSI_NB MEGABOOK
+dev.acpi.%parent: 
+dev.cryptosoft.0.%parent: nexus0
+dev.cryptosoft.0.%pnpinfo: 
+dev.cryptosoft.0.%location: 
+dev.cryptosoft.0.%driver: cryptosoft
+dev.cryptosoft.0.%desc: software crypto
+dev.cryptosoft.%parent: 
+dev.ram.0.%parent: nexus0
+dev.ram.0.%pnpinfo: 
+dev.ram.0.%location: 
+dev.ram.0.%driver: ram
+dev.ram.0.%desc: System RAM
+dev.ram.%parent: 
+dev.vtvga.0.%parent: nexus0
+dev.vtvga.0.%pnpinfo: 
+dev.vtvga.0.%location: 
+dev.vtvga.0.%driver: vtvga
+dev.vtvga.0.%desc: VT VGA driver
+dev.vtvga.%parent: 
+dev.nexus.0.%parent: root0
+dev.nexus.0.%pnpinfo: 
+dev.nexus.0.%location: 
+dev.nexus.0.%driver: nexus
+dev.nexus.0.%desc: 
+dev.nexus.%parent: 
+dev.xen.xsd_kva: 0
+dev.xen.xsd_port: 0
+dev.xen.balloon.high_mem: 0
+dev.xen.balloon.low_mem: 0
+dev.xen.balloon.hard_limit: 0
+dev.xen.balloon.driver_pages: 0
+dev.xen.balloon.target: 0
+dev.xen.balloon.current: 0
+dev.netmap.iflib_rx_miss_bufs: 0
+dev.netmap.iflib_rx_miss: 0
+dev.netmap.iflib_crcstrip: 1
+dev.netmap.bridge_batch: 1024
+dev.netmap.default_pipes: 0
+dev.netmap.priv_buf_num: 4098
+dev.netmap.priv_buf_size: 2048
+dev.netmap.buf_curr_num: 0
+dev.netmap.buf_num: 163840
+dev.netmap.buf_curr_size: 0
+dev.netmap.buf_size: 2048
+dev.netmap.priv_ring_num: 4
+dev.netmap.priv_ring_size: 20480
+dev.netmap.ring_curr_num: 0
+dev.netmap.ring_num: 200
+dev.netmap.ring_curr_size: 0
+dev.netmap.ring_size: 36864
+dev.netmap.priv_if_num: 2
+dev.netmap.priv_if_size: 1024
+dev.netmap.if_curr_num: 0
+dev.netmap.if_num: 100
+dev.netmap.if_curr_size: 0
+dev.netmap.if_size: 1024
+dev.netmap.ptnet_vnet_hdr: 1
+dev.netmap.generic_rings: 1
+dev.netmap.generic_ringsize: 1024
+dev.netmap.generic_mit: 100000
+dev.netmap.generic_hwcsum: 0
+dev.netmap.admode: 0
+dev.netmap.fwd: 0
+dev.netmap.txsync_retry: 2
+dev.netmap.no_pendintr: 1
+dev.netmap.no_timestamp: 0
+dev.netmap.verbose: 0
+security.mac.mmap_revocation_via_cow: 0
+security.mac.mmap_revocation: 1
+security.mac.labeled: 0
+security.mac.max_slots: 4
+security.mac.version: 4
+security.bsd.stack_guard_page: 1
+security.bsd.unprivileged_get_quota: 0
+security.bsd.hardlink_check_gid: 0
+security.bsd.hardlink_check_uid: 0
+security.bsd.unprivileged_idprio: 0
+security.bsd.unprivileged_proc_debug: 1
+security.bsd.conservative_signals: 1
+security.bsd.see_jail_proc: 1
+security.bsd.see_other_gids: 1
+security.bsd.see_other_uids: 1
+security.bsd.unprivileged_read_msgbuf: 1
+security.bsd.unprivileged_mlock: 1
+security.bsd.suser_enabled: 1
+security.bsd.map_at_zero: 0
+security.jail.mount_fdescfs_allowed: 0
+security.jail.mount_nullfs_allowed: 0
+security.jail.mount_zfs_allowed: 0
+security.jail.mount_tmpfs_allowed: 0
+security.jail.vmm_allowed: 0
+security.jail.mount_debugfs_allowed: 0
+security.jail.mount_anon_inodefs_allowed: 0
+security.jail.mount_procfs_allowed: 0
+security.jail.mount_devfs_allowed: 0
+security.jail.param.sysvshm.: 0
+security.jail.param.sysvsem.: 0
+security.jail.param.sysvmsg.: 0
+security.jail.param.allow.vmm: 0
+security.jail.param.allow.mount.fdescfs: 0
+security.jail.param.allow.mount.nullfs: 0
+security.jail.param.allow.mount.zfs: 0
+security.jail.param.allow.mount.tmpfs: 0
+security.jail.param.allow.mount.debugfs: 0
+security.jail.param.allow.mount.anon_inodefs: 0
+security.jail.param.allow.mount.procfs: 0
+security.jail.param.allow.mount.devfs: 0
+security.jail.param.allow.mount.: 0
+security.jail.param.allow.read_msgbuf: 0
+security.jail.param.allow.reserved_ports: 0
+security.jail.param.allow.mlock: 0
+security.jail.param.allow.socket_af: 0
+security.jail.param.allow.quotas: 0
+security.jail.param.allow.chflags: 0
+security.jail.param.allow.raw_sockets: 0
+security.jail.param.allow.sysvipc: 0
+security.jail.param.allow.set_hostname: 0
+security.jail.param.ip6.saddrsel: 0
+security.jail.param.ip6.: 0
+security.jail.param.ip4.saddrsel: 0
+security.jail.param.ip4.: 0
+security.jail.param.cpuset.id: 0
+security.jail.param.host.hostid: 0
+security.jail.param.host.hostuuid: 64
+security.jail.param.host.domainname: 256
+security.jail.param.host.hostname: 256
+security.jail.param.host.: 0
+security.jail.param.children.max: 0
+security.jail.param.children.cur: 0
+security.jail.param.dying: 0
+security.jail.param.vnet: 0
+security.jail.param.persist: 0
+security.jail.param.devfs_ruleset: 0
+security.jail.param.enforce_statfs: 0
+security.jail.param.osrelease: 32
+security.jail.param.osreldate: 0
+security.jail.param.securelevel: 0
+security.jail.param.path: 1024
+security.jail.param.name: 256
+security.jail.param.parent: 0
+security.jail.param.jid: 0
+security.jail.devfs_ruleset: 0
+security.jail.enforce_statfs: 2
+security.jail.mount_allowed: 0
+security.jail.chflags_allowed: 0
+security.jail.allow_raw_sockets: 0
+security.jail.sysvipc_allowed: 0
+security.jail.socket_unixiproute_only: 1
+security.jail.set_hostname_allowed: 1
+security.jail.jail_max_af_ips: 255
+security.jail.vnet: 0
+security.jail.jailed: 0
+compat.linuxkpi.i915_enable_gvt: 0
+compat.linuxkpi.i915_enable_dpcd_backlight: 0
+compat.linuxkpi.i915_inject_load_failure: 0
+compat.linuxkpi.i915_enable_dp_mst: 1
+compat.linuxkpi.i915_guc_log_level: -1
+compat.linuxkpi.i915_enable_guc: 0
+compat.linuxkpi.i915_edp_vswing: 0
+compat.linuxkpi.i915_nuclear_pageflip: 0
+compat.linuxkpi.i915_verbose_state_checks: 1
+compat.linuxkpi.i915_mmio_debug: 0
+compat.linuxkpi.i915_enable_cmd_parser: 1
+compat.linuxkpi.i915_disable_display: 0
+compat.linuxkpi.i915_invert_brightness: 0
+compat.linuxkpi.i915_force_reset_modeset_test: 0
+compat.linuxkpi.i915_load_detect_test: 0
+compat.linuxkpi.i915_prefault_disable: 0
+compat.linuxkpi.i915_fastboot: 0
+compat.linuxkpi.i915_enable_ips: 1
+compat.linuxkpi.i915_disable_power_well: 1
+compat.linuxkpi.i915_alpha_support: 1
+compat.linuxkpi.i915_enable_psr: -1
+compat.linuxkpi.i915_enable_ppgtt: 1
+compat.linuxkpi.i915_enable_hangcheck: 1
+compat.linuxkpi.i915_error_capture: 1
+compat.linuxkpi.i915_reset: 2
+compat.linuxkpi.i915_vbt_sdvo_panel_type: -1
+compat.linuxkpi.i915_panel_use_ssc: -1
+compat.linuxkpi.i915_lvds_channel_mode: 0
+compat.linuxkpi.i915_enable_fbc: 0
+compat.linuxkpi.i915_enable_dc: -1
+compat.linuxkpi.i915_panel_ignore_lid: 1
+compat.linuxkpi.i915_modeset: -1
+compat.linuxkpi.drm_timestamp_precision_usec: 20
+compat.linuxkpi.drm_vblankoffdelay: 5000
+compat.linuxkpi.drm_poll: 1
+compat.linuxkpi.drm_drm_fbdev_overalloc: 100
+compat.linuxkpi.drm_fbdev_emulation: 1
+compat.linuxkpi.drm_edid_firmware: 
+compat.linuxkpi.drm_edid_fixup: 6
+compat.linuxkpi.drm_debug: 0
+compat.linuxkpi.drm_dp_aux_i2c_transfer_size: 16
+compat.linuxkpi.drm_dp_aux_i2c_speed_khz: 10
+compat.linuxkpi.debug: 0
+compat.ia32.maxvmem: 0
+compat.ia32.maxssiz: 67108864
+compat.ia32.maxdsiz: 536870912
