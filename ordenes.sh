@@ -1,7 +1,6 @@
 #!/bin/bash
-export DIALOGRC=$HOME/freepostinstall/dialog.conf
+export DIALOGRC=$PWD/dialog.conf
 
-function ejecutaord () {
 #ejecuta toda la secuencia de ordenes o una por una
 #argumentos all - todos
 #1-xxx para indicar la orden a ajecutar
@@ -37,5 +36,4 @@ numargu=$(printf "%i" $argu)
 		   ( eval  $ord ) 2>> funciones.log  | dialog  --timeout 1 --stdout --backtitle  "Orden: <\Z2$ord\Zn>" --colors --title "\Z0$titulo1" --programbox "\Z6\Zb$mensaje1" 20 60 
 		fi
 	done
-}
 
