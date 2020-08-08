@@ -92,7 +92,7 @@ Titulo:		Configuracion de `uname -rs`
 		chsh -s /usr/local/bin/bash
 </015>
 <250 "Mate Desktop">
-		pkg install -y mate redshift
+		pkg install -y mate redshift pftop
 
 </250>
 <251 "Driver Intel y otras configuraciones">
@@ -150,7 +150,8 @@ Titulo:		Configuracion de `uname -rs`
 		sysrc slim_enable="YES" 
 		pkg install -y slim-freebsd-black-theme slim-freebsd-dark-theme slim-freebsd-themes slim-themes 
 		sed -E -i .bak '/current_theme/c \
-		current_theme fbsd,freebsd-bestie,freebsd-simple,slim-freebsd-black-theme,slim-freebsd-dark-theme ' /usr/local/etc/slim.conf
+		current_theme fbsd,freebsd-bestie,freebsd-simple,slim-freebsd-black-theme,slim-freebsd-dark-theme 
+		' /usr/local/etc/slim.conf
 		
 </301>
 <310 "Configuracion de switch virtual">
@@ -161,18 +162,7 @@ Titulo:		Configuracion de `uname -rs`
 		#vm init &&
 		#vm switch create -a 10.1.1.1/24 services 
 </310>
-<311 "Creacion de firewall">
-		cat << EOF > /etc/pf.conf
-		set skip on lo0
-		net_ext=wlan0
-		nat on $net_ext from 10.1.1/24  -> wlan0:0
-		EOF
-		#sed -i '' '$d' /etc/pf.conf &&
-		sysrc pf_enable="YES" &&
-		sysrc pflog_enable="YES" &&
-		sysrc pf_rules="/etc/pf.conf" &&
-		service pf  start
-</311>
+
 <312 "Configurando servidor SSH">
 		cat << EOF >> /etc/ssh/sshd_config
 		Port 2222
@@ -200,10 +190,63 @@ Titulo:		Configuracion de `uname -rs`
 </320>
 <325 "Servidor NTPD">
 		sysrc ntpdate_enable="YES"
+		sysrc openntpd_flags="-s"
+		sysrc ntpd_enable="YES"
+		sysrc ntpd_sync_on_start="YES"
 		sed -E -i .bak '/^pool/c \
-		pool ve.pool.ntp.org ' /etc/ntp.conf
+		pool 0.pool.ntp.org iburst 
+		' /etc/ntp.conf
 </325>
-
+<327 "Respaldando">
+		echo Creando respaldo con todos los cambios efectuados
+		sh respaldo.sh
+</327>
+<329 "Instalacion de EZJAIL">
+		pkg install -y ezjail
+		ezjail-admin install 
+		sysrc ezjail_enable="YES"
+</329>
+<400 "Crear interfaces virtuales">
+		sysrc cloned_interfaces="bridge0 epair0"
+		sysrc ifconfig_bridge0="addm epair0b addm epair0a"
+		sysrc ifconfig_bridge0="inet 10.1.1.1/24"
+		sysrc ifconfig_epair0a="up"
+		sysrc ifconfig_epair0b="up"
+		service netif restart
+</400>
+<411 "Creacion de firewall">
+		cat << EOF > /etc/pf.conf
+		set skip on lo0
+		net_ext=wlan0
+		nat on \$net_ext from 10.1.1/24  -> wlan0:0
+		EOF
+		sysrc pf_enable="YES" 
+		sysrc pflog_enable="YES" 
+		sysrc pf_rules="/etc/pf.conf" 
+		service pf  start
+</411>
+<415 "Creacion de jaula wineJail">
+		ezjail-admin create -s 20G wineJail 'epair0b|10.1.1.2'
+		ezjail-admin list
+</415>
+<420 "Configuracion de jaula wineJail">
+		ezjail-admin stop wineJail
+		rm /usr/jails/wineJail/usr/ports
+		sed -E -i .bak '/jail_wineJail_parameters/c \
+		export jail_wineJail_parameters="allow.raw_sockets=1" 
+		' /usr/local/etc/ezjail/wineJail ;
+		cat << EOF > /usr/jails/wineJail/etc/resolv.conf
+		nameserver 8.8.8.8
+		nameserver 8.8.4.4
+		EOF
+		cat << EOF > /etc/fstab.wineJail
+		/usr/jails/basejail		/usr/jails/wineJail/basejail	nullfs ro 0 0
+		/usr/ports				/usr/jails/wineJail/usr/ports	nullfs rw 0 0
+		EOF
+		umount /usr/jails/wineJail/basejail
+		umount /usr/jails/wineJail/usr/ports
+		ezjail-admin start wineJail && ezjail-admin console  'pkg update -y' wineJail
+</420>
 <555 "Fin de la configuracion">
 	
 		dialog --stdout --msgbox  "Se han efectuado las configuraciones, debe reiniciar el sistema" 10 60
