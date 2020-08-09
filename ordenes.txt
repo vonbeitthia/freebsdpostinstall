@@ -63,6 +63,7 @@ Titulo:		Configuracion de `uname -rs`
  	
 </004>
 <010 "Manejo de usuarios (SUDO)">
+		export BATCH=yes
 		cd /usr/ports/security/sudo &&
 		make install clean &&
 		cd - 
@@ -308,6 +309,7 @@ Titulo:		Configuracion de `uname -rs`
 </420>
 <422 "prueba">
 		nomjail="winejail"
+		echo Esta es una prueba
 </422>
 <555 "Fin de la configuracion">
 	
