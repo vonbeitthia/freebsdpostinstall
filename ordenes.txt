@@ -307,16 +307,90 @@ Titulo:		Configuracion de `uname -rs`
 		ezjail-admin console -e 'pw user mod operador -L venezuelan' wineJail
 		ezjail-admin console -e 'service sshd restart' wineJail
 </420>
-<422 "prueba para ordenes">
-		echo Esta es una prueba
-			echo Esta es otra
-		echo Esta tanbueb
-		ls
-		nom="jaula"
-		echo $nom
+<422 "Crear Jail">
+		function crearJaula {
+				myjail=$1
+				echo Creando  jaula $myjail
+				ezjail-admin create -s 20G $myjail 'epair0b|10.1.1.3'
+				if [[ $? -eq 0 ]]: then
+					ezjail-admin list
+					echo Configurando jaula $myjail
+					ezjail-admin stop $myjail 2> /dev/null
+					umount /usr/jails/$myjail/basejail 2> /dev/null
+					umount /usr/jails/$myjail/usr/ports 2> /dev/null
+					rm /usr/jails/$myjail/usr/ports 2> /dev/null
+					mkdir /usr/jails/$myjail/usr/ports 2> /dev/null
+					mkdir -p /usr/jails/$myjail/home/operador/Documentos 2> /dev/null
+					sed -E -i .bak "/jail_$myjail_parameters/c \
+					export jail_$myjail_parameters='allow.raw_sockets=1' 
+					" /usr/local/etc/ezjail/$myjail ;
+					cat << EOF > /usr/jails/$myjail/etc/resolv.conf
+					nameserver 8.8.8.8
+					nameserver 8.8.4.4
+					EOF
+					cat << EOF > /etc/fstab.$myjail
+					/usr/jails/basejail		/usr/jails/$myjail/basejail	nullfs ro 0 0
+					/usr/ports				/usr/jails/$myjail/usr/ports	nullfs rw 0 0
+					/usr/home/vonuser	/usr/jails/$myjail/usr/home/operador/Documentos	nullfs rw 0 0
+					EOF
+					cat << EOF > /usr/jails/$myjail/etc/rc.conf
+					sshd_enable="YES"
+					keymap="latinamerican.acc.kbd"
+					syslogd_enable="NO"
+					EOF
+					sed -E -i .bak '/^\#Port/c\
+					Port 2222
+					' /usr/jails/$myjail/etc/ssh/sshd_config
+					sed -E -i .bak '/^\#ListenAddress/c\
+					ListenAddress 10.1.1.2
+					' /usr/jails/$myjail/etc/ssh/sshd_config
+					sed -E -i .bak '/^\#X11Forwarding/c\
+					X11Forwarding yes
+					' /usr/jails/$myjail/etc/ssh/sshd_config
+					echo 'X11UseLocalhost no' >> /usr/jails/$myjail/etc/ssh/sshd_config
+					cat << EOF > /usr/jails/$myjail/etc/hosts
+					::1				localhost $myjail
+					127.0.0.1		localhost $myjail
+					10.1.1.2		$myjail
+					192.168.0.100	vonserver.com
+					EOF
+					ezjail-admin start $myjail && ezjail-admin console -e 'pkg update -y' $myjail
+					ezjail-admin console -e 'pkg install -y nano xauth xeyes bash sudo' $myjail
+					echo Agregando usuario operador
+					ezjail-admin console -e 'pw useradd -n operador -G wheel,operator,video  -m -s /usr/local/bin/bash' $myjail
+					ezjail-admin console -e 'chsh -s /usr/local/bin/bash' $myjail
+					cp /root/.bashrc	/usr/jails/$myjail/root/.bashrc
+					cp /root/.bashrc	/usr/jails/$myjail/root/.bash_profile
+					cp /root/.bashrc	/usr/jails/$myjail/home/operador/.bashrc
+					cp /root/.bashrc	/usr/jails/$myjail/home/operador/.bash_profile
+					cp /root/.aliases 	/usr/jails/$myjail/root/.aliases
+					cp /root/.aliases 	/usr/jails/$myjail/home/operador/.aliases
+					ezjail-admin console -e 'chown operador:operador /home/operador/.bashrc' $myjail
+					ezjail-admin console -e 'chown operador:operador /home/operador/.bash_profile' $myjail
+					ezjail-admin console -e 'chown operador:operador /home/operador/.aliases' $myjail
+					echo "%wheel ALL=(ALL) ALL" >> /usr/jails/$myjail/usr/local/etc/sudoers
+					echo Creando certificados SSH
+					mkdir -p /usr/jails/$myjail/home/operador/.ssh
+					ezjail-admin console -e 'su operador -c "ssh-keygen  -t ecdsa -b 521 -P operador -f \$HOME/.ssh/$myjail-key"' $myjail
+					cat /home/vonuser/.ssh/vonuserkey.pub > /usr/jails/$myjail/home/operador/.ssh/authorized_keys
+					echo Configuracion regional
+					cat << EOF >> /usr/jails/$myjail/etc/login.conf
+					venezuelan|Cuenta de usuario regional:\\
+					:charset=es_MX.UTF-8:\\
+					:lang=es_MX.UTF-8:
+					EOF
+					ezjail-admin console -e 'cap_mkdb /etc/login.conf' $myjail
+					ezjail-admin console -e 'pw user mod root -L venezuelan' $myjail
+					ezjail-admin console -e 'pw user mod operador -L venezuelan' $myjail
+					ezjail-admin console -e 'service sshd restart' $myjail
+				fi
+			}
 </422>
+<423 "Configurando Jail">	
+		crearJaula "NodeJail"
+</423>
 <555 "Fin de la configuracion">
-		dialog --clear
+		#dialog --clear
 		dialog --stdout --msgbox  "Se han efectuado las configuraciones, debe reiniciar el sistema" 10 60
 	
 </555>
