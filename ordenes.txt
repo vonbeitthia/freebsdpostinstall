@@ -46,8 +46,6 @@ Titulo:		Configuracion de `uname -rs`
 			url: "pkg+http://pkg.FreeBSD.org/\${ABI}/latest"
 		}
 		EOF
-		#Âpkg -vvÃ && 
-		#pkg-static del -f -y pkg
 		pkg-static upgrade -f -y &&
 		pkg upgrade -y &&
 		pkg install -y bash-completion
@@ -164,11 +162,18 @@ Titulo:		Configuracion de `uname -rs`
 </310>
 
 <312 "Configurando servidor SSH">
-		cat << EOF >> /etc/ssh/sshd_config
+		sed -E -i .bak '/^Port/c\
 		Port 2222
+		' /etc/ssh/sshd_config
+		sed -E -i .bak '/^ListenAddress/c\
 		ListenAddress 192.168.0.100
-		EOF
-		#sed -i '' '$d' /etc/ssh/sshd_config &&
+		' /etc/ssh/sshd_config
+		sed -E -i .bak '/^\#Port/c\
+		Port 2222
+		' /etc/ssh/sshd_config
+		sed -E -i .bak '/^\#ListenAddress/c\
+		ListenAddress 192.168.0.100
+		' /etc/ssh/sshd_config
 		service sshd restart
 </312>
 <313 "Configurando syslogd">
@@ -231,7 +236,11 @@ Titulo:		Configuracion de `uname -rs`
 </415>
 <420 "Configuracion de jaula wineJail">
 		ezjail-admin stop wineJail
+		umount /usr/jails/wineJail/basejail
+		umount /usr/jails/wineJail/usr/ports
 		rm /usr/jails/wineJail/usr/ports
+		mkdir /usr/jails/wineJail/usr/ports
+		mkdir -p /usr/jails/wineJail/home/operador/Documentos
 		sed -E -i .bak '/jail_wineJail_parameters/c \
 		export jail_wineJail_parameters="allow.raw_sockets=1" 
 		' /usr/local/etc/ezjail/wineJail ;
@@ -242,11 +251,64 @@ Titulo:		Configuracion de `uname -rs`
 		cat << EOF > /etc/fstab.wineJail
 		/usr/jails/basejail		/usr/jails/wineJail/basejail	nullfs ro 0 0
 		/usr/ports				/usr/jails/wineJail/usr/ports	nullfs rw 0 0
+		/usr/home/vonuser	/usr/jails/wineJail/usr/home/operador/Documentos	nullfs rw 0 0
 		EOF
-		umount /usr/jails/wineJail/basejail
-		umount /usr/jails/wineJail/usr/ports
-		ezjail-admin start wineJail && ezjail-admin console  'pkg update -y' wineJail
+		
+		
+		cat << EOF > /usr/jails/wineJail/etc/rc.conf
+		sshd_enable="YES"
+		keymap="latinamerican.acc.kbd"
+		syslogd_enable="NO"
+		EOF
+		sed -E -i .bak '/^\#Port/c\
+		Port 2222
+		' /usr/jails/wineJail/etc/ssh/sshd_config
+		sed -E -i .bak '/^\#ListenAddress/c\
+		ListenAddress 10.1.1.2
+		' /usr/jails/wineJail/etc/ssh/sshd_config
+		sed -E -i .bak '/^\#X11Forwarding/c\
+		X11Forwarding yes
+		' /usr/jails/wineJail/etc/ssh/sshd_config
+		echo 'X11UseLocalhost no' >> /usr/jails/wineJail/etc/ssh/sshd_config
+		cat << EOF > /usr/jails/wineJail/etc/hosts
+		::1				localhost wineJail
+		127.0.0.1		localhost wineJail
+		10.1.1.2		wineJail
+		192.168.0.100	vonserver.com
+		EOF
+		ezjail-admin start wineJail && ezjail-admin console -e 'pkg update -y' wineJail
+		ezjail-admin console -e 'pkg install -y nano xauth xeyes bash sudo' wineJail
+		echo Agregando usuario operador
+		ezjail-admin console -e 'pw useradd -n operador -G wheel,operator,video  -m -s /usr/local/bin/bash' wineJail
+		ezjail-admin console -e 'chsh -s /usr/local/bin/bash' wineJail
+		cp /root/.bashrc	/usr/jails/wineJail/root/.bashrc
+		cp /root/.bashrc	/usr/jails/wineJail/root/.bash_profile
+		cp /root/.bashrc	/usr/jails/wineJail/home/operador/.bashrc
+		cp /root/.bashrc	/usr/jails/wineJail/home/operador/.bash_profile
+		cp /root/.aliases 	/usr/jails/wineJail/root/.aliases
+		cp /root/.aliases 	/usr/jails/wineJail/home/operador/.aliases
+		ezjail-admin console -e 'chown operador:operador /home/operador/.bashrc' wineJail
+		ezjail-admin console -e 'chown operador:operador /home/operador/.bash_profile' wineJail
+		ezjail-admin console -e 'chown operador:operador /home/operador/.aliases' wineJail
+		echo "%wheel ALL=(ALL) ALL" >> /usr/jails/wineJail/usr/local/etc/sudoers
+		echo Creando certificados SSH
+		mkdir -p /usr/jails/wineJail/home/operador/.ssh
+		ezjail-admin console -e 'su operador -c "ssh-keygen  -t ecdsa -b 521 -P operador -f \$HOME/.ssh/wineJailkey"' wineJail
+		cat /home/vonuser/.ssh/vonuserkey.pub > /usr/jails/wineJail/home/operador/.ssh/authorized_keys
+		echo Configuracion regional
+		cat << EOF >> /usr/jails/wineJail/etc/login.conf
+		venezuelan|Cuenta de usuario regional:\\
+			:charset=es_MX.UTF-8:\\
+			:lang=es_MX.UTF-8:
+		EOF
+		ezjail-admin console -e 'cap_mkdb /etc/login.conf' wineJail
+		ezjail-admin console -e 'pw user mod root -L venezuelan' wineJail
+		ezjail-admin console -e 'pw user mod operador -L venezuelan' wineJail
+		ezjail-admin console -e 'service sshd restart' wineJail
 </420>
+<422 "prueba">
+		nomjail="winejail"
+</422>
 <555 "Fin de la configuracion">
 	
 		dialog --stdout --msgbox  "Se han efectuado las configuraciones, debe reiniciar el sistema" 10 60

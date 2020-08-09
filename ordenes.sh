@@ -33,7 +33,7 @@ numargu=$(printf "%i" $argu)
 			break
 		elif [ $numargu -eq 0 ]; then #todas las ordenes
 		   #( eval $(echo $ord)) 2>> funciones.log  | dialog  --timeout 1 --stdout --backtitle  "Orden: <\Z2$ord\Zn>" --colors --title "\Z0$titulo1" --programbox "\Z6\Zb$mensaje1" 20 60 
-		   ( eval  $ord ) 2>> funciones.log  | dialog  --timeout 1 --stdout --backtitle  "Orden: <\Z2$ord\Zn>" --colors --title "\Z0$titulo1" --programbox "\Z6\Zb$mensaje1" 20 60 
+		   ( eval  "$ord" ) 2>> funciones.log  | dialog  --timeout 1 --stdout --backtitle  "Orden: <\Z2$ord\Zn>" --colors --title "\Z0$titulo1" --programbox "\Z6\Zb$mensaje1" 20 60 
 		fi
 	done
 
