@@ -307,12 +307,16 @@ Titulo:		Configuracion de `uname -rs`
 		ezjail-admin console -e 'pw user mod operador -L venezuelan' wineJail
 		ezjail-admin console -e 'service sshd restart' wineJail
 </420>
-<422 "prueba">
-		nomjail="winejail"
+<422 "prueba para ordenes">
 		echo Esta es una prueba
+			echo Esta es otra
+		echo Esta tanbueb
+		ls
+		nom="jaula"
+		echo $nom
 </422>
 <555 "Fin de la configuracion">
-	
+		dialog --clear
 		dialog --stdout --msgbox  "Se han efectuado las configuraciones, debe reiniciar el sistema" 10 60
 	
 </555>
