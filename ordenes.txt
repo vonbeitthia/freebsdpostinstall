@@ -103,7 +103,9 @@ Titulo:		Configuracion de `uname -rs`
 		sysrc -f /boot/loader.conf snd_driver_load="YES"
 		sysrc moused_enable="NO"
 		echo "vfs.usermount=1" >> /etc/sysctl.conf
-
+		echo "net.link.bridge.pfil_bridge=0" >> /etc/sysctl.conf
+		echo "net.link.bridge.pfil_onlyip=0" >> /etc/sysctl.conf
+		echo "net.link.bridge.pfil_member=0" >> /etc/sysctl.conf
 </251>
 <255 "Aplicaciones graficas">
 		pkg install -y gimp geany lxterminal libreoffice geany firefox numix-gtk-theme numix-icon-theme 
@@ -153,6 +155,10 @@ Titulo:		Configuracion de `uname -rs`
 		' /usr/local/etc/slim.conf
 		
 </301>
+<302 "Contrasenas de usuarios">
+		Echo "Ingrese la contrasena para usuario <vonuser>"
+		passwd vonuser
+</302>
 <310 "Configuracion de switch virtual">
 		#pkg install -y vm-bhyve &&
 		#sysrc vm_enable="YES"&&
@@ -235,160 +241,99 @@ Titulo:		Configuracion de `uname -rs`
 		ezjail-admin create -s 20G wineJail 'epair0b|10.1.1.2'
 		ezjail-admin list
 </415>
-<420 "Configuracion de jaula wineJail">
-		ezjail-admin stop wineJail
-		umount /usr/jails/wineJail/basejail
-		umount /usr/jails/wineJail/usr/ports
-		rm /usr/jails/wineJail/usr/ports
-		mkdir /usr/jails/wineJail/usr/ports
-		mkdir -p /usr/jails/wineJail/home/operador/Documentos
-		sed -E -i .bak '/jail_wineJail_parameters/c \
-		export jail_wineJail_parameters="allow.raw_sockets=1" 
-		' /usr/local/etc/ezjail/wineJail ;
-		cat << EOF > /usr/jails/wineJail/etc/resolv.conf
-		nameserver 8.8.8.8
-		nameserver 8.8.4.4
-		EOF
-		cat << EOF > /etc/fstab.wineJail
-		/usr/jails/basejail		/usr/jails/wineJail/basejail	nullfs ro 0 0
-		/usr/ports				/usr/jails/wineJail/usr/ports	nullfs rw 0 0
-		/usr/home/vonuser	/usr/jails/wineJail/usr/home/operador/Documentos	nullfs rw 0 0
-		EOF
-		
-		
-		cat << EOF > /usr/jails/wineJail/etc/rc.conf
-		sshd_enable="YES"
-		keymap="latinamerican.acc.kbd"
-		syslogd_enable="NO"
-		EOF
-		sed -E -i .bak '/^\#Port/c\
-		Port 2222
-		' /usr/jails/wineJail/etc/ssh/sshd_config
-		sed -E -i .bak '/^\#ListenAddress/c\
-		ListenAddress 10.1.1.2
-		' /usr/jails/wineJail/etc/ssh/sshd_config
-		sed -E -i .bak '/^\#X11Forwarding/c\
-		X11Forwarding yes
-		' /usr/jails/wineJail/etc/ssh/sshd_config
-		echo 'X11UseLocalhost no' >> /usr/jails/wineJail/etc/ssh/sshd_config
-		cat << EOF > /usr/jails/wineJail/etc/hosts
-		::1				localhost wineJail
-		127.0.0.1		localhost wineJail
-		10.1.1.2		wineJail
-		192.168.0.100	vonserver.com
-		EOF
-		ezjail-admin start wineJail && ezjail-admin console -e 'pkg update -y' wineJail
-		ezjail-admin console -e 'pkg install -y nano xauth xeyes bash sudo' wineJail
-		echo Agregando usuario operador
-		ezjail-admin console -e 'pw useradd -n operador -G wheel,operator,video  -m -s /usr/local/bin/bash' wineJail
-		ezjail-admin console -e 'chsh -s /usr/local/bin/bash' wineJail
-		cp /root/.bashrc	/usr/jails/wineJail/root/.bashrc
-		cp /root/.bashrc	/usr/jails/wineJail/root/.bash_profile
-		cp /root/.bashrc	/usr/jails/wineJail/home/operador/.bashrc
-		cp /root/.bashrc	/usr/jails/wineJail/home/operador/.bash_profile
-		cp /root/.aliases 	/usr/jails/wineJail/root/.aliases
-		cp /root/.aliases 	/usr/jails/wineJail/home/operador/.aliases
-		ezjail-admin console -e 'chown operador:operador /home/operador/.bashrc' wineJail
-		ezjail-admin console -e 'chown operador:operador /home/operador/.bash_profile' wineJail
-		ezjail-admin console -e 'chown operador:operador /home/operador/.aliases' wineJail
-		echo "%wheel ALL=(ALL) ALL" >> /usr/jails/wineJail/usr/local/etc/sudoers
-		echo Creando certificados SSH
-		mkdir -p /usr/jails/wineJail/home/operador/.ssh
-		ezjail-admin console -e 'su operador -c "ssh-keygen  -t ecdsa -b 521 -P operador -f \$HOME/.ssh/wineJailkey"' wineJail
-		cat /home/vonuser/.ssh/vonuserkey.pub > /usr/jails/wineJail/home/operador/.ssh/authorized_keys
-		echo Configuracion regional
-		cat << EOF >> /usr/jails/wineJail/etc/login.conf
-		venezuelan|Cuenta de usuario regional:\\
-			:charset=es_MX.UTF-8:\\
-			:lang=es_MX.UTF-8:
-		EOF
-		ezjail-admin console -e 'cap_mkdb /etc/login.conf' wineJail
-		ezjail-admin console -e 'pw user mod root -L venezuelan' wineJail
-		ezjail-admin console -e 'pw user mod operador -L venezuelan' wineJail
-		ezjail-admin console -e 'service sshd restart' wineJail
-</420>
-<422 "Crear Jail">
+
+<422 "Funcion para crear Jaulas">
 		function crearJaula {
+				#$1 --- nombre de la jaula
+				#$2 --- direccion ip local ejem 10.1.1.3
 				myjail=$1
+				myip=$2
 				echo Creando  jaula $myjail
-				ezjail-admin create -s 20G $myjail 'epair0b|10.1.1.3'
-				if [[ $? -eq 0 ]]: then
+				ezjail-admin create -s 20G $myjail "epair0b|$myip"
+				if [[ $? -eq 0 ]]; then
 					ezjail-admin list
 					echo Configurando jaula $myjail
 					ezjail-admin stop $myjail 2> /dev/null
 					umount /usr/jails/$myjail/basejail 2> /dev/null
 					umount /usr/jails/$myjail/usr/ports 2> /dev/null
 					rm /usr/jails/$myjail/usr/ports 2> /dev/null
-					mkdir /usr/jails/$myjail/usr/ports 2> /dev/null
-					mkdir -p /usr/jails/$myjail/home/operador/Documentos 2> /dev/null
-					sed -E -i .bak "/jail_$myjail_parameters/c \
-					export jail_$myjail_parameters='allow.raw_sockets=1' 
-					" /usr/local/etc/ezjail/$myjail ;
-					cat << EOF > /usr/jails/$myjail/etc/resolv.conf
-					nameserver 8.8.8.8
-					nameserver 8.8.4.4
-					EOF
-					cat << EOF > /etc/fstab.$myjail
-					/usr/jails/basejail		/usr/jails/$myjail/basejail	nullfs ro 0 0
-					/usr/ports				/usr/jails/$myjail/usr/ports	nullfs rw 0 0
-					/usr/home/vonuser	/usr/jails/$myjail/usr/home/operador/Documentos	nullfs rw 0 0
-					EOF
-					cat << EOF > /usr/jails/$myjail/etc/rc.conf
-					sshd_enable="YES"
-					keymap="latinamerican.acc.kbd"
-					syslogd_enable="NO"
-					EOF
-					sed -E -i .bak '/^\#Port/c\
-					Port 2222
-					' /usr/jails/$myjail/etc/ssh/sshd_config
-					sed -E -i .bak '/^\#ListenAddress/c\
-					ListenAddress 10.1.1.2
-					' /usr/jails/$myjail/etc/ssh/sshd_config
-					sed -E -i .bak '/^\#X11Forwarding/c\
-					X11Forwarding yes
-					' /usr/jails/$myjail/etc/ssh/sshd_config
+					mkdir /usr/jails/$myjail/usr/ports 
+					mkdir -p /usr/jails/$myjail/home/usuario/Documentos
+					
+		sed -E -i .bak "/jail_"$myjail"_parameters/c \\
+		export jail_"$myjail"_parameters=\"allow.raw_sockets=1\"
+		" /usr/local/etc/ezjail/$myjail ;
+		cat << EOF > /usr/jails/$myjail/etc/resolv.conf
+		nameserver 8.8.8.8
+		nameserver 8.8.4.4
+		EOF
+		cat << EOF > /etc/fstab.$myjail
+		/usr/jails/basejail		/usr/jails/$myjail/basejail	nullfs ro 0 0
+		/usr/ports				/usr/jails/$myjail/usr/ports	nullfs rw 0 0
+		/usr/home/vonuser	/usr/jails/$myjail/home/operador/Documentos	nullfs rw 0 0
+		EOF
+		cat << EOF > /usr/jails/$myjail/etc/rc.conf
+		sshd_enable="YES"
+		keymap="latinamerican.acc.kbd"
+		syslogd_enable="NO"
+		EOF
+		sed -E -i .bak '/^\#Port/c\
+		Port 2222
+		' /usr/jails/$myjail/etc/ssh/sshd_config
+		sed -E -i .bak "/^\#ListenAddress/c\
+		ListenAddress $myip
+		" /usr/jails/$myjail/etc/ssh/sshd_config
+		sed -E -i .bak '/^\#X11Forwarding/c\
+		X11Forwarding yes
+		' /usr/jails/$myjail/etc/ssh/sshd_config
 					echo 'X11UseLocalhost no' >> /usr/jails/$myjail/etc/ssh/sshd_config
-					cat << EOF > /usr/jails/$myjail/etc/hosts
-					::1				localhost $myjail
-					127.0.0.1		localhost $myjail
-					10.1.1.2		$myjail
-					192.168.0.100	vonserver.com
-					EOF
+		cat << EOF > /usr/jails/$myjail/etc/hosts
+		::1				localhost $myjail
+		127.0.0.1		localhost $myjail
+		$myip		$myjail
+		192.168.0.100	vonserver.com
+		EOF
 					ezjail-admin start $myjail && ezjail-admin console -e 'pkg update -y' $myjail
 					ezjail-admin console -e 'pkg install -y nano xauth xeyes bash sudo' $myjail
-					echo Agregando usuario operador
-					ezjail-admin console -e 'pw useradd -n operador -G wheel,operator,video  -m -s /usr/local/bin/bash' $myjail
+					echo "Agregando usuario <usuario>"
+					ezjail-admin console -e 'pw useradd -n usuario -G wheel,operator,video  -m -s /usr/local/bin/bash' $myjail
 					ezjail-admin console -e 'chsh -s /usr/local/bin/bash' $myjail
 					cp /root/.bashrc	/usr/jails/$myjail/root/.bashrc
 					cp /root/.bashrc	/usr/jails/$myjail/root/.bash_profile
-					cp /root/.bashrc	/usr/jails/$myjail/home/operador/.bashrc
-					cp /root/.bashrc	/usr/jails/$myjail/home/operador/.bash_profile
+					cp /root/.bashrc	/usr/jails/$myjail/home/usuario/.bashrc
+					cp /root/.bashrc	/usr/jails/$myjail/home/usuario/.bash_profile
 					cp /root/.aliases 	/usr/jails/$myjail/root/.aliases
-					cp /root/.aliases 	/usr/jails/$myjail/home/operador/.aliases
-					ezjail-admin console -e 'chown operador:operador /home/operador/.bashrc' $myjail
-					ezjail-admin console -e 'chown operador:operador /home/operador/.bash_profile' $myjail
-					ezjail-admin console -e 'chown operador:operador /home/operador/.aliases' $myjail
+					cp /root/.aliases 	/usr/jails/$myjail/home/usuario/.aliases
+					ezjail-admin console -e 'chown usuario:usuario /home/usuario/.bashrc' $myjail
+					ezjail-admin console -e 'chown usuario:usuario /home/usuario/.bash_profile' $myjail
+					ezjail-admin console -e 'chown usuario:usuario /home/usuario/.aliases' $myjail
 					echo "%wheel ALL=(ALL) ALL" >> /usr/jails/$myjail/usr/local/etc/sudoers
 					echo Creando certificados SSH
-					mkdir -p /usr/jails/$myjail/home/operador/.ssh
-					ezjail-admin console -e 'su operador -c "ssh-keygen  -t ecdsa -b 521 -P operador -f \$HOME/.ssh/$myjail-key"' $myjail
-					cat /home/vonuser/.ssh/vonuserkey.pub > /usr/jails/$myjail/home/operador/.ssh/authorized_keys
+					mkdir -p /usr/jails/$myjail/home/usuario/.ssh
+					cat /home/vonuser/.ssh/vonuserkey.pub > /usr/jails/$myjail/home/usuario/.ssh/authorized_keys
 					echo Configuracion regional
-					cat << EOF >> /usr/jails/$myjail/etc/login.conf
-					venezuelan|Cuenta de usuario regional:\\
-					:charset=es_MX.UTF-8:\\
-					:lang=es_MX.UTF-8:
-					EOF
+		cat << EOF >> /usr/jails/$myjail/etc/login.conf
+		venezuelan|Cuenta de usuario regional:\\
+		:charset=es_MX.UTF-8:\\
+		:lang=es_MX.UTF-8:
+		EOF
 					ezjail-admin console -e 'cap_mkdb /etc/login.conf' $myjail
 					ezjail-admin console -e 'pw user mod root -L venezuelan' $myjail
-					ezjail-admin console -e 'pw user mod operador -L venezuelan' $myjail
-					ezjail-admin console -e 'service sshd restart' $myjail
+					ezjail-admin console -e 'pw user mod usuario -L venezuelan' $myjail
+					echo "Generando contrasena para <root>"
+					ezjail-admin console -e 'passwd' $myjail
+					echo "Generando contrasena para <usuario>"
+					ezjail-admin console -e 'passwd usuario' $myjail
+					ezjail-admin restart $myjail && echo -e "Jaula creada exitosamente - recuerde conectar con $yellow ssh -X usuario@$myip $normal"
 				fi
-			}
+		}
 </422>
-<423 "Configurando Jail">	
-		crearJaula "NodeJail"
+<423 "Jaula wineJail">	
+		crearJaula "NodeJail" "10.1.1.2"
 </423>
+<424 "Jaula NodeJail">	
+		crearJaula "NodeJail" "10.1.1.3"
+</424>
 <555 "Fin de la configuracion">
 		#dialog --clear
 		dialog --stdout --msgbox  "Se han efectuado las configuraciones, debe reiniciar el sistema" 10 60
