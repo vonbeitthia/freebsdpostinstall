@@ -106,6 +106,9 @@ Titulo:		Configuracion de `uname -rs`
 		echo "net.link.bridge.pfil_bridge=0" >> /etc/sysctl.conf
 		echo "net.link.bridge.pfil_onlyip=0" >> /etc/sysctl.conf
 		echo "net.link.bridge.pfil_member=0" >> /etc/sysctl.conf
+		sysctl net.link.bridge.pfil_bridge=0
+		sysctl net.link.bridge.pfil_onlyip=0
+		sysctl net.link.bridge.pfil_member=0
 </251>
 <255 "Aplicaciones graficas">
 		pkg install -y gimp geany lxterminal libreoffice geany firefox numix-gtk-theme numix-icon-theme 
@@ -270,7 +273,7 @@ Titulo:		Configuracion de `uname -rs`
 		cat << EOF > /etc/fstab.$myjail
 		/usr/jails/basejail		/usr/jails/$myjail/basejail	nullfs ro 0 0
 		/usr/ports				/usr/jails/$myjail/usr/ports	nullfs rw 0 0
-		/usr/home/vonuser	/usr/jails/$myjail/home/operador/Documentos	nullfs rw 0 0
+		/usr/home/vonuser	/usr/jails/$myjail/home/usuario/Documentos	nullfs rw 0 0
 		EOF
 		cat << EOF > /usr/jails/$myjail/etc/rc.conf
 		sshd_enable="YES"
@@ -280,9 +283,7 @@ Titulo:		Configuracion de `uname -rs`
 		sed -E -i .bak '/^\#Port/c\
 		Port 2222
 		' /usr/jails/$myjail/etc/ssh/sshd_config
-		sed -E -i .bak "/^\#ListenAddress/c\
-		ListenAddress $myip
-		" /usr/jails/$myjail/etc/ssh/sshd_config
+		echo "ListenAddress $myip" >> /usr/jails/$myjail/etc/ssh/sshd_config
 		sed -E -i .bak '/^\#X11Forwarding/c\
 		X11Forwarding yes
 		' /usr/jails/$myjail/etc/ssh/sshd_config
@@ -329,7 +330,7 @@ Titulo:		Configuracion de `uname -rs`
 		}
 </422>
 <423 "Jaula wineJail">	
-		crearJaula "NodeJail" "10.1.1.2"
+		crearJaula "wineJail" "10.1.1.2"
 </423>
 <424 "Jaula NodeJail">	
 		crearJaula "NodeJail" "10.1.1.3"
