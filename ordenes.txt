@@ -110,9 +110,42 @@ Titulo:		Configuracion de `uname -rs`
 		sysctl net.link.bridge.pfil_onlyip=0
 		sysctl net.link.bridge.pfil_member=0
 </251>
+<252 "Brillo de pantalla">
+		pkg install -y intel-backlight
+		sysrc -f /boot/loader.conf acpi_video_load="YES"
+		cp /usr/local/share/examples/intel-backlight/acpi-video-intel-backlight.conf  /usr/local/etc/devd/
+</252>
 <255 "Aplicaciones graficas">
-		pkg install -y gimp geany lxterminal libreoffice geany firefox numix-gtk-theme numix-icon-theme 
+		pkg install -y gimp geany lxterminal libreoffice geany firefox numix-gtk-theme numix-icon-theme neofetch
 </255>
+<257 "Aplicaciones de estudio">
+		pkg install -y texlive-full docear calibre jabref
+</257>
+<258 "Instalacion de jDownloader">
+		which megadl
+		if [[ $? -eq 1 ]]; then #si no esta instalado
+			echo -e "Compilando $blanco megatools $normal"
+			export 	BATCH=yes
+			cd /usr/ports/net/megatools
+			make install clean
+			export 	BATCH=no
+			cd -
+		fi
+		which megadl
+		if [[ $? -eq 0 ]]; then
+			echo Instalando open java
+			#pkg install -y openjdk8 - ya instalado con calibre
+			su vonuser -c 'mkdir $HOME/jDownloader'
+			echo Descargando de MEGA.NZ
+			su vonuser -c 'megadl https://mega.nz/file/6FtSTAaa#iCcVpHl4hePgpj2q7EdcqGofDQKAt7rohGybzRCogv0 --path $HOME/jDownloader/' && 
+			su vonuser -c 'java -jar $HOME/jDownloader/JDownloader.jar'
+		fi
+</258>
+<260 "Webcam, linux y + configuraciones">
+		sysrc webcamd_enable="YES"	
+		sysrc cuse_load="YES"
+		sysrc linux_load="YES"	
+</260>
 <300 "Creando .xinitrc">
 		direc=$(pw usershow vonuser | cut -d : -f9)
 		cat << EOF > $direc/.xinitrc
