@@ -92,7 +92,19 @@ Titulo:		Configuracion de `uname -rs`
 </015>
 <250 "Mate Desktop">
 		pkg install -y mate redshift pftop
-
+		echo Agregando politicas para cierre de sesión
+		cat << EOF >> /usr/local/etc/polkit-1/rules.d/50-default.rules
+		polkit.addRule(function (action, subject)
+		{
+		if ((action.id == "org.freedesktop.consolekit.system.restart" ||
+        action.id == "org.freedesktop.consolekit.system.stop")   &&
+        subject.isInGroup("wheel"))
+		{
+        return polkit.Result.YES;
+		}
+		});
+		EOF
+		sysrc polkitd_enable="YES"
 </250>
 <251 "Driver Intel y otras configuraciones">
 		pkg install -y drm-kmod 
@@ -116,7 +128,7 @@ Titulo:		Configuracion de `uname -rs`
 		cp /usr/local/share/examples/intel-backlight/acpi-video-intel-backlight.conf  /usr/local/etc/devd/
 </252>
 <255 "Aplicaciones graficas">
-		pkg install -y gimp geany lxterminal libreoffice geany firefox numix-gtk-theme numix-icon-theme neofetch
+		pkg install -y gimp geany lxterminal libreoffice geany firefox-esr numix-gtk-theme numix-icon-theme neofetch vlc pwcview
 </255>
 <257 "Aplicaciones de estudio">
 		pkg install -y texlive-full docear calibre jabref
@@ -145,6 +157,8 @@ Titulo:		Configuracion de `uname -rs`
 		sysrc webcamd_enable="YES"	
 		sysrc cuse_load="YES"
 		sysrc linux_load="YES"	
+		sysrc -f /boot/loader.conf cuse4bsd_load="YES"
+		sysrc -f /boot/loader.conf pwc_load="YES"
 </260>
 <300 "Creando .xinitrc">
 		direc=$(pw usershow vonuser | cut -d : -f9)
@@ -368,6 +382,9 @@ Titulo:		Configuracion de `uname -rs`
 <424 "Jaula NodeJail">	
 		crearJaula "NodeJail" "10.1.1.3"
 </424>
+<425 "zoneminderJail">
+		crearJaula "zoneminder" "10.1.1.4"
+</425>
 <555 "Fin de la configuracion">
 		#dialog --clear
 		dialog --stdout --msgbox  "Se han efectuado las configuraciones, debe reiniciar el sistema" 10 60
