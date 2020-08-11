@@ -341,7 +341,13 @@ Titulo:		Configuracion de `uname -rs`
 		$myip		$myjail
 		192.168.0.100	vonserver.com
 		EOF
-					ezjail-admin start $myjail && ezjail-admin console -e 'pkg update -y' $myjail
+					ezjail-admin start $myjail 
+					jls | grep "$myjail"
+					if [[ $? -ne 0 ]]; then
+						dialog --stdout --msgbox "Error al iniciar jaula $myjail.\nVerifica configuracion" 0 0
+						return 0
+					fi
+					ezjail-admin console -e 'pkg update -y' $myjail
 					ezjail-admin console -e 'pkg install -y nano xauth xeyes bash sudo' $myjail
 					echo "Agregando usuario <usuario>"
 					ezjail-admin console -e 'pw useradd -n usuario -G wheel,operator,video  -m -s /usr/local/bin/bash' $myjail
@@ -372,7 +378,7 @@ Titulo:		Configuracion de `uname -rs`
 					ezjail-admin console -e 'passwd' $myjail
 					echo "Generando contrasena para <usuario>"
 					ezjail-admin console -e 'passwd usuario' $myjail
-					ezjail-admin restart $myjail && echo -e "Jaula creada exitosamente - recuerde conectar con $yellow ssh -X usuario@$myip $normal"
+					ezjail-admin restart $myjail && echo -e "Jaula creada exitosamente - recuerde conectar con $yellow ssh -p 2222 -X usuario@$myip $normal"
 				fi
 		}
 </422>
