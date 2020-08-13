@@ -159,6 +159,7 @@ Titulo:		Configuracion de `uname -rs`
 		sysrc linux_load="YES"	
 		sysrc -f /boot/loader.conf cuse4bsd_load="YES"
 		sysrc -f /boot/loader.conf pwc_load="YES"
+		pkg install -y pwcview
 </260>
 <300 "Creando .xinitrc">
 		direc=$(pw usershow vonuser | cut -d : -f9)
@@ -399,12 +400,30 @@ Titulo:		Configuracion de `uname -rs`
 					echo "Generando contrasena para <usuario>"
 					ezjail-admin console -e 'passwd usuario' $myjail
 					ezjail-admin restart $myjail && echo -e "Jaula creada exitosamente - recuerde conectar con $yellow ssh -p 2222 -X usuario@$myip $normal"
+					echo -e "Creando respaldo para jaula $green $myjail $normal"
+					ezjail-admin console -e 'tzsetup' $myjail
+					cp respaldo.sh /usr/jails/$myjail/root/respaldo.sh
+					cp serv.sh /usr/jails/$myjail/root/serv.sh
+					ezjail-admin console -e 'sh /root/respaldo.sh' $myjail
+					echo Creando accesos en escritorio...
+		cat <<EOF>> /usr/home/vonuser/Desktop/$myjail
+		.desktop 
+		#!/usr/bin/env xdg-open
+		[Desktop Entry]
+		Version=1.0
+		Type=Application
+		Terminal=true
+		Icon=gnome-color-manager
+		Icon[es_MX]=gnome-color-manager
+		Name[es_MX]=Conexion a jaula $myjail
+		Exec=ssh -X -p 2222 operador@$myip
+		Name=Conexion a jaula $myjail
+		EOF
+					chmod +x /usr/home/vonuser/Desktop/$myjail
+					chwon vonuser:vonuser /usr/home/vonuser/Desktop/$myjail
 				fi
 		}
-		echo -e "Creando respaldo para jaula $green $myjail $normal"
-		cp respaldo.sh /usr/jails/$myjail/root/respaldo.sh
-		cp serv.sh /usr/jails/$myjail/root/serv.sh
-		ezjail-admin console -e 'bash /root/respaldo.sh' $myjail
+		
 </422>
 <423 "Jaula wineJail">	
 		crearJaula "wineJail" "10.1.1.2"
@@ -413,7 +432,7 @@ Titulo:		Configuracion de `uname -rs`
 		crearJaula "NodeJail" "10.1.1.3"
 </424>
 <425 "zoneminderJail">
-		#crearJaula "zoneminder" "10.1.1.4"
+		crearJaula "zoneminder" "10.1.1.4"
 		sed -E -i .bak "/jail_zoneminder_devfs_ruleset/c \\
 		export jail_"zoneminder"_devfs_ruleset=\"10\"
 		" /usr/local/etc/ezjail/zoneminder ;
