@@ -159,7 +159,7 @@ Titulo:		Configuracion de `uname -rs`
 		sysrc linux_load="YES"	
 		sysrc -f /boot/loader.conf cuse4bsd_load="YES"
 		sysrc -f /boot/loader.conf pwc_load="YES"
-		pkg install -y pwcview
+		pkg install -y pwcview v4l-utils v4l_compat
 </260>
 <300 "Creando .xinitrc">
 		direc=$(pw usershow vonuser | cut -d : -f9)
@@ -289,6 +289,11 @@ Titulo:		Configuracion de `uname -rs`
 			echo -e "La regla $red $numregla $nomregla $normal ya existe"
 		fi
 </335>
+<339 "Automontaje de unidades">
+		sysrc -f /boot/loader.conf fuse_load="YES"
+		pkg install -y automount
+		service devd restart
+</339>
 <400 "Crear interfaces virtuales">
 		sysrc cloned_interfaces="bridge0 epair0"
 		sysrc ifconfig_bridge0="addm epair0b addm epair0a"
@@ -369,7 +374,7 @@ Titulo:		Configuracion de `uname -rs`
 						return 0
 					fi
 					ezjail-admin console -e 'pkg update -y' $myjail
-					ezjail-admin console -e 'pkg install -y nano xauth xeyes bash sudo geany' $myjail
+					ezjail-admin console -e 'pkg install -y nano xauth xeyes bash sudo geany caja' $myjail
 					echo "Agregando usuario <usuario>"
 					ezjail-admin console -e 'pw useradd -n usuario -G wheel,operator,video  -m -s /usr/local/bin/bash' $myjail
 					ezjail-admin console -e 'chsh -s /usr/local/bin/bash' $myjail
