@@ -1,4 +1,4 @@
-!#/bin/bash
+#!/bin/bash
 echo Marcando archivos
 git add .
 git status
