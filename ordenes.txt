@@ -114,6 +114,10 @@ Titulo:		Configuracion de `uname -rs`
 		sysrc -f /boot/loader.conf aio_load="YES"
 		sysrc -f /boot/loader.conf snd_driver_load="YES"
 		sysrc moused_enable="NO"
+		sysrc sendmail_enable="NO"
+		sysrc sendmail_submint_enable="NO"
+		sysrc sendmail_outbound_enable="NO"
+		sysrc sendmail_msp_queue_enable="NO"
 		echo "vfs.usermount=1" >> /etc/sysctl.conf
 		echo "net.link.bridge.pfil_bridge=0" >> /etc/sysctl.conf
 		echo "net.link.bridge.pfil_onlyip=0" >> /etc/sysctl.conf
@@ -236,8 +240,8 @@ Titulo:		Configuracion de `uname -rs`
 		service sshd restart
 </312>
 <313 "Configurando syslogd">
-		sysrc syslogd_enable="YES" &&
-		syslogd_flags="-b 192.168.0100 -sS" &&
+		sysrc syslogd_enable="YES" 
+		sysrc syslogd_flags="-b 192.168.0.100 -ss" 
 		service syslogd restart	
 </313>
 
@@ -313,10 +317,6 @@ Titulo:		Configuracion de `uname -rs`
 		sysrc pf_rules="/etc/pf.conf" 
 		service pf  start
 </411>
-<415 "Creacion de jaula wineJail">
-		ezjail-admin create -s 20G wineJail 'epair0b|10.1.1.2'
-		ezjail-admin list
-</415>
 
 <422 "Funcion para crear Jaulas">
 		function crearJaula {
@@ -374,7 +374,8 @@ Titulo:		Configuracion de `uname -rs`
 						return 0
 					fi
 					ezjail-admin console -e 'pkg update -y' $myjail
-					ezjail-admin console -e 'pkg install -y nano xauth xeyes bash sudo geany caja' $myjail
+					echo Instalando aplicaciones por defecto...
+					ezjail-admin console -e 'pkg install -y nano xauth xeyes bash sudo geany caja ark' $myjail
 					echo "Agregando usuario <usuario>"
 					ezjail-admin console -e 'pw useradd -n usuario -G wheel,operator,video  -m -s /usr/local/bin/bash' $myjail
 					ezjail-admin console -e 'chsh -s /usr/local/bin/bash' $myjail
@@ -443,6 +444,17 @@ Titulo:		Configuracion de `uname -rs`
 		" /usr/local/etc/ezjail/zoneminder ;
 		ezjail-admin restart zoneminder
 </425>
+
+<426 "zoneminderTest">
+		nomjaula="zmtest"
+		crearJaula $nmjaula "10.1.1.5"
+		echo Agregando regla ....
+		sed -E -i .bak "/jail_"$nmjaula"_devfs_ruleset/c \\
+		export jail_"$nmjaula"_devfs_ruleset=\"10\"
+		" /usr/local/etc/ezjail/$nmjaula ;
+		ezjail-admin restart  $nmjaula
+		ezjail-admin list
+</426>
 <555 "Fin de la configuracion">
 		#dialog --clear
 		dialog --stdout --msgbox  "Se han efectuado las configuraciones, debe reiniciar el sistema" 10 60

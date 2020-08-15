@@ -4,7 +4,7 @@ sesion=$PWD/ordenes.opt #registro de opciones seleccionas en la sesion anterior
 log=$PWD/ord.log
 temp1=$(mktemp) 
 tempsh=$(mktemp)
-
+temp2=$(mktemp)
 
 function ejecuta {
 	black='\E[30;40m'
@@ -26,22 +26,22 @@ function ejecuta {
 		pausa=0
 	fi
 	while [ : ] ; do
-	numlinea=$1;
-	numorden=$(printf "%03i" $numlinea)
-	mensaje1=$(grep "^$numorden" $temp1 | cut -d ' ' -f 2- | sed 's/^\"//g ; s/\" [on|off].*$//g')
-	echo "#!/bin/bash" > $tempsh
+		numlinea=$1;
+		numorden=$(printf "%03i" $numlinea)
+		mensaje1=$(grep "^$numorden" $temp1 | cut -d ' ' -f 2- | sed 's/^\"//g ; s/\" [on|off].*$//g')
+		echo "#!/bin/bash" > $tempsh
 	
-	sed -E -n "/<$numorden/,/<\/$numorden/p ; " ordenes.txt | sed -E "1d;\$d ; s/^[[:space:]]{2}//g" >> $tempsh
-	chmod +x $tempsh
-	#eval $(cat $tempsh) | dialog  --timeout $pausa --stdout --backtitle  "Orden: <\Z2$numorden\Zn>" --colors --title "\Z0$titulo1" --programbox "\Z6\Zb$mensaje1" 20 60 
-	echo -e "ejecutando script $red <$numorden> $normal - $yellow <$mensaje1> $normal ... $bold"
-	cat $tempsh
-	echo -e "$blue"
-	source $tempsh  #| dialog  --timeout 1 --stdout --backtitle  "Orden: <\Z2$numorden\Zn>" --colors --title "\Z0$titulo1" --programbox "\Z6\Zb$mensaje1" 20 60 
-	#dialog  --timeout 1 --stdout --timeout $pausa --backtitle  "Orden: <\Z2$numorden\Zn>" --colors --title "\Z0$titulo1" --msgbox "`source $tempsh`" 20 60 
-	shift 
-	echo -e "$normal"
-	if [[ -z $1 ]] ; then break; fi
+		sed -E -n "/<$numorden/,/<\/$numorden/p ; " ordenes.txt | sed -E "1d;\$d ; s/^[[:space:]]{2}//g" >> $tempsh
+		chmod +x $tempsh
+		#eval $(cat $tempsh) | dialog  --timeout $pausa --stdout --backtitle  "Orden: <\Z2$numorden\Zn>" --colors --title "\Z0$titulo1" --programbox "\Z6\Zb$mensaje1" 20 60 
+		echo -e "ejecutando script $red <$numorden> $normal - $yellow <$mensaje1> $normal ... $bold"
+		cat $tempsh
+		echo -e "$blue"
+		source $tempsh  #| dialog  --timeout 1 --stdout --backtitle  "Orden: <\Z2$numorden\Zn>" --colors --title "\Z0$titulo1" --programbox "\Z6\Zb$mensaje1" 20 60 
+		#dialog  --timeout 1 --stdout --timeout $pausa --backtitle  "Orden: <\Z2$numorden\Zn>" --colors --title "\Z0$titulo1" --msgbox "`source $tempsh`" 20 60 
+		shift 
+		echo -e "$normal"
+		if [[ -z $1 ]] ; then break; fi
 	done
 	read -p 'Presione <Enter> para salir...'
 }
@@ -90,7 +90,9 @@ while [ : ] ; do
 			dialog --stdout --colors --title "$titulo1" --yes-label "Continuar" --no-label "Cancelar" --default-button no --yesno "Proceder a ejecutar los \Zbscripts\Zn seleccionados" 10 60
 			if [[ $? -eq 0 ]]; then
 				echo $resul>$sesion
-				ejecuta $resul
+				#organizamos numericamente las entradas
+				resul2=$(cat $sesion | xargs -n 1 | sort | xargs printf "%s ")
+				ejecuta $resul2
 				egrep -E "^<[0-9]{3}" ordenes.txt | tr -d '<' | sed -E 's/\">/\" off /g'  > $temp1
 			fi
 		fi
