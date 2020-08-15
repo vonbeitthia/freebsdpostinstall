@@ -446,7 +446,7 @@ Titulo:		Configuracion de `uname -rs`
 </425>
 
 <426 "zoneminderTest">
-		nomjaula="zmtest"
+		nmjaula="zmtest"
 		crearJaula $nmjaula "10.1.1.5"
 		echo Agregando regla ....
 		sed -E -i .bak "/jail_"$nmjaula"_devfs_ruleset/c \\
