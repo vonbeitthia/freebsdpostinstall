@@ -1,0 +1,10 @@
+Control de brillo para HDMI y LVDS 
+Agregar atajos de teclado en
+Sistema -> Centro de Control -> atajos de teclado
+
+para hdmi
+lxterminal -e "brillo2=`mktemp`; valor=$(cat ~/.brillo1 2>/dev/null); [[ -z $valor ]] && valor=50; echo $valor > $brillo2; zenity --title='Brillo en pantalla HDMI' --scale --text='Select a number' --value=$valor  --min-value='0' --max-value='100' --step='1' > ~/.brillo1 || cp  $brillo2 ~/.brillo1; xrandr --output HDMI-1 --brightness $(echo 'scale=1; '`cat ~/.brillo1`' / 50' | bc)"
+
+para lvds
+
+lxterminal -e "brillo2=`mktemp`; valor=$(cat ~/.brillo 2>/dev/null); [[ -z $valor ]] && valor=50; echo $valor > $brillo2; zenity --title='Brillo en pantalla LCD' --scale --text='Select a number' --value=$valor  --min-value='0' --max-value='100' --step='1' > ~/.brillo || cp  $brillo2 ~/.brillo; xrandr --output LVDS-1 --brightness $(echo 'scale=1; '`cat ~/.brillo`' / 50' | bc)"

@@ -62,6 +62,15 @@ Titulo:		Configuracion de `uname -rs`
 		sysrc dbus_enable="YES" 
  	
 </004>
+<005 "Registro de eventos">
+		echo "*.*                                             /var/log/all.log" >> /etc/syslog.conf
+		touch /var/log/all.log
+		chmod 600 /var/log/all.log
+		sysrc syslogd_enable="YES" 
+		sysrc syslogd_flags="-b 192.168.0.100 -ss" 
+		service syslogd restart	
+</005>
+
 <010 "Manejo de usuarios (SUDO)">
 		export BATCH=yes
 		cd /usr/ports/security/sudo &&
@@ -112,7 +121,7 @@ Titulo:		Configuracion de `uname -rs`
 		sysrc -f /boot/loader.conf loader_logo="beastie"
 		sysrc -f /boot/loader.conf coretemp_load="YES"
 		sysrc -f /boot/loader.conf aio_load="YES"
-		sysrc -f /boot/loader.conf snd_driver_load="YES"
+		#sysrc -f /boot/loader.conf snd_driver_load="YES"
 		sysrc moused_enable="NO"
 		sysrc sendmail_enable="NO"
 		sysrc sendmail_submint_enable="NO"
@@ -120,17 +129,19 @@ Titulo:		Configuracion de `uname -rs`
 		sysrc sendmail_msp_queue_enable="NO"
 		echo "vfs.usermount=1" >> /etc/sysctl.conf
 		echo "net.link.bridge.pfil_bridge=0" >> /etc/sysctl.conf
-		echo "net.link.bridge.pfil_onlyip=0" >> /etc/sysctl.conf
-		echo "net.link.bridge.pfil_member=0" >> /etc/sysctl.conf
-		sysctl net.link.bridge.pfil_bridge=0
-		sysctl net.link.bridge.pfil_onlyip=0
-		sysctl net.link.bridge.pfil_member=0
+		echo "net.link.bridge.pfil_onlyip=0" >> /etc/sysctl.conf 
+		echo "net.link.bridge.pfil_member=0" >> /etc/sysctl.conf 
 </251>
 <252 "Brillo de pantalla">
 		pkg install -y intel-backlight
 		sysrc -f /boot/loader.conf acpi_video_load="YES"
 		cp /usr/local/share/examples/intel-backlight/acpi-video-intel-backlight.conf  /usr/local/etc/devd/
 </252>
+<253 "Configurando memoria grafica">
+		echo "kern.ipc.shmmni=1024" >> /boot/loader.conf
+		echo "kern.ipc.shmseg=1024" >>  /boot/loader.conf 
+		echo "kern.ipc.shmall=32768" >>  /boot/loader.conf 
+</253>
 <255 "Aplicaciones graficas">
 		pkg install -y gimp geany lxterminal libreoffice geany firefox-esr numix-gtk-theme numix-icon-theme neofetch vlc pwcview
 </255>
@@ -239,11 +250,6 @@ Titulo:		Configuracion de `uname -rs`
 		' /etc/ssh/sshd_config
 		service sshd restart
 </312>
-<313 "Configurando syslogd">
-		sysrc syslogd_enable="YES" 
-		sysrc syslogd_flags="-b 192.168.0.100 -ss" 
-		service syslogd restart	
-</313>
 
 <315 "Generando certificados">
 		su vonuser -m -c 'mkdir $HOME/.ssh' &&
@@ -375,7 +381,7 @@ Titulo:		Configuracion de `uname -rs`
 					fi
 					ezjail-admin console -e 'pkg update -y' $myjail
 					echo Instalando aplicaciones por defecto...
-					ezjail-admin console -e 'pkg install -y nano xauth xeyes bash sudo geany caja ark' $myjail
+					ezjail-admin console -e 'pkg install -y nano xauth xeyes bash sudo geany caja ark mc' $myjail
 					echo "Agregando usuario <usuario>"
 					ezjail-admin console -e 'pw useradd -n usuario -G wheel,operator,video  -m -s /usr/local/bin/bash' $myjail
 					ezjail-admin console -e 'chsh -s /usr/local/bin/bash' $myjail
@@ -410,11 +416,9 @@ Titulo:		Configuracion de `uname -rs`
 					ezjail-admin console -e 'tzsetup' $myjail
 					cp respaldo.sh /usr/jails/$myjail/root/respaldo.sh
 					cp serv.sh /usr/jails/$myjail/root/serv.sh
-					ezjail-admin console -e 'sh /root/respaldo.sh' $myjail
+					#ezjail-admin console -e 'sh /root/respaldo.sh' $myjail
 					echo Creando accesos en escritorio...
-		cat <<EOF>> /usr/home/vonuser/Desktop/$myjail
-		.desktop 
-		#!/usr/bin/env xdg-open
+		cat <<EOF>> /usr/home/vonuser/Desktop/$myjail.desktop
 		[Desktop Entry]
 		Version=1.0
 		Type=Application
@@ -422,11 +426,11 @@ Titulo:		Configuracion de `uname -rs`
 		Icon=gnome-color-manager
 		Icon[es_MX]=gnome-color-manager
 		Name[es_MX]=Conexion a jaula $myjail
-		Exec=ssh -X -p 2222 operador@$myip
+		Exec=ssh -X -p 2222 usuario@$myip
 		Name=Conexion a jaula $myjail
 		EOF
 					chmod +x /usr/home/vonuser/Desktop/$myjail
-					chwon vonuser:vonuser /usr/home/vonuser/Desktop/$myjail
+					chown vonuser:vonuser /usr/home/vonuser/Desktop/$myjail
 				fi
 		}
 		
@@ -455,6 +459,12 @@ Titulo:		Configuracion de `uname -rs`
 		ezjail-admin restart  $nmjaula
 		ezjail-admin list
 </426>
+
+<430 "Actualizando xhost en .initrc">
+		sed '/^exec.*/a \
+		xhosts ' /usr/home/vonuser/.xinitrc
+</430>
+
 <555 "Fin de la configuracion">
 		#dialog --clear
 		dialog --stdout --msgbox  "Se han efectuado las configuraciones, debe reiniciar el sistema" 10 60

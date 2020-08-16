@@ -4,8 +4,8 @@ temp=$(mktemp)
 while [ : ]; do
 	sel=$(ezjail-admin list | xargs -I texto echo "\"texto\""  | sed -n -E '3,$p' | tee $temp | nl| xargs dialog --stdout --ok-label "Eliminar" --cancel-label "Salir" --default-button "cancel"  --menu "Seleccione la jaula para eliminar" 0 0 10)
 	if [[ $? -eq 0 ]]; then
-		nomjaula=$(cat $temp | sed -n $sel'p' | awk '{ print $4}')
-		ubcjaula=$(cat $temp | sed -n $sel'p' | awk '{ print $5}')
+		nomjaula=$(cat $temp | sed -n $sel'p' | awk '{ print $4}' | tr -d \")
+		ubcjaula=$(cat $temp | sed -n $sel'p' | awk '{ print $5}' | tr -d \")
 		if [[ -z $nomjaula ]]; then
 			dialog --stdout --msgbox "Debe especificar una jaula con nombre"  0 0
 		else
@@ -16,7 +16,7 @@ while [ : ]; do
 				chflags -R noschg $ubcjaula
 				rm -r $ubcjaula
 				rm /usr/local/etc/ezjail/*.bak
-				dialog --stdout --msgbox "La jaula \Z1$nomjaula\Zn fue eliminada" 0 0
+				dialog --stdout --colors --msgbox "La jaula \Z1$nomjaula\Zn fue eliminada" 0 0
 			fi
 		fi
 	else
