@@ -412,10 +412,10 @@ Titulo:		Configuracion de `uname -rs`
 					mkdir -p /usr/jails/$myjail/home/usuario/.ssh
 					cat /home/vonuser/.ssh/vonuserkey.pub > /usr/jails/$myjail/home/usuario/.ssh/authorized_keys
 					#eliminamos hosts anteriores con la misma ip de conexiones ssh
-					cat /home/vonuser/.ssh/known_hosts  | sed -I '' "/^\[$myip/d" 2>/dev/null
+					sed -I '' "/^\[$myip/d" /home/vonuser/.ssh/known_hosts 2>/dev/null
 					echo Actualizando hosts en `hostname`
-					ezjail-admin list | sed -n -E '3,$p' | awk '{ print $3 }' | xargs -I texto -n 1 sed -I ''  '/texto/d' /etc/hosts
-					ezjail-admin list | sed -n -E '3,$p' | awk '{ print $3 "\t" $4 }' >> /etc/hosts
+					ezjail-admin list | sed -n -E '3,$p' | sed '/-/d' | awk '{ print $3 }' | xargs -I texto -n 1 sed -I '' '/texto/d' /etc/hosts
+					ezjail-admin list | sed -n -E '3,$p' | sed '/-/d' | awk '{ print $3 "\t" $4 }' >> /etc/hosts
 					echo Configuracion regional
 		cat << EOF >> /usr/jails/$myjail/etc/login.conf
 		venezuelan|Cuenta de usuario regional:\\
@@ -431,7 +431,7 @@ Titulo:		Configuracion de `uname -rs`
 					ezjail-admin console -e 'passwd usuario' $myjail
 					ezjail-admin restart $myjail && echo -e "Jaula creada exitosamente - recuerde conectar con $yellow ssh -p 2222 -X usuario@$myip $normal"
 					#echo -e "Creando respaldo para jaula $green $myjail $normal"
-					#ezjail-admin console -e 'tzsetup' $myjail
+					ezjail-admin console -e 'tzsetup' $myjail
 					cp respaldo.sh /usr/jails/$myjail/root/respaldo.sh
 					cp serv.sh /usr/jails/$myjail/root/serv.sh
 					#ezjail-admin console -e 'sh /root/respaldo.sh' $myjail
@@ -463,6 +463,15 @@ Titulo:		Configuracion de `uname -rs`
 		EOF
 					chmod +x /usr/home/vonuser/Desktop/$myjail.desktop
 					chown vonuser:vonuser /usr/home/vonuser/Desktop/$myjail.desktop
+					xhost -
+					ezjail-admin list | sed -n -E '3,$p' | sed '/-/d' | awk '{ printf "+%s ", $3 }'| xargs xhost
+					sed -i '' '/xhots/d' /home/vonuser/.xinitrc  # eliminamos los anteriores
+					#obtenemos los host actuales
+					listahost=$(ezjail-admin list | sed -n -E '3,$p' | sed '/-/d' | awk '{ printf  "+%s ", $3 }')
+					if [[ $listahost ]]; then #si se corren jails
+		sed '/^exec.*/a \
+		xhosts $listahost' /usr/home/vonuser/.xinitrc
+					fi
 				fi
 		}
 		
@@ -490,14 +499,13 @@ Titulo:		Configuracion de `uname -rs`
 		sed -E -i .bak "/jail_"$nmjaula"_devfs_ruleset/c \\
 		export jail_"$nmjaula"_devfs_ruleset=\"10\"
 		" /usr/local/etc/ezjail/$nmjaula ;
+		echo Creando montaje tmpfs en /tmp
+		mkdir -p /usr/jails/$nmjaula/tmp 2> /dev/null
+		echo "tmpfs			/usr/jails/$nmjaula/tmp		tmpfs	rw,nosuid,mode=01777,size=2G	0	0" >> /etc/fstab.$nmjaula
 		ezjail-admin restart  $nmjaula
 		ezjail-admin list
 </426>
 
-<430 "Actualizando xhost en .initrc">
-		sed '/^exec.*/a \
-		xhosts ' /usr/home/vonuser/.xinitrc
-</430>
 
 <555 "Fin de la configuracion">
 		#dialog --clear
