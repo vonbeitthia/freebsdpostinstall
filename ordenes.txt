@@ -132,10 +132,8 @@ Titulo:		Configuracion de `uname -rs`
 		echo "net.link.bridge.pfil_onlyip=0" >> /etc/sysctl.conf 
 		echo "net.link.bridge.pfil_member=0" >> /etc/sysctl.conf 
 </251>
-<252 "Brillo de pantalla">
-		pkg install -y intel-backlight
+<252 "Pantalla">
 		sysrc -f /boot/loader.conf acpi_video_load="YES"
-		cp /usr/local/share/examples/intel-backlight/acpi-video-intel-backlight.conf  /usr/local/etc/devd/
 </252>
 <253 "Configurando memoria grafica">
 		echo "kern.ipc.shmmni=1024" >> /boot/loader.conf
@@ -143,7 +141,7 @@ Titulo:		Configuracion de `uname -rs`
 		echo "kern.ipc.shmall=32768" >>  /boot/loader.conf 
 </253>
 <255 "Aplicaciones graficas">
-		pkg install -y gimp geany lxterminal libreoffice geany firefox-esr numix-gtk-theme numix-icon-theme neofetch vlc pwcview
+		pkg install -y gimp geany lxterminal libreoffice es-libreoffice isomaster geany firefox-esr numix-gtk-theme numix-icon-theme neofetch vlc pwcview
 </255>
 <257 "Aplicaciones de estudio">
 		pkg install -y texlive-full docear calibre jabref
@@ -328,6 +326,9 @@ Titulo:		Configuracion de `uname -rs`
 		function crearJaula {
 				#$1 --- nombre de la jaula
 				#$2 --- direccion ip local ejem 10.1.1.3
+				#$3 --- palabra minimal para indicar que no se instalan mayores programas
+				minimal=0
+				[[ $3 = "minimal" ]] && minimal=1;
 				myjail=$1
 				myip=$2
 				echo Creando  jaula $myjail
@@ -349,15 +350,22 @@ Titulo:		Configuracion de `uname -rs`
 		nameserver 8.8.8.8
 		nameserver 8.8.4.4
 		EOF
+		if [[ $minimal -eq 0 ]]; then  #instalacion completa
 		cat << EOF > /etc/fstab.$myjail
 		/usr/jails/basejail		/usr/jails/$myjail/basejail	nullfs ro 0 0
 		/usr/ports				/usr/jails/$myjail/usr/ports	nullfs rw 0 0
 		/usr/home/vonuser	/usr/jails/$myjail/home/usuario/Documentos	nullfs rw 0 0
 		EOF
+		else
+		cat << EOF > /etc/fstab.$myjail
+		/usr/jails/basejail		/usr/jails/$myjail/basejail	nullfs ro 0 0
+		/usr/ports				/usr/jails/$myjail/usr/ports	nullfs rw 0 0
+		EOF
+		fi #fin de instalacion minima
+		
 		cat << EOF > /usr/jails/$myjail/etc/rc.conf
 		sshd_enable="YES"
 		keymap="latinamerican.acc.kbd"
-		syslogd_enable="NO"
 		EOF
 		sed -E -i .bak '/^\#Port/c\
 		Port 2222
@@ -369,8 +377,8 @@ Titulo:		Configuracion de `uname -rs`
 					echo 'X11UseLocalhost no' >> /usr/jails/$myjail/etc/ssh/sshd_config
 		cat << EOF > /usr/jails/$myjail/etc/hosts
 		::1				localhost $myjail
-		127.0.0.1		localhost $myjail
-		$myip		$myjail
+		127.0.0.1		localhost www.$myjail.com.ve
+		$myip			$myjail www.$myjail.com.ve
 		192.168.0.100	vonserver.com
 		EOF
 					ezjail-admin start $myjail 
@@ -380,8 +388,13 @@ Titulo:		Configuracion de `uname -rs`
 						return 0
 					fi
 					ezjail-admin console -e 'pkg update -y' $myjail
-					echo Instalando aplicaciones por defecto...
-					ezjail-admin console -e 'pkg install -y nano xauth xeyes bash sudo geany caja ark mc' $myjail
+					if [[ $minimal -eq 0 ]]; then #instalacion completa
+						echo Instalando aplicaciones por defecto...
+						ezjail-admin console -e 'pkg install -y nano xauth xeyes bash sudo geany caja ark mc' $myjail
+					else
+						echo Instalando los paquetes mínimos requeridos
+						ezjail-admin console -e 'pkg install -y nano xauth bash sudo mc' $myjail
+					fi # fin instalacion minima
 					echo "Agregando usuario <usuario>"
 					ezjail-admin console -e 'pw useradd -n usuario -G wheel,operator,video  -m -s /usr/local/bin/bash' $myjail
 					ezjail-admin console -e 'chsh -s /usr/local/bin/bash' $myjail
@@ -398,6 +411,11 @@ Titulo:		Configuracion de `uname -rs`
 					echo Creando certificados SSH
 					mkdir -p /usr/jails/$myjail/home/usuario/.ssh
 					cat /home/vonuser/.ssh/vonuserkey.pub > /usr/jails/$myjail/home/usuario/.ssh/authorized_keys
+					#eliminamos hosts anteriores con la misma ip de conexiones ssh
+					cat /home/vonuser/.ssh/known_hosts  | sed -I '' "/^\[$myip/d" 2>/dev/null
+					echo Actualizando hosts en `hostname`
+					ezjail-admin list | sed -n -E '3,$p' | awk '{ print $3 }' | xargs -I texto -n 1 sed -I ''  '/texto/d' /etc/hosts
+					ezjail-admin list | sed -n -E '3,$p' | awk '{ print $3 "\t" $4 }' >> /etc/hosts
 					echo Configuracion regional
 		cat << EOF >> /usr/jails/$myjail/etc/login.conf
 		venezuelan|Cuenta de usuario regional:\\
@@ -412,15 +430,29 @@ Titulo:		Configuracion de `uname -rs`
 					echo "Generando contrasena para <usuario>"
 					ezjail-admin console -e 'passwd usuario' $myjail
 					ezjail-admin restart $myjail && echo -e "Jaula creada exitosamente - recuerde conectar con $yellow ssh -p 2222 -X usuario@$myip $normal"
-					echo -e "Creando respaldo para jaula $green $myjail $normal"
-					ezjail-admin console -e 'tzsetup' $myjail
+					#echo -e "Creando respaldo para jaula $green $myjail $normal"
+					#ezjail-admin console -e 'tzsetup' $myjail
 					cp respaldo.sh /usr/jails/$myjail/root/respaldo.sh
 					cp serv.sh /usr/jails/$myjail/root/serv.sh
 					#ezjail-admin console -e 'sh /root/respaldo.sh' $myjail
+					echo Configurando daemon de syslog ...
+					echo "*.*                                             /var/log/all.log" >> /usr/jails/$myjail/etc/syslog.conf
+					touch /usr/jails/$myjail/var/log/all.log
+					chmod 600 /usr/jails/$myjail/var/log/all.log
+		cat <<EOF>> /usr/jails/$myjail/etc/rc.conf
+		syslogd_enable="YES" 
+		syslogd_flags="-b $myip -ss" 
+		sendmail_submint_enable="NO"
+		sendmail_outbound_enable="NO"
+		sendmail_msp_queue_enable="NO"
+		ntpdate_enable="NO"
+		ntpd_enable="NO"
+		ntpd_sync_on_start="NO"
+		EOF
 					echo Creando accesos en escritorio...
-		cat <<EOF>> /usr/home/vonuser/Desktop/$myjail.desktop
+		cat <<EOF> /usr/home/vonuser/Desktop/$myjail.desktop
 		[Desktop Entry]
-		Version=1.0
+		Versi.on=1.0
 		Type=Application
 		Terminal=true
 		Icon=gnome-color-manager
@@ -429,8 +461,8 @@ Titulo:		Configuracion de `uname -rs`
 		Exec=ssh -X -p 2222 usuario@$myip
 		Name=Conexion a jaula $myjail
 		EOF
-					chmod +x /usr/home/vonuser/Desktop/$myjail
-					chown vonuser:vonuser /usr/home/vonuser/Desktop/$myjail
+					chmod +x /usr/home/vonuser/Desktop/$myjail.desktop
+					chown vonuser:vonuser /usr/home/vonuser/Desktop/$myjail.desktop
 				fi
 		}
 		
@@ -446,12 +478,14 @@ Titulo:		Configuracion de `uname -rs`
 		sed -E -i .bak "/jail_zoneminder_devfs_ruleset/c \\
 		export jail_"zoneminder"_devfs_ruleset=\"10\"
 		" /usr/local/etc/ezjail/zoneminder ;
+		echo Creando montaje tmpfs en /tmp
+		echo "tmpfs			/usr/jails/zoneminder/tmp		tmpfs	rw,nosuid,mode=01777,size=2G	0	0" >> /etc/fstab.zoneminder
 		ezjail-admin restart zoneminder
 </425>
 
 <426 "zoneminderTest">
 		nmjaula="zmtest"
-		crearJaula $nmjaula "10.1.1.5"
+		crearJaula $nmjaula "10.1.1.5" "minimal"
 		echo Agregando regla ....
 		sed -E -i .bak "/jail_"$nmjaula"_devfs_ruleset/c \\
 		export jail_"$nmjaula"_devfs_ruleset=\"10\"
