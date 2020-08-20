@@ -376,9 +376,8 @@ Titulo:		Configuracion de `uname -rs`
 		' /usr/jails/$myjail/etc/ssh/sshd_config
 					echo 'X11UseLocalhost no' >> /usr/jails/$myjail/etc/ssh/sshd_config
 		cat << EOF > /usr/jails/$myjail/etc/hosts
-		::1				localhost $myjail
-		127.0.0.1		localhost www.$myjail.com.ve
-		$myip			$myjail www.$myjail.com.ve
+		::1				localhost $myjail.com
+		127.0.0.1		localhost $myjail.com
 		192.168.0.100	vonserver.com
 		EOF
 					ezjail-admin start $myjail 
@@ -410,6 +409,7 @@ Titulo:		Configuracion de `uname -rs`
 					echo "%wheel ALL=(ALL) ALL" >> /usr/jails/$myjail/usr/local/etc/sudoers
 					echo Creando certificados SSH
 					mkdir -p /usr/jails/$myjail/home/usuario/.ssh
+					chown usuario:usuario /usr/jails/$myjail/home/usuario/.ssh
 					cat /home/vonuser/.ssh/vonuserkey.pub > /usr/jails/$myjail/home/usuario/.ssh/authorized_keys
 					#eliminamos hosts anteriores con la misma ip de conexiones ssh
 					sed -I '' "/^\[$myip/d" /home/vonuser/.ssh/known_hosts 2>/dev/null
