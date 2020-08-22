@@ -31,6 +31,7 @@ recomendable mediante git
 
 pkg install -y git
 git clone https://github.com/vonbeitthia/freebsdpostinstall.git
+
 los scripts estaran ubicados en el directorio freebsdpostinstall
 ----------------------------------------------------------------
 
