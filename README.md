@@ -12,19 +12,29 @@ Mediante los siguientes scripts se configuran diversas opciones de Freebsd.  Alg
   La orden cat no refleja los tabuladores ya que serían agregados al archivo creado y normalmente
   generan inconvenientes.
   
-
 ordenes.sh: Ejecuta los scripts de configuración para Freebsd
+
 ordenes.txt: Contiene los scripts enumerados a ejecutarse
+
 deletejail.sh:  Para eliminar jaulas y escenarios chroot relacionados definitivamente.  
+
 detectar.sh: Determina si un dispositivo fue conectado y reconocido a traves de comparar dmesg
+
 dialog.conf: archivo de configuracion de colores para los dialogos del script
+
 keybinding_brillo.txt: combinaciones de teclas para ajustar brillo en panalla hdmi 
+
 y pantalla lvds en escritorio mate.  Se agrega de forma manual (Sistema - centro de control - atajos de teclado)
+
 ord.log: Archivo log con las ordenes ejecutadas en los scripts
+
 ord.opt: Registro para guardar las opciones selecciondas en la ultima sesion
+
 respaldo.sh: crea un respaldo de sistema en formato tar en el directorio /respaldo
+
 script1.sh: Es el primer script a ejecutarse mediante sh script1.sh, que permite 
 instalar el entorno bash shell para la posterior ejecución del script principal, además efectúa respaldo.
+
 serv.sh: Consulta los servicios en ejecución que pueden detenerse a peticion del usuario
 updategit.sh:  Efectuá la actualización de este repositorio (sólo puede hacerlo el administrador)
 
