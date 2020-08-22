@@ -42,7 +42,9 @@ Descarga del contenido
 recomendable mediante git
 
 pkg install -y git
+
 sed -i 's/vonuser/tu_usuario/g' ordenes.txt
+
 git clone https://github.com/vonbeitthia/freebsdpostinstall.git
 
 los scripts estaran ubicados en el directorio freebsdpostinstall
