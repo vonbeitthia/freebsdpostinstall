@@ -31,6 +31,9 @@ recomendable mediante git
 
 pkg install -y git
 
+
+El usuario creado por defecto se llama vonuser
+
 git clone https://github.com/vonbeitthia/freebsdpostinstall.git
 
 los scripts estaran ubicados en el directorio freebsdpostinstall
