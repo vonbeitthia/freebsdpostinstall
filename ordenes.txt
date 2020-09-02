@@ -254,7 +254,7 @@ Titulo:		Configuracion de `uname -rs`
 		pkg install -y gimp geany lxterminal libreoffice es-libreoffice isomaster geany firefox-esr numix-gtk-theme numix-icon-theme neofetch vlc pwcview
 </255>
 <257 "Aplicaciones de estudio">
-		pkg install -y texlive-full docear calibre jabref
+		pkg install -y texlive-full docear calibre jabref rar unrar
 </257>
 <258 "Instalacion de jDownloader">
 		which megadl
