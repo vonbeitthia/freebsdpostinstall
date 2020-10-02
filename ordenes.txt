@@ -613,7 +613,13 @@ Titulo:		Configuracion de `uname -rs`
 		crearJaula "wineJail" "10.1.1.2"
 </423>
 <424 "Jaula NodeJail">	
-		crearJaula "NodeJail" "10.1.1.3"
+		nmjaula="NodeJail"
+		crearJaula $nmjaula "10.1.1.3"
+		echo Agregando regla para ejecucion de mongodb ...
+		sed -E -i .bak "/jail_"$nmjaula"_parameters/c \\
+		export jail_"$nmjaula"_parameters=\"allow.raw_sockets=1 allow.mlock=1 \"
+		" /usr/local/etc/ezjail/$nmjaula ;
+		
 </424>
 <426 "zoneminderTest">
 		nmjaula="zmtest"
