@@ -442,15 +442,44 @@ Titulo:		Configuracion de `uname -rs`
 				#$1 --- nombre de la jaula
 				#$2 --- direccion ip local ejem 10.1.1.3
 				#$3 --- palabra minimal para indicar que no se instalan mayores programas
-				
-				minimal=0
-				[[ $3 = "minimal" ]] && minimal=1;
+				#$3 --- palabra wlan0 para indicar que se usara la interfaz wlan0 
 				myjail=$1
 				myip=$2
+				minimal=0 
+				disp="jaulas" #dispositivo por defecto en el que se crearan las jaulas
+				while [ $3 ]; do
+					# si existe un parametro 3 lo analizamos
+					case $3 in
+						minimal)
+							minimal=1 
+							;;
+					*) 		#comprobamos la interfaz
+							ifconfig $3 >/dev/null
+							if [[ $? -eq 0 ]]; then
+								echo Configurando la interfaz $3
+								disp="$3"
+							else
+								echo "argumento #3 incorrecto .... "
+								echo "los valores admitidos son minimal y alguna interfaz de red"
+								echo por ejemplo: crearJaula nuevaJaula "10.1.1.3"
+								echo crearJaula nuevaJaula 192.168.0.1 minimal
+								echo crearJaula nuevaJaula 192.168.0.1 minimal wlan0
+								echo crearJaula nuevaJaula 192.168.0.1 re0
+								return
+							fi
+							;;
+					esac
+					#desplazamos los parametros hacia la derecha
+					shift
+				done
+				#echo "minimo $minimal - interfaz $disp"
+				#read -p 'pausa'
+				
+				
 				#cambiamos el nombre host a minuscula
 				hosts2=$(echo "$myjail" | tr [:upper:] [:lower:]) 
 				echo Creando  jaula $myjail
-				ezjail-admin create -s 20G $myjail "jaulas|$myip/24"
+				ezjail-admin create -s 20G $myjail "$disp|$myip/24"
 				if [[ $? -eq 0 ]]; then
 					ezjail-admin list
 					echo Configurando jaula $myjail
@@ -687,7 +716,13 @@ Titulo:		Configuracion de `uname -rs`
 		echo "linsysfs    /usr/jails/$nmjaula/compat/linux/sys   linsysfs        rw      0       0" >> /etc/fstab.$nmjaula
 		ezjail-admin restart  $nmjaula
 </432>
-
+<433 "Jaula PlexMediaServer">	
+		nmjaula="PlexJail"
+		crearJaula $nmjaula "192.168.0.120"  minimal wlan0
+		echo Agregando Directorio Documentos compartidos
+		echo "/usr/home/vonuser		/usr/jails/PlexJail/home/usuario/Documentos	nullfs rw 0 0" >> /etc/fstab.$nmjaula
+		ezjail-admin restart $nmjaula
+</433>
 <450 "Actualizar todos los hosts">
 		#actualizamos hosts en host Freebsd
 		echo Solo se actualizan las jaulas que se estan ejecutando 
