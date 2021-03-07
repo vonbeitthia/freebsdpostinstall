@@ -64,6 +64,7 @@ while [ : ] ; do
 			cat $sesion  | xargs -I texto -n 1 sed -I '' 's/\(^texto.*\) off/\1 on/g' $temp1
 		fi
 	fi
+	echo "llego aqui"
 	if [[ $ninguno -eq 0 ]]; then
 		textodinamico="Seleccionar todos los elementos"
 	else

@@ -742,8 +742,53 @@ Titulo:		Configuracion de `uname -rs`
 </450>
 
 
+<456 "Cambiar a wifi PULIDO-RAMOS">
+	echo Utilice esta opcion para cambiar a otro wifi
+	echo Escriba acepto para cambiar
+	read miChange
+	if [[ $miChange = 'acepto' ]]; then
+		echo cambiando wifi...
+		service netif stop
+		service routing stop
+		sleep 1
+		cat << EOF > /etc/wpa_supplicant.conf
+		ctrl_interface=/var/run/wpa_supplicant
+		eapol_version=2
+		ap_scan=1
+		fast_reauth=1
+		network={
+			ssid="PULIDO RAMOS"
+			scan_ssid=0
+			psk="vicvale07112006"
+			priority=4
+		}
+		network={
+			priority=0
+			key_mgmt=NONE
+		}
+		EOF
+		pkill wpa
+		sleep 1
+		sysrc wlans_ath0="wlan0"
+		sysrc ifconfig_wlan0="WPA inet 192.168.1.180/24 ssid 'PULIDO RAMOS'"
+		cat << EOF > /etc/resolv.conf
+		nameserver 8.8.8.8
+		nameserver 8.8.4.4
+		EOF
+		sysrc defaultroute="192.168.1.1"
+		sysrc gateway_enable="YES"
+		service netif start
+		service routing start
+		route add default 192.168.1.1
+		#rm /var/run/wpa_supplicant/wlan0
+		#wpa_supplicant -c /etc/wpa_supplicant.conf -i wlan0 &&
+		sleep 1
+		echo Comprobando conexion con www.google.co.ve
+		ping -c 4 www.google.co.ve 
+	fi 
+</456>
+
 <555 "Fin de la configuracion">
 		#dialog --clear
 		dialog --stdout --msgbox  "Se han efectuado las configuraciones, debe reiniciar el sistema" 10 60
-	
 </555>
