@@ -29,11 +29,11 @@ Titulo:		Configuracion de `uname -rs`
 		nameserver 8.8.8.8
 		nameserver 8.8.4.4
 		EOF
-		sysrc defaultroute="192.168.0.1"
+		sysrc defaultrouter="192.168.0.1"
 		sysrc gateway_enable="YES"
 		service netif start
 		service routing start
-		route add default 192.168.0.1
+		#route add default 192.168.0.1
 		echo Comprobando conexion con www.google.co.ve
 		ping -c 4 www.google.co.ve 
 </001>
@@ -770,21 +770,26 @@ Titulo:		Configuracion de `uname -rs`
 		pkill wpa
 		sleep 1
 		sysrc wlans_ath0="wlan0"
-		sysrc ifconfig_wlan0="WPA inet 192.168.1.180/24 ssid 'PULIDO RAMOS'"
+		sysrc ifconfig_wlan0="WPA inet 192.168.1.181/24 ssid 'PULIDO RAMOS'"
 		cat << EOF > /etc/resolv.conf
 		nameserver 8.8.8.8
 		nameserver 8.8.4.4
 		EOF
-		sysrc defaultroute="192.168.1.1"
+		sysrc defaultrouter="192.168.1.1"
 		sysrc gateway_enable="YES"
-		service netif start
-		service routing start
-		route add default 192.168.1.1
+		service netif restart
+		service routing restart
+		#route add default 192.168.1.1
 		#rm /var/run/wpa_supplicant/wlan0
 		#wpa_supplicant -c /etc/wpa_supplicant.conf -i wlan0 &&
 		sleep 1
 		echo Comprobando conexion con www.google.co.ve
+		sleep 2
 		ping -c 4 www.google.co.ve 
+		echo Reiniciando pf
+		service pf restart
+		echo reiniciando jaulas
+		ezjail-admin restart
 	fi 
 </456>
 
